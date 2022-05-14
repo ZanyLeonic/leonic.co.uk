@@ -1,0 +1,22 @@
+.main {
+  margin-top: 5%;
+}
+
+.card {
+  .card-action
+    a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    text-transform: none;
+  }
+
+  .card-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    &.activator {
+      cursor: pointer;
+    }
+  }
+}
+
+.service {
+  break-after: always;
+}
