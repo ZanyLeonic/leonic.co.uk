@@ -1,7 +1,3 @@
-.main {
-  margin-top: 5%;
-}
-
 .card {
   .card-action
     a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
@@ -15,8 +11,25 @@
       cursor: pointer;
     }
   }
+
+  span.card-subtitle {
+    break-after: always;
+  }
 }
 
-.service {
+.profile-point {
   break-after: always;
+  margin-bottom: 5px;
+}
+
+.card-content {
+  .divider {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+  }
+}
+
+.material-icons {
+  display: inline-flex;
+  vertical-align: top;
 }
