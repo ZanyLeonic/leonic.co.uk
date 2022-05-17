@@ -18,6 +18,10 @@ class Main extends React.Component {
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
       <Main />
-      <MainCard />
+      <div className="container">
+        <div className="row">
+          <MainCard />
+        </div>
+      </div>
   </React.StrictMode>
 )
