@@ -1,5 +1,4 @@
-import './materialize-src/sass/materialize.scss'
-import './MainCard.scss'
+
 
 function MainCard() {
 
@@ -7,7 +6,7 @@ function MainCard() {
     <div className="col s12 m8 offset-m2 l6 offset-l3">
       <div className="card hoverable">
         <div className="card-image">
-          <img className="" src="https://github.com/ZanyLeonic.png?size=460" />
+          <img className="responsive-img" src="https://github.com/ZanyLeonic.png?size=460" />
         </div>
         <div className="card-stacked">
           <div className="card-content">
