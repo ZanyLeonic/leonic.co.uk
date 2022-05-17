@@ -9,7 +9,7 @@ function MainCard() {
         <div className="main col s6 offset-s3">
           <div className="card hoverable vertical">
             <div className="card-image">
-              <img className="circle responsive-img" src="https://github.com/chazzox.png?size=460" width="10%" height="10%" />
+              <img className="circle responsive-img" src="https://github.com/ZanyLeonic.png?size=460" width="10%" height="10%" />
             </div>
             <div className="card-stacked">
               <div className="card-content">
@@ -24,10 +24,10 @@ function MainCard() {
                 </div>
               </div>
               <div className="card-action">
-                <div className="profile-point"><span>CV</span><a className="right" href="#">View</a></div>
-                <div className="profile-point"><span>Portfolio</span><a className="right" href="#">View</a></div>
-                <div className="profile-point"><span>GitHub</span><a className="right" href="#">ZanyLeonic</a></div>
-                <div className="profile-point"><span>LinkedIn</span><a className="right" href="#">Leo Durrant</a></div>
+                <div className="profile-point"><span>CV</span><a className="waves-effect waves-teal btn-flat right">Button</a></div>
+                <div className="profile-point"><span>Portfolio</span><a className="waves-effect waves-teal btn-flat right" href="#">View</a></div>
+                <div className="profile-point"><span>GitHub</span><a className="waves-effect waves-teal btn-flat right" href="#">ZanyLeonic</a></div>
+                <div className="profile-point"><span>LinkedIn</span><a className="waves-effect waves-teal btn-flat right" href="#">Leo Durrant</a></div>
               </div>
             </div>
           </div>

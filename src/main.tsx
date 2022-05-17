@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client'
 import MainCard from './MainCard'
 import './index.css'
 import './DarkTheme.scss'
-import './materialize-src/sass/materialize.scss'
-import 'material-icons/iconfont/material-icons.scss'
+
+import 'material-icons/iconfont/material-icons.css'
 
 class Main extends React.Component {
   componentDidMount() {
