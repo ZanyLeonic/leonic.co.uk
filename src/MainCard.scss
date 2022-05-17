@@ -1,19 +1,47 @@
-body {
-  overflow: auto;
+// Mobile screens
+@media only screen and (max-width: 785px) {
+  .desktop {
+    display: none;
+  }
 }
 
-.card {
-  .card-action
-    a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
-    text-transform: none;
+// Desktop screens
+@media only screen and (min-width: 785px) {
+  .mobile {
+    display: none;
   }
+}
 
-  .card-subtitle {
-    font-size: 16px;
+// Card customizations
+.card {
+  .card-title {
+    font-size: 2rem;
     font-weight: 300;
     &.activator {
       cursor: pointer;
     }
+  }
+
+  .card-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    &.activator {
+      cursor: pointer;
+    }
+  }
+
+  .card-content {
+    .divider {
+      margin-top: 2.5%;
+      margin-bottom: 2.5%;
+    }
+  }
+
+  // For the links
+  .card-action
+    a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    text-transform: none;
+    margin-right: 0;
   }
 
   span.card-subtitle {
@@ -31,15 +59,9 @@ body {
 }
 
 .profile-point {
+  font-size: 1rem;
   break-after: always;
   margin-bottom: 5px;
-}
-
-.card-content {
-  .divider {
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
-  }
 }
 
 .material-icons {
