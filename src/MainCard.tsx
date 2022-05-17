@@ -6,10 +6,10 @@ function MainCard() {
   return (
     <div className="container">
       <div className="row">
-        <div className="main col s6 offset-s3">
-          <div className="card hoverable vertical">
+        <div className="main col s6 m8 l4">
+          <div className="card hoverable">
             <div className="card-image">
-              <img className="circle responsive-img" src="https://github.com/ZanyLeonic.png?size=460" width="10%" height="10%" />
+              <img className="" src="https://github.com/ZanyLeonic.png?size=460" />
             </div>
             <div className="card-stacked">
               <div className="card-content">
@@ -24,10 +24,26 @@ function MainCard() {
                 </div>
               </div>
               <div className="card-action">
-                <div className="profile-point"><span>CV</span><a className="waves-effect waves-teal btn-flat right">Button</a></div>
-                <div className="profile-point"><span>Portfolio</span><a className="waves-effect waves-teal btn-flat right" href="#">View</a></div>
-                <div className="profile-point"><span>GitHub</span><a className="waves-effect waves-teal btn-flat right" href="#">ZanyLeonic</a></div>
-                <div className="profile-point"><span>LinkedIn</span><a className="waves-effect waves-teal btn-flat right" href="#">Leo Durrant</a></div>
+                <table className="responsive-table">
+                  <tbody>
+                    <tr>
+                      <td>CV</td>
+                      <td className='right'><a href="#" className="waves-effect waves-teal btn-flat">View</a></td>
+                    </tr>
+                    <tr>
+                      <td>Portfolio</td>
+                      <td className='right'><a href="#" className="waves-effect waves-teal btn-flat">View</a></td>
+                    </tr>
+                    <tr>
+                      <td>GitHub</td>
+                      <td className='right'><a href="#" className="waves-effect waves-teal btn-flat">ZanyLeonic</a></td>
+                    </tr>
+                    <tr>
+                      <td>LinkedIn</td>
+                      <td className='right'><a href="#" className="waves-effect waves-teal btn-flat">Leo Durrant</a></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

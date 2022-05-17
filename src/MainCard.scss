@@ -15,6 +15,15 @@
   span.card-subtitle {
     break-after: always;
   }
+
+  td {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  table {
+    border-collapse: unset;
+  }
 }
 
 .profile-point {
