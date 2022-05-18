@@ -6,10 +6,11 @@ import Footer from './footer'
 import 'materialize-css/sass/materialize.scss'
 import 'materialize-css'
 import 'material-icons/iconfont/material-icons.css'
-import './sass/scanlines.scss'
-import './sass/dark-theme.scss'
+
+import "./sass/ext/dark-theme.scss"
+import "./sass/ext/scanlines.scss"
+
 import './sass/index.scss'
-import './sass/main-card.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -1,3 +1,5 @@
+@import "ext/constants";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -32,8 +34,8 @@ a {
   -ms-transition: all 250ms ease;
 
   &:hover {
-    color: #ff0000 !important;
-    text-shadow: 0px 0px 0.12em #780000;
+    color: $base-colour !important;
+    text-shadow: 0px 0px 0.12em $secondary-colour;
   }
 }
 

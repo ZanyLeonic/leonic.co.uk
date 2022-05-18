@@ -2,6 +2,8 @@ import { Component } from "react"
 import FadeIn from "react-fade-in"
 import ImagePlaceholder from "./image-placeholder"
 
+import "./sass/main-card.scss"
+
 interface LoadingState {
   loading: boolean
   imageURL: string

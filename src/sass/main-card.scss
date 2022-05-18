@@ -1,5 +1,7 @@
+@import "ext/constants";
+
 // Mobile screens
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: $mobile-screen) {
   .desktop {
     display: none;
   }
@@ -9,7 +11,7 @@
 }
 
 // Desktop screens
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: $mobile-screen) {
   .mobile {
     display: none;
   }
@@ -79,8 +81,8 @@
 }
 
 .progress {
-  background-color: #ff0000;
+  background-color: $base-colour;
   .indeterminate {
-    background-color: #780000;
+    background-color: $secondary-colour;
   }
 }
