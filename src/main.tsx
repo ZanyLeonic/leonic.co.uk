@@ -11,10 +11,13 @@ import './MainCard.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-      <div className="container">
-        <div className="row">
-          <MainCard />
+      <main>
+        <div className="background-image"></div>
+        <div className="container">
+          <div className="row">
+            <MainCard />
+          </div>
         </div>
-      </div>
+      </main>
   </React.StrictMode>
 )

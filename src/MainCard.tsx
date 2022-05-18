@@ -3,8 +3,8 @@
 function MainCard() {
 
   return (
-    <div className="col s12 m8 offset-m2 l6 offset-l3">
-      <div className="card hoverable">
+    <div className="main-content col s12 m8 offset-m2 l6 offset-l3">
+      <div className="card hoverable white-text">
         <div className="card-image">
           <img className="responsive-img" src="https://github.com/ZanyLeonic.png?size=460" />
         </div>
