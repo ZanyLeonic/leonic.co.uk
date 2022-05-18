@@ -80,8 +80,8 @@ class MainCard extends Component<MainCardProps, LoadingState> {
                   <tr>
                     <td>Portfolio</td>
                     <td className="right">
-                      <a href="https://poweredby.leonic.co.uk/" className="waves-effect waves-orange btn-flat">
-                        View
+                      <a href="https://poweredby.leonic.co.uk/" className="waves-effect waves-orange btn-flat disabled">
+                        Coming soon
                       </a>
                     </td>
                   </tr>
