@@ -25,7 +25,7 @@ function MainCard() {
                 <tr>
                   <td>CV</td>
                   <td className="right">
-                    <a href="#" className="waves-effect waves-orange btn-flat">
+                    <a href="/static/cv.pdf" className="waves-effect waves-orange btn-flat">
                       View
                     </a>
                   </td>
@@ -33,7 +33,7 @@ function MainCard() {
                 <tr>
                   <td>Portfolio</td>
                   <td className="right">
-                    <a href="#" className="waves-effect waves-orange btn-flat">
+                    <a href="https://poweredby.leonic.co.uk/" className="waves-effect waves-orange btn-flat">
                       View
                     </a>
                   </td>
@@ -41,7 +41,7 @@ function MainCard() {
                 <tr>
                   <td>GitHub</td>
                   <td className="right">
-                    <a href="#" className="waves-effect waves-orange btn-flat">
+                    <a href="https://github.com/ZanyLeonic/" className="waves-effect waves-orange btn-flat">
                       ZanyLeonic
                     </a>
                   </td>
@@ -49,7 +49,7 @@ function MainCard() {
                 <tr>
                   <td>LinkedIn</td>
                   <td className="right">
-                    <a href="#" className="waves-effect waves-orange btn-flat">
+                    <a href="https://linkedin.com/in/leo-durrant/" className="waves-effect waves-orange btn-flat">
                       Leo Durrant
                     </a>
                   </td>
