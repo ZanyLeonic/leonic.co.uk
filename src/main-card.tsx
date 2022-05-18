@@ -5,8 +5,9 @@ import ImagePlaceholder from "./image-placeholder"
 import "./sass/main-card.scss"
 
 interface LoadingState {
-  loading: boolean
-  imageURL: string
+  loading: boolean,
+  imageURL: string,
+  bio: string
 }
 
 interface MainCardProps {
@@ -19,18 +20,22 @@ class MainCard extends Component<MainCardProps, LoadingState> {
     super(props)
     this.state = {
       loading: true,
-      imageURL: ""
+      imageURL: "",
+      bio: "(loading...)"
     }
   }
 
   componentDidMount() {
-    fetch(`https://github.com/${this.props.gitHubName}.png?size=460`)
-    .then(response => response.blob())
-    .then(imageBlob => {
-        const imageObjectURL = URL.createObjectURL(imageBlob);
-
-        this.setState({ loading: false, imageURL: imageObjectURL })
-    });
+    fetch(`https://api.github.com/users/${this.props.gitHubName}`)
+    .then(response => response.json())
+    .then(jRes => {
+      fetch(jRes.avatar_url)
+      .then(response => response.blob())
+      .then(imageBlob => {
+          const imageObjectURL = URL.createObjectURL(imageBlob);
+          this.setState({ loading: false, imageURL: imageObjectURL, bio: jRes.bio })
+      });
+    })
   }
 
   render() {
@@ -65,6 +70,10 @@ class MainCard extends Component<MainCardProps, LoadingState> {
                 <div className="profile-point mobile"><span><i className="material-icons">school</i> BSc Computer Science (YINI) @ RHUL</span></div>
                 <div className="profile-point"><span><i className="material-icons">location_city</i> Egham, Surrey, United Kingdom</span></div>
                 <div className="profile-point"><span><i className="material-icons">contact_mail</i> <a href="mailto:admin@leonic.co.uk">admin@leonic.co.uk</a></span></div>
+                {this.state.bio != null ? (
+                  <div className="profile-point"><span><i className="material-icons">info_outline</i> "<i>{this.state.bio}</i>"</span></div>
+                  ) : (<></>)
+                }
               </div>
             </div>
             <div className="card-action">

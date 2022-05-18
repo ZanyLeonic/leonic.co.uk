@@ -25,7 +25,7 @@ css.type = "text/css"
 
 css.appendChild(document.createTextNode(
     `.background-image { 
-      background-image: url(${ webp ? (background.url_webp) : (background.url) }))}); 
+      background-image: url(${ webp ? (background.url_webp) : (background.url) }); 
     } 
     .card::before { 
       background-image: url(${ webp ? (background.url_webp) : (background.url) }); 
