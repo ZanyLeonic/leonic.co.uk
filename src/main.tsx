@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import MainCard from './main-card'
 import Footer from './footer'
 
-import config from '../static/config.json'
+import config from './config.json'
 
 import 'materialize-css/sass/materialize.scss'
 import 'materialize-css'
