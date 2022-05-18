@@ -5,13 +5,13 @@
       "author": "Leo Durrant",
       "author_url": "https://leonic.co.uk/",
       "photo": true,
-      "url": "/static/img/bg01.jpg"
+      "url": "/img/bg01.jpg"
     },
     {
       "author": "六七質",
       "author_url": "https://www.pixiv.net/en/artworks/72166951",
       "photo": false,
-      "url": "/static/img/bg02.jpg"
+      "url": "/img/bg02.jpg"
     }
   ]
 }

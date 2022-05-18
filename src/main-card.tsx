@@ -73,7 +73,7 @@ class MainCard extends Component<MainCardProps, LoadingState> {
                   <tr>
                     <td>CV</td>
                     <td className="right">
-                      <a href="/static/cv.pdf" className="waves-effect waves-orange btn-flat">
+                      <a href="/files/cv.pdf" className="waves-effect waves-orange btn-flat">
                         View
                       </a>
                     </td>
