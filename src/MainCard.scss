@@ -3,6 +3,9 @@
   .desktop {
     display: none;
   }
+  .loader svg {
+    max-height: 379px;
+  }
 }
 
 // Desktop screens
@@ -10,10 +13,11 @@
   .mobile {
     display: none;
   }
-  .card {
-    img {
-      transform: scale(0.8);
-    }
+  .loader {
+    transform: scale(0.8);
+  }
+  img {
+    transform: scale(0.8);
   }
 }
 
