@@ -53,10 +53,6 @@ class MainCard extends Component<MainCardProps, LoadingState> {
           this.setState({ loading: false, imageURL: imageObjectURL, bio: gitResponse.bio })
       });
     }
-
-    console.log(gitResponse)
-
-    
   }
 
   render() {
