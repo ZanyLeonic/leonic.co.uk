@@ -58,6 +58,13 @@ a {
   background-color: transparent !important;
   box-shadow: 0 0 0.08em #000 !important;
 
+  // For the links
+  .card-action
+    a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    text-transform: none;
+    margin-right: 0;
+  }
+
   &:before {
     content: "";
     position: absolute;

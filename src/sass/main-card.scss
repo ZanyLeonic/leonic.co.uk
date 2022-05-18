@@ -48,13 +48,6 @@
     }
   }
 
-  // For the links
-  .card-action
-    a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
-    text-transform: none;
-    margin-right: 0;
-  }
-
   span.card-subtitle {
     break-after: always;
   }
