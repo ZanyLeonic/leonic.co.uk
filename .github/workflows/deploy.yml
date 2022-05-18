@@ -55,7 +55,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           cd zanyleonic.github.io/
-          cp ../dist/* .
+          cp -r ../dist/* .
 
           git add -A
           git commit -m "Automated CI deployment"
