@@ -1,8 +1,10 @@
 import { Component } from "react"
+import { LocalStorage } from 'ttl-localstorage';
 import FadeIn from "react-fade-in"
 import ImagePlaceholder from "./image-placeholder"
 
 import "./sass/main-card.scss"
+
 
 interface LoadingState {
   loading: boolean,
@@ -26,16 +28,35 @@ class MainCard extends Component<MainCardProps, LoadingState> {
   }
 
   componentDidMount() {
-    fetch(`https://api.github.com/users/${this.props.gitHubName}`)
-    .then(response => response.json())
-    .then(jRes => {
-      fetch(jRes.avatar_url)
-      .then(response => response.blob())
-      .then(imageBlob => {
+    // Caching API calls to avoid unnecessary requests
+    var gitResponse = LocalStorage.get('gitAPI')
+
+    if (gitResponse == null) {
+      fetch(`https://api.github.com/users/${this.props.gitHubName}`)
+      .then(response => response.json())
+      .then(jRes => {
+        fetch(jRes.avatar_url)
+        .then(response => response.blob())
+        .then(imageBlob => {
           const imageObjectURL = URL.createObjectURL(imageBlob);
+
           this.setState({ loading: false, imageURL: imageObjectURL, bio: jRes.bio })
+          LocalStorage.put("gitAPI", jRes, 43200)
+        });
+      })
+    } else {
+      fetch(gitResponse.avatar_url)
+        .then(response => response.blob())
+        .then(imageBlob => {
+          const imageObjectURL = URL.createObjectURL(imageBlob);
+
+          this.setState({ loading: false, imageURL: imageObjectURL, bio: gitResponse.bio })
       });
-    })
+    }
+
+    console.log(gitResponse)
+
+    
   }
 
   render() {

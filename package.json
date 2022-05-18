@@ -14,7 +14,8 @@
     "react-content-loader": "^6.2.0",
     "react-dom": "^18.0.0",
     "react-fade-in": "^2.0.1",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "ttl-localstorage": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
