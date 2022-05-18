@@ -97,14 +97,6 @@ class MainCard extends Component<MainCardProps, LoadingState> {
               <table>
                 <tbody>
                   <tr>
-                    <td>CV</td>
-                    <td className="right">
-                      <a href="/files/cv.pdf" className="waves-effect waves-orange btn-flat">
-                        View
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
                     <td>Portfolio</td>
                     <td className="right">
                       <a href="https://poweredby.leonic.co.uk/" className="waves-effect waves-orange btn-flat disabled">
