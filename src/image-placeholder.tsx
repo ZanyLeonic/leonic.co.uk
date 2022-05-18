@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import ContentLoader from "react-content-loader";
 
 export default class ImagePlaceholder extends Component {

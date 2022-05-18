@@ -1,13 +1,13 @@
-import React, { useState } from "react"
+import { Component } from "react"
 import FadeIn from "react-fade-in"
-import ImagePlaceholder from "./ImagePlaceholder"
+import ImagePlaceholder from "./image-placeholder"
 
 interface LoadingState {
   loading: boolean
   imageURL: string
 }
 
-class MainCard extends React.Component<{}, LoadingState> {
+class MainCard extends Component<{}, LoadingState> {
 
   constructor(props: any) {
     super(props)
