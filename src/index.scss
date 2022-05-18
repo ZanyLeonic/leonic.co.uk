@@ -23,6 +23,7 @@ code {
 }
 
 a {
+  color: #0ab6d4 !important;
   text-shadow: 0.2px 0.2px 0.12em #068da4;
   transition: all 250ms ease;
   -webkit-transition: all 250ms ease;
@@ -31,8 +32,8 @@ a {
   -ms-transition: all 250ms ease;
 
   &:hover {
-    color: #ff0000;
-    text-shadow: 0px 0px 0.01em #780000;
+    color: #ff0000 !important;
+    text-shadow: 0px 0px 0.12em #780000;
   }
 }
 
@@ -68,6 +69,6 @@ a {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    filter: blur(8px);
+    filter: blur(14px);
   }
 }
