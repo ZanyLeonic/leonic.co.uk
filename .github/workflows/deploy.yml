@@ -51,7 +51,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: ZanyLeonic/zanyleonic.github.io
-          token: '${{ github.token }}'
+          token: '${{ secrets.PAT }}'
       
       - name: Deploying to repository
         run: |
