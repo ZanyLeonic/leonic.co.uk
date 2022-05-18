@@ -47,10 +47,14 @@ jobs:
           name: production-files
           path: ./dist
 
-      - name: Deploying to Pages
+      - name: Cloning zanyleonic.github.io
         uses: actions/checkout@v3
+        with:
+          repository: ZanyLeonic/zanyleonic.github.io
+          token: '${{ github.token }}'
+      
+      - name: Deploying to repository
         run: |
-
           cd zanyleonic.github.io/
           cp -r ../dist/* .
 
@@ -62,9 +66,3 @@ jobs:
           git add -A
           git commit -m "Automated CI deployment"
           git push
-        with:
-          repository: ZanyLeonic/zanyleonic.github.io
-          token: '${{ github.token }}'
-
-
-          
