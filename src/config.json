@@ -12,6 +12,30 @@
       "author_url": "https://www.pixiv.net/en/artworks/72166951",
       "photo": false,
       "url": "/img/bg02.jpg"
+    },
+    {
+      "author": "さんた",
+      "author_url": "https://mobile.twitter.com/santa_yk13/status/1372852849361612803",
+      "photo": true,
+      "url": "/img/bg03.jpg"
+    },
+    {
+      "author": "Leo Durrant",
+      "author_url": "https://leonic.co.uk/",
+      "photo": true,
+      "url": "/img/bg04.jpg"
+    },
+    {
+      "author": "J.C Staff",
+      "author_url": "http://www.jcstaff.co.jp/",
+      "photo": true,
+      "url": "/img/bg05.png"
+    },
+    {
+      "author": "SHUN",
+      "author_url": "https://twitter.com/shun_chan20/status/1502436196718309376",
+      "photo": true,
+      "url": "/img/bg06.jpg"
     }
   ]
 }
