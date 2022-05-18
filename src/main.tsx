@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import MainCard from './main-card'
 import Footer from './footer'
+import support_format_webp from './util'
 
 import config from './config.json'
 
@@ -16,6 +17,7 @@ import './sass/index.scss'
 
 const backgrounds = config.backgrounds;
 const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+const webp = support_format_webp()
 
 /* Return to DOM lol */
 var css = document.createElement('style') as HTMLStyleElement;
@@ -23,10 +25,10 @@ css.type = "text/css"
 
 css.appendChild(document.createTextNode(
     `.background-image { 
-      background-image: url(${background.url}); 
+      background-image: url(${ webp ? (background.url_webp) : (background.url) }))}); 
     } 
     .card::before { 
-      background-image: url(${background.url}); 
+      background-image: url(${ webp ? (background.url_webp) : (background.url) }); 
     }`
   )
 );
