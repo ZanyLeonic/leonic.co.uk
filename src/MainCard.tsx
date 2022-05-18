@@ -23,7 +23,7 @@ class MainCard extends React.Component<{}, LoadingState> {
     .then(imageBlob => {
         const imageObjectURL = URL.createObjectURL(imageBlob);
 
-        this.setState({ loading: true, imageURL: imageObjectURL })
+        this.setState({ loading: false, imageURL: imageObjectURL })
     });
   }
 
@@ -31,17 +31,21 @@ class MainCard extends React.Component<{}, LoadingState> {
     return (
       <div className="main-content col s12 m8 offset-m2 l6 offset-l3">
         <div className="card hoverable white-text">
+            {this.state.loading ? (
+                <div className="progress">
+                  <div className="indeterminate"></div>
+                </div>
+              ) : (<></>)
+          }
           <div className="card-image">
-          {this.state.loading ? (
-            <>
-              <ImagePlaceholder />
-            </>
+            {this.state.loading ? (
+                <ImagePlaceholder />
               ) : (
                 <FadeIn>
                   <img className="responsive-img" src={this.state.imageURL} />
                 </FadeIn>
               )     
-          }
+            }
           </div>
           <div className="card-stacked">
             <div className="card-content">

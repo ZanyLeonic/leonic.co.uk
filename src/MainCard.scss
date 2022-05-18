@@ -77,3 +77,10 @@
   display: inline-flex;
   vertical-align: top;
 }
+
+.progress {
+  background-color: #ff0000;
+  .indeterminate {
+    background-color: #780000;
+  }
+}
