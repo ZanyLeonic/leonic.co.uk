@@ -9,9 +9,13 @@ interface LoadingState {
   imageURL: string
 }
 
-class MainCard extends Component<{}, LoadingState> {
+interface MainCardProps {
+  gitHubName: string
+}
 
-  constructor(props: any) {
+class MainCard extends Component<MainCardProps, LoadingState> {
+
+  constructor(props: MainCardProps) {
     super(props)
     this.state = {
       loading: true,
@@ -20,7 +24,7 @@ class MainCard extends Component<{}, LoadingState> {
   }
 
   componentDidMount() {
-    fetch("https://github.com/ZanyLeonic.png?size=460")
+    fetch(`https://github.com/${this.props.gitHubName}.png?size=460`)
     .then(response => response.blob())
     .then(imageBlob => {
         const imageObjectURL = URL.createObjectURL(imageBlob);
