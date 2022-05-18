@@ -2,14 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import MainCard from './MainCard'
 import Footer from './Footer'
-import './index.scss'
-import './DarkTheme.scss'
 
 import 'materialize-css/sass/materialize.scss'
 import 'materialize-css'
 import 'material-icons/iconfont/material-icons.css'
-import './MainCard.scss'
 import './Scanlines.scss'
+import './DarkTheme.scss'
+import './index.scss'
+import './MainCard.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           </div>
         </div>
       </main>
-      <footer className="">
+      <footer>
         <Footer />
       </footer>
   </React.StrictMode>
