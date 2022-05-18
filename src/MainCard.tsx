@@ -1,5 +1,3 @@
-
-
 function MainCard() {
 
   return (

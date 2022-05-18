@@ -35,20 +35,20 @@ code {
 
 .card {
   background-color: transparent !important;
-}
 
-.card::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-image: url(/img/bg02.jpg);
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter: blur(8px);
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url(/img/bg02.jpg);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+  }
 }
