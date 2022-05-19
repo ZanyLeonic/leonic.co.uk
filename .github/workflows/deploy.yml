@@ -46,22 +46,26 @@ jobs:
         with:
           name: production-files
           path: ~/dist
-
-      - name: Cloning zanyleonic.github.io
+      
+      - name: Checkout repo
         uses: actions/checkout@v3
         with:
-          repository: ZanyLeonic/zanyleonic.github.io
+          repository: ZanyLeonic/leonic.co.uk
           token: '${{ secrets.PAT }}'
-      
+
       - name: Deploying to repository
         run: |
-          cp -r ~/dist/* .
+          git checkout --orphan deploy
+          git rm -rf .
 
           date > generated.txt
+          echo 'poweredby.leonic.co.uk' > CNAME
+          
+          cp -r ~/dist/* .
 
           git config user.name github-actions
           git config user.email github-actions@github.com
 
           git add -A
           git commit -m "Automated CI deployment"
-          git push
+          git push -f --set-upstream origin deploy
