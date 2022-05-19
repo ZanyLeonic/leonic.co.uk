@@ -59,7 +59,7 @@ jobs:
           git rm -rf .
 
           date > generated.txt
-          echo 'poweredby.leonic.co.uk' > CNAME
+          echo 'leonic.co.uk' > CNAME
           
           cp -r ~/dist/* .
 
