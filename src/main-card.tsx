@@ -99,7 +99,7 @@ class MainCard extends Component<MainCardProps, LoadingState> {
                   <tr>
                     <td>Portfolio</td>
                     <td className="right">
-                      <a href="https://poweredby.leonic.co.uk/" className="waves-effect waves-orange btn-flat disabled">
+                      <a href="https://poweredby.leonic.co.uk/" className="waves-effect waves-linkColour btn-flat disabled">
                         Coming soon
                       </a>
                     </td>
@@ -107,7 +107,7 @@ class MainCard extends Component<MainCardProps, LoadingState> {
                   <tr>
                     <td>GitHub</td>
                     <td className="right">
-                      <a href="https://github.com/ZanyLeonic/" className="waves-effect waves-orange btn-flat">
+                      <a href="https://github.com/ZanyLeonic/" className="waves-effect waves-linkColour btn-flat">
                         ZanyLeonic
                       </a>
                     </td>
@@ -115,7 +115,7 @@ class MainCard extends Component<MainCardProps, LoadingState> {
                   <tr>
                     <td>LinkedIn</td>
                     <td className="right">
-                      <a href="https://linkedin.com/in/leo-durrant/" className="waves-effect waves-orange btn-flat">
+                      <a href="https://linkedin.com/in/leo-durrant/" className="waves-effect waves-linkColour btn-flat">
                         Leo Durrant
                       </a>
                     </td>

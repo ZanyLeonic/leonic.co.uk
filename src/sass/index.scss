@@ -81,3 +81,9 @@ a {
     filter: blur(14px);
   }
 }
+
+.waves-effect {
+  &.waves-linkColour .waves-ripple {
+    background-color: $secondary-colour;
+  }
+}
