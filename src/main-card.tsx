@@ -86,7 +86,13 @@ class MainCard extends Component<MainCardProps, LoadingState> {
                 <ImagePlaceholder />
               ) : (
                 <FadeIn>
-                  <img className="responsive-img" alt={this.props.gitHubName + "'s profile picture"} src={this.state.imageURL} />
+                  <img 
+                  className="responsive-img" 
+                  alt={this.props.gitHubName + "'s profile picture"} 
+                  src={this.state.imageURL} 
+                  height="460px"
+                  width="460px"
+                  />
                 </FadeIn>
               )     
             }
