@@ -1,11 +1,16 @@
 /* Adapted from https://codepen.io/j_holtslander/pen/MRbpLX */
 
+@import "./constants";
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #202123;
     color: #fff;
     nav {
-      background-color: #26a69a;
+      background-color: $base-colour;
+    }
+    .page-footer {
+      background-color: $secondary-colour;
     }
     .card {
       background-color: rgba(255, 255, 255, 0.2);
