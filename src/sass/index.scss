@@ -25,8 +25,8 @@ code {
 }
 
 a {
-  color: #0ab6d4 !important;
-  text-shadow: 0.2px 0.2px 0.12em #068da4;
+  color: $accent-color  !important;
+  text-shadow: 0.2px 0.2px 0.12em $accent-color;
   transition: all 250ms ease;
   -webkit-transition: all 250ms ease;
   -moz-transition: all 250ms ease;
@@ -84,4 +84,14 @@ a {
   &.waves-linkColour .waves-ripple {
     background-color: $secondary-colour;
   }
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
