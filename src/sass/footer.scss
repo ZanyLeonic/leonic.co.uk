@@ -1,0 +1,16 @@
+@import "ext/constants.scss";
+
+.page-footer {
+    padding-top: 0 !important;
+    background-color: rgba($accent-color, .25) !important;
+
+    transition: all 250ms ease;
+    -webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    -ms-transition: all 250ms ease;
+
+    &:hover {
+        background-color: rgba($base-colour, .25) !important;
+    }
+}

@@ -47,12 +47,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           </div>
         </div>
       </main>
-      <footer>
-        <Footer
-          author={background.author}
-          authorURL={background.author_url} 
-          photo={background.photo}
-        />
-      </footer>
+      <Footer
+        author={background.author}
+        authorURL={background.author_url} 
+        photo={background.photo}
+      />
   </React.StrictMode>
 )
