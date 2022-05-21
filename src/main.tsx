@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import MainCard from './main-card'
 import Footer from './footer'
-import support_format_webp from './util'
+import { support_format_webp }  from './util'
 
 import config from './config.json'
 

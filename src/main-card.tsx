@@ -1,10 +1,11 @@
-import { Component } from "react"
+import { Component, useEffect } from "react"
 import { LocalStorage } from 'ttl-localstorage';
 import FadeIn from "react-fade-in"
 import ImagePlaceholder from "./image-placeholder"
 
-import "./sass/main-card.scss"
+import { dataURItoBlob } from './util'
 
+import "./sass/main-card.scss"
 
 interface LoadingState {
   loading: boolean,
@@ -30,29 +31,44 @@ class MainCard extends Component<MainCardProps, LoadingState> {
   componentDidMount() {
     // Caching API calls to avoid unnecessary requests
     var gitResponse = LocalStorage.get('gitAPI')
+    var cachedImage = LocalStorage.get('imageBlob')
 
-    if (gitResponse == null) {
-      fetch(`https://api.github.com/users/${this.props.gitHubName}`)
-      .then(response => response.json())
-      .then(jRes => {
-        fetch(jRes.avatar_url)
-        .then(response => response.blob())
-        .then(imageBlob => {
-          const imageObjectURL = URL.createObjectURL(imageBlob);
-
-          this.setState({ loading: false, imageURL: imageObjectURL, bio: jRes.bio })
-          LocalStorage.put("gitAPI", jRes, 43200)
-        });
-      })
+    // If the API call hasn't been made in the last 12 hours, refetch the data
+    if (gitResponse == null || cachedImage == null) {
+     this.fetchAvatar()
+    // Load the cached data from local storage
     } else {
-      fetch(gitResponse.avatar_url)
-        .then(response => response.blob())
-        .then(imageBlob => {
-          const imageObjectURL = URL.createObjectURL(imageBlob);
+      const imageObjectURL = URL.createObjectURL(dataURItoBlob(cachedImage));
 
-          this.setState({ loading: false, imageURL: imageObjectURL, bio: gitResponse.bio })
-      });
+      this.setState({ loading: false, imageURL: imageObjectURL, bio: gitResponse.bio })
     }
+  }
+
+  async getUserInfo() {
+    return fetch(`https://api.github.com/users/${this.props.gitHubName}`)
+    .then(response => response.json())
+    .then(jRes => {
+      return jRes;
+    })
+  }
+
+  async fetchAvatar() {
+    const response : any = await this.getUserInfo() 
+
+    fetch(response.avatar_url)
+    .then(response => response.blob())
+      .then(imageBlob => {
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+          LocalStorage.put("imageBlob", event.target?.result, 43200)
+        }
+
+        this.setState({ loading: false, imageURL: imageObjectURL, bio: response.bio })
+        LocalStorage.put("gitAPI", response, 43200)
+        reader.readAsDataURL(imageBlob);
+      })
   }
 
   render() {
