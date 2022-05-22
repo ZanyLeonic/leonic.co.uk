@@ -1,0 +1,36 @@
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /**************************************
+    * A small fix for IE and Edge, where
+    * the background moves when scrolling.
+    ****************************************/
+    html
+    {
+        overflow: hidden;
+        height: 100%;
+    }
+    body
+    {
+        overflow: auto;
+        height: 100%;
+    }
+
+    // .card {
+    //     &:before {
+    //         filter: url("data:image/svg+xml;utf9,<svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'><filter%20id='blur'><feGaussianBlur%20stdDeviation='3'%20/></filter></svg>#blur") !important;
+    //     }
+    // }
+    
+    // body, #root {
+    //     margin: 0;
+    //     display: flex;
+    // }
+
+    // #root {
+    //     flex-direction: column;
+    //     min-height: 100vh;
+    // }
+
+    main {
+        min-height: 100vh;
+    }
+ }

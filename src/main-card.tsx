@@ -1,9 +1,12 @@
 import { Component, useEffect } from "react"
 import { LocalStorage } from 'ttl-localstorage';
+import { isIE } from 'react-device-detect';
 import FadeIn from "react-fade-in"
 import ImagePlaceholder from "./image-placeholder"
 
 import { dataURItoBlob } from './util'
+import "isomorphic-fetch"
+
 
 import "./sass/main-card.scss"
 
@@ -38,7 +41,8 @@ class MainCard extends Component<MainCardProps, LoadingState> {
      this.fetchAvatar()
     // Load the cached data from local storage
     } else {
-      const imageObjectURL = URL.createObjectURL(dataURItoBlob(cachedImage));
+      // IE11 doesn't like creating blobs from data URIs, so we just use the data URI
+      var imageObjectURL = isIE ? cachedImage : URL.createObjectURL(dataURItoBlob(cachedImage));
 
       this.setState({ loading: false, imageURL: imageObjectURL, bio: gitResponse.bio })
     }

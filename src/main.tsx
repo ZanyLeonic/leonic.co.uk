@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { isIE } from 'react-device-detect';
 import { support_format_webp }  from './util'
 import config from './config.json'
 
@@ -14,6 +15,8 @@ import './sass/index.scss'
 
 import MainCard from './main-card'
 import Footer from './footer'
+
+import './sass/ie11.scss';
 
 const backgrounds = config.backgrounds;
 const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
