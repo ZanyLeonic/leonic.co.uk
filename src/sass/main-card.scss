@@ -13,6 +13,12 @@
   }
 }
 
+@media only screen and (min-width: 601px) {
+  .row .col.m8 {
+    width: 62.7%;
+  }
+}
+
 // Desktop screens
 @media only screen and (min-width: $mobile-screen) {
   .desktop-large {
@@ -33,7 +39,7 @@
     }
 
     img {
-      margin-left: 12.5%;
+      margin-left: 16.5%;
     }
   }
   .row {
