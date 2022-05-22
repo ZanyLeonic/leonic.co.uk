@@ -90,8 +90,8 @@ class MainCard extends Component<MainCardProps, LoadingState> {
                   className="responsive-img" 
                   alt={this.props.gitHubName + "'s profile picture"} 
                   src={this.state.imageURL} 
-                  height="460px"
-                  width="460px"
+                  height="373px"
+                  width="373px"
                   />
                 </FadeIn>
               )     
@@ -105,8 +105,7 @@ class MainCard extends Component<MainCardProps, LoadingState> {
               </div>
               <div className="divider"></div>
               <div className="extra-info">
-                <div className="profile-point desktop"><span><i className="material-icons">school</i> BSc Computer Science (With a Year in Industry) @ RHUL</span></div>
-                <div className="profile-point mobile"><span><i className="material-icons">school</i> BSc Computer Science (YINI) @ RHUL</span></div>
+                <div className="profile-point"><span><i className="material-icons">school</i> BSc Computer Science (YINI) @ RHUL</span></div>
                 <div className="profile-point"><span><i className="material-icons">location_city</i> Egham, Surrey, United Kingdom</span></div>
                 <div className="profile-point"><span><i className="material-icons">contact_mail</i> <a href="mailto:admin@leonic.co.uk">admin@leonic.co.uk</a></span></div>
                 {this.state.bio != null ? (

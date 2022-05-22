@@ -1,9 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import MainCard from './main-card'
-import Footer from './footer'
 import { support_format_webp }  from './util'
-
 import config from './config.json'
 
 import 'materialize-css/sass/materialize.scss'
@@ -14,6 +11,9 @@ import "./sass/ext/dark-theme.scss"
 import "./sass/ext/scanlines.scss"
 
 import './sass/index.scss'
+
+import MainCard from './main-card'
+import Footer from './footer'
 
 const backgrounds = config.backgrounds;
 const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];

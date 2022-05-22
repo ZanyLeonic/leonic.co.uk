@@ -5,6 +5,9 @@
   .desktop {
     display: none;
   }
+  .desktop-large {
+    display: none;
+  }
   .loader svg {
     max-height: 379px;
   }
@@ -12,14 +15,42 @@
 
 // Desktop screens
 @media only screen and (min-width: $mobile-screen) {
+  .desktop-large {
+    display: none;
+  }
   .mobile {
     display: none;
   }
-  .loader {
-    transform: scale(0.8);
+}
+
+@media only screen and (min-width: $large-screen) {
+  .card-image {
+    width: 75%;
+    .loader {
+      height: 373px;
+      width: 100%;
+      margin-left: 0;
+    }
+
+    img {
+      margin-left: 12.5%;
+    }
   }
-  img {
-    transform: scale(0.8);
+  .row {
+    .col.offset-l3 {
+      margin-left: 30%;
+    }
+    .col.l6 {
+      width: 40%;
+    }
+  }
+
+  .desktop-large {
+    display: block;
+  }
+  
+  .ndesktop-large {
+    display: none;
   }
 }
 
