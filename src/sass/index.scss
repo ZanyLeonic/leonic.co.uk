@@ -55,7 +55,6 @@ a {
 
 .card {
   background-color: transparent !important;
-  box-shadow: 0 0 0.08em #000 !important;
 
   // For the links
   .card-action
@@ -76,7 +75,7 @@ a {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    filter: blur(14px);
+    filter: blur(24px);
   }
 }
 
