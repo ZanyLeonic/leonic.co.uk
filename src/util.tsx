@@ -1,17 +1,13 @@
-function support_format_webp() : boolean
-{
- var elem = document.createElement('canvas');
+function support_format_webp(): boolean {
+  var elem = document.createElement("canvas");
 
- if (!!(elem.getContext && elem.getContext('2d')))
- {
-  // was able or not to get WebP representation
-  return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
- }
- else
- {
-  // very old browser like IE 8, canvas not supported
-  return false;
- }
+  if (!!(elem.getContext && elem.getContext("2d"))) {
+    // was able or not to get WebP representation
+    return elem.toDataURL("image/webp").indexOf("data:image/webp") == 0;
+  } else {
+    // very old browser like IE 8, canvas not supported
+    return false;
+  }
 }
 
 /*
@@ -22,23 +18,23 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-function dataURItoBlob(dataURI : string) {
-    // convert base64 to raw binary data held in a string
-    var byteString = atob(dataURI.split(',')[1]);
+function dataURItoBlob(dataURI: string) {
+  // convert base64 to raw binary data held in a string
+  var byteString = atob(dataURI.split(",")[1]);
 
-    // separate out the mime component
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+  // separate out the mime component
+  var mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
 
-    // write the bytes of the string to an ArrayBuffer
-    var arrayBuffer = new ArrayBuffer(byteString.length);
-    var _ia = new Uint8Array(arrayBuffer);
-    for (var i = 0; i < byteString.length; i++) {
-        _ia[i] = byteString.charCodeAt(i);
-    }
+  // write the bytes of the string to an ArrayBuffer
+  var arrayBuffer = new ArrayBuffer(byteString.length);
+  var _ia = new Uint8Array(arrayBuffer);
+  for (var i = 0; i < byteString.length; i++) {
+    _ia[i] = byteString.charCodeAt(i);
+  }
 
-    var dataView = new DataView(arrayBuffer);
-    var blob = new Blob([dataView], { type: mimeString });
-    return blob;
+  var dataView = new DataView(arrayBuffer);
+  var blob = new Blob([dataView], { type: mimeString });
+  return blob;
 }
 
-export { support_format_webp, dataURItoBlob }
+export { support_format_webp, dataURItoBlob };
