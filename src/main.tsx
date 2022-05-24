@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { isIE } from 'react-device-detect';
 import { support_format_webp }  from './util'
 import config from './config.json'
 
 import 'materialize-css/sass/materialize.scss'
 import 'materialize-css'
 import 'material-icons/iconfont/material-icons.css'
+import "@fontsource/raleway"
 
 import "./sass/ext/dark-theme.scss"
 import "./sass/ext/scanlines.scss"

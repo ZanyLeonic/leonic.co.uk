@@ -8,7 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/raleway": "^4.5.8",
     "@vitejs/plugin-legacy": "^1.8.2",
+    "es6-promise": "^4.2.8",
+    "isomorphic-fetch": "^3.0.0",
     "material-icons": "^1.10.11",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^18.0.0",
@@ -16,8 +19,6 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.0.0",
     "react-fade-in": "^2.0.1",
-    "es6-promise": "^4.2.8",
-    "isomorphic-fetch": "^3.0.0",
     "sass": "^1.51.0",
     "ttl-localstorage": "^2.0.0"
   },

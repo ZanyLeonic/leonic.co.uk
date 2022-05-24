@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@fontsource/raleway': ^4.5.8
   '@types/react': ^18.0.0
   '@types/react-dom': ^18.0.0
   '@vitejs/plugin-legacy': ^1.8.2
@@ -20,7 +21,10 @@ specifiers:
   vite: ^2.9.7
 
 dependencies:
+  '@fontsource/raleway': 4.5.8
   '@vitejs/plugin-legacy': 1.8.2_vite@2.9.8
+  es6-promise: 4.2.8
+  isomorphic-fetch: 3.0.0
   material-icons: 1.10.11
   materialize-css: 1.0.0-rc.2
   react: 18.1.0
@@ -28,8 +32,6 @@ dependencies:
   react-device-detect: 2.2.2_react-dom@18.1.0+react@18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-fade-in: 2.0.1_react@18.1.0
-  es6-promise: 4.2.8
-  isomorphic-fetch: 3.0.0
   sass: 1.51.0
   ttl-localstorage: 2.0.0
 
@@ -308,6 +310,10 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
+  /@fontsource/raleway/4.5.8:
+    resolution: {integrity: sha512-4aHInZYFegsrX/8/roXUoZHLfgrPGkkQaH/CYDx486RKf+5V/GIIetnVt5SO9mLdOqeqKJrpgLkL7kSf24SYug==}
+    dev: false
+
   /@jridgewell/gen-mapping/0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}
     engines: {node: '>=6.0.0'}
@@ -507,7 +513,7 @@ packages:
 
   /es6-promise/4.2.8:
     resolution: {integrity: sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w==}
-    dev: true
+    dev: false
 
   /esbuild-android-64/0.14.38:
     resolution: {integrity: sha512-aRFxR3scRKkbmNuGAK+Gee3+yFxkTJO/cx83Dkyzo4CnQl/2zVSurtG6+G86EQIZ+w+VYngVyK7P3HyTBKu3nw==}
@@ -819,7 +825,7 @@ packages:
       whatwg-fetch: 3.6.2
     transitivePeerDependencies:
       - encoding
-    dev: true
+    dev: false
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -878,7 +884,7 @@ packages:
         optional: true
     dependencies:
       whatwg-url: 5.0.0
-    dev: true
+    dev: false
 
   /node-releases/2.0.4:
     resolution: {integrity: sha512-gbMzqQtTtDz/00jQzZ21PQzdI9PyLYqUSvD0p3naOhX4odFji0ZxYdnVwPTxmSwkmxhcFImpozceidSG+AgoPQ==}
@@ -1051,7 +1057,7 @@ packages:
 
   /tr46/0.0.3:
     resolution: {integrity: sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=}
-    dev: true
+    dev: false
 
   /ttl-localstorage/2.0.0:
     resolution: {integrity: sha512-O01YZsRxx0h9GMPTyX5SS1lw8WuaTK2lV4Q6gCylhD2Fb/wdHT9U/lRIjHpSIuWL0+rsWaQEmxOibVF9x0ipRA==}
@@ -1094,15 +1100,15 @@ packages:
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=}
-    dev: true
+    dev: false
 
   /whatwg-fetch/3.6.2:
     resolution: {integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==}
-    dev: true
+    dev: false
 
   /whatwg-url/5.0.0:
     resolution: {integrity: sha1-lmRU6HZUYuN2RNNib2dCzotwll0=}
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
-    dev: true
+    dev: false

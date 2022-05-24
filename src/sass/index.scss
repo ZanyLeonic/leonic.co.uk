@@ -24,6 +24,10 @@ code {
   text-shadow: 0.2px 0.2px 0.12em #fff;
 }
 
+body {
+  font-family: "Raleway";
+}
+
 a {
   color: $accent-color  !important;
   text-shadow: 0.2px 0.2px 0.12em $accent-color;
