@@ -52,6 +52,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <Footer
       author={background.author}
       authorURL={background.author_url}
+      copyrightOwner={config.user_info.name}
       photo={background.photo}
     />
   </React.StrictMode>

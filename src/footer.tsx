@@ -3,6 +3,7 @@ import { Component } from "react";
 import "./sass/footer.scss";
 
 interface FooterProps {
+  copyrightOwner: string;
   author: string;
   authorURL: string;
   photo: boolean;
@@ -17,7 +18,7 @@ class Footer extends Component<FooterProps> {
       <footer className="page-footer">
         <div className="footer-copyright">
           <div className="container">
-            © {new Date().getFullYear()} Leo Durrant
+            © {new Date().getFullYear()} {this.props.copyrightOwner}
             <span className="grey-text text-lighten-4 right">
               {this.props.photo ? <>Photo by: </> : <>Background Art by: </>}
               <a href={this.props.authorURL}>{this.props.author}</a>
