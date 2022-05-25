@@ -3,9 +3,12 @@ import { LocalStorage } from "ttl-localstorage";
 import { isIE } from "react-device-detect";
 import FadeIn from "react-fade-in";
 import ImagePlaceholder from "./image-placeholder";
+import parse from "html-react-parser";
 
 import { dataURItoBlob } from "./util";
 import "isomorphic-fetch";
+
+import config from "./config.json";
 
 import "./sass/main-card.scss";
 
@@ -15,12 +18,8 @@ interface LoadingState {
   bio: string;
 }
 
-interface MainCardProps {
-  gitHubName: string;
-}
-
-class MainCard extends Component<MainCardProps, LoadingState> {
-  constructor(props: MainCardProps) {
+class MainCard extends Component<{}, LoadingState> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       loading: true,
@@ -53,7 +52,7 @@ class MainCard extends Component<MainCardProps, LoadingState> {
   }
 
   async getUserInfo() {
-    return fetch(`https://api.github.com/users/${this.props.gitHubName}`)
+    return fetch(`https://api.github.com/users/${config.user_info.github}`)
       .then((response) => response.json())
       .then((jRes) => {
         return jRes;
@@ -83,6 +82,16 @@ class MainCard extends Component<MainCardProps, LoadingState> {
       });
   }
 
+  parsePoints() {
+    return config["profile-points"].map((point) => {
+      <div className="profile-point">
+        <span>
+          <i className="material-icons">{point.icon}</i> {point.content}
+        </span>
+      </div>;
+    });
+  }
+
   render() {
     return (
       <div className="main-content col s12 m8 offset-m2 l6 offset-l3">
@@ -101,7 +110,7 @@ class MainCard extends Component<MainCardProps, LoadingState> {
               <FadeIn>
                 <img
                   className="responsive-img"
-                  alt={this.props.gitHubName + "'s profile picture"}
+                  alt={config.user_info.github + "'s profile picture"}
                   src={this.state.imageURL}
                   height="373px"
                   width="373px"
@@ -112,31 +121,23 @@ class MainCard extends Component<MainCardProps, LoadingState> {
           <div className="card-stacked">
             <div className="card-content">
               <div className="card-header">
-                <span className="card-title">Leo Durrant</span>
+                <span className="card-title">{config.user_info.name}</span>
                 <span className="card-subtitle">
-                  Other Aliases: Leonic, ZanyLeonic
+                  Other Aliases: {config.user_info.aliases}
                 </span>
               </div>
               <div className="divider"></div>
               <div className="extra-info">
-                <div className="profile-point">
-                  <span>
-                    <i className="material-icons">school</i> BSc Computer
-                    Science (YINI) @ RHUL
-                  </span>
-                </div>
-                <div className="profile-point">
-                  <span>
-                    <i className="material-icons">location_city</i> Egham,
-                    Surrey, United Kingdom
-                  </span>
-                </div>
-                <div className="profile-point">
-                  <span>
-                    <i className="material-icons">contact_mail</i>{" "}
-                    <a href="mailto:admin@leonic.co.uk">admin@leonic.co.uk</a>
-                  </span>
-                </div>
+                {config["profile-points"].map((point, i) => {
+                  return (
+                    <div className="profile-point" key={i}>
+                      <span>
+                        <i className="material-icons">{point.icon}</i>{" "}
+                        {parse(point.content)}
+                      </span>
+                    </div>
+                  );
+                })}
                 {this.state.bio != null ? (
                   <div className="profile-point">
                     <span>

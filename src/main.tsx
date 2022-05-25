@@ -45,7 +45,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <div className="background-image scanlines"></div>
       <div className="container">
         <div className="row">
-          <MainCard gitHubName={config.githubUsername} />
+          <MainCard />
         </div>
       </div>
     </main>

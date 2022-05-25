@@ -1,5 +1,40 @@
 {
-  "githubUsername": "ZanyLeonic",
+  "user_info": {
+    "name": "Leo Durrant",
+    "aliases": "Leonic, ZanyLeonic",
+    "github": "ZanyLeonic"
+  },
+  "profile-points": [
+    {
+      "icon": "school",
+      "content": "BSc Computer Science (YINI) @ RHUL"
+    },
+    {
+      "icon": "location_city",
+      "content": "Egham, Surrey, United Kingdom"
+    },
+    {
+      "icon": "contact_mail",
+      "content": "<a href=\"mailto:admin@leonic.co.uk\">admin@leonic.co.uk</a>"
+    }
+  ],
+  "links": [
+    {
+      "title": "Portfolio",
+      "button_text": "View",
+      "url": "https://poweredby.leonic.co.uk/"
+    },
+    {
+      "title": "GitHub",
+      "button_text": "ZanyLeonic",
+      "url": "https://poweredby.leonic.co.uk/"
+    },
+    {
+      "title": "LinkedIn",
+      "button_text": "Leo Durrant",
+      "url": "https://linkedin.com/in/leo-durrant/"
+    }
+  ],
   "backgrounds": [
     {
       "author": "Leo Durrant",

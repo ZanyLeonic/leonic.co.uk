@@ -11,6 +11,7 @@
     "@fontsource/raleway": "^4.5.8",
     "@vitejs/plugin-legacy": "^1.8.2",
     "es6-promise": "^4.2.8",
+    "html-react-parser": "^1.4.12",
     "isomorphic-fetch": "^3.0.0",
     "material-icons": "^1.10.11",
     "materialize-css": "^1.0.0-rc.2",
