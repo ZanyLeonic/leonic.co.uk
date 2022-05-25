@@ -1,6 +1,8 @@
 import { LocalStorage } from "ttl-localstorage";
 import { isIE } from "react-device-detect";
 
+import "isomorphic-fetch";
+
 function support_format_webp(): boolean {
   var elem = document.createElement("canvas");
 
