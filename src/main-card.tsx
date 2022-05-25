@@ -60,7 +60,7 @@ class MainCard extends Component<{}, LoadingState> {
   }
 
   async fetchAvatar() {
-    const response: any = await this.getUserInfo();
+    const response = await this.getUserInfo();
 
     fetch(response.avatar_url)
       .then((response) => response.blob())

@@ -21,7 +21,7 @@ jobs:
 
       - name: Install pnpm
         run: npm install -g pnpm
-      
+
       - name: Install dependencies
         run: pnpm install
 
@@ -46,12 +46,12 @@ jobs:
         with:
           name: production-files
           path: ~/dist
-      
+
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
           repository: ZanyLeonic/leonic.co.uk
-          token: '${{ secrets.PAT }}'
+          token: "${{ secrets.PAT }}"
 
       - name: Deploying to repository
         run: |
@@ -60,7 +60,7 @@ jobs:
 
           date > generated.txt
           echo 'leonic.co.uk' > CNAME
-          
+
           cp -r ~/dist/* .
 
           git config user.name github-actions

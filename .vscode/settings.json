@@ -1,5 +1,8 @@
 {
     "yaml.schemas": {
         "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/Kurisu/Projects/leonic.co.uk/.github/workflows/deploy.yml"
-    }
+    },
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false
 }
