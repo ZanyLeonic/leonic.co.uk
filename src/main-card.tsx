@@ -153,39 +153,24 @@ class MainCard extends Component<{}, LoadingState> {
             <div className="card-action">
               <table>
                 <tbody>
-                  <tr>
-                    <td>Portfolio</td>
-                    <td className="right">
-                      <a
-                        href="https://poweredby.leonic.co.uk/"
-                        className="waves-effect waves-linkColour btn-flat disabled"
-                      >
-                        Coming soon
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>GitHub</td>
-                    <td className="right">
-                      <a
-                        href="https://github.com/ZanyLeonic/"
-                        className="waves-effect waves-linkColour btn-flat"
-                      >
-                        ZanyLeonic
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>LinkedIn</td>
-                    <td className="right">
-                      <a
-                        href="https://linkedin.com/in/leo-durrant/"
-                        className="waves-effect waves-linkColour btn-flat"
-                      >
-                        Leo Durrant
-                      </a>
-                    </td>
-                  </tr>
+                  {config.links.map((link, i) => {
+                    return (
+                      <tr key={i}>
+                        <td>{link.title}</td>
+                        <td className="right">
+                          <a
+                            href={link.url}
+                            className={
+                              "waves-effect waves-linkColour btn-flat" +
+                              (!link.enabled ? " disabled" : "")
+                            }
+                          >
+                            {link.button_text}
+                          </a>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

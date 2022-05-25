@@ -21,18 +21,21 @@
   "links": [
     {
       "title": "Portfolio",
-      "button_text": "View",
-      "url": "https://poweredby.leonic.co.uk/"
+      "button_text": "Coming soon",
+      "url": "https://poweredby.leonic.co.uk/",
+      "enabled": false
     },
     {
       "title": "GitHub",
       "button_text": "ZanyLeonic",
-      "url": "https://poweredby.leonic.co.uk/"
+      "url": "https://poweredby.leonic.co.uk/",
+      "enabled": true
     },
     {
       "title": "LinkedIn",
       "button_text": "Leo Durrant",
-      "url": "https://linkedin.com/in/leo-durrant/"
+      "url": "https://linkedin.com/in/leo-durrant/",
+      "enabled": true
     }
   ],
   "backgrounds": [
