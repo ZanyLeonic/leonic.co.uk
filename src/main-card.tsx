@@ -1,11 +1,10 @@
-import { Component, useEffect } from "react";
+import { Component } from "react";
 import { LocalStorage } from "ttl-localstorage";
-import { isIE } from "react-device-detect";
 import FadeIn from "react-fade-in";
 import ImagePlaceholder from "./image-placeholder";
 import parse from "html-react-parser";
 
-import { dataURItoBlob } from "./util";
+import { createBlobFromImage, fetchImageFromCache, getJSON } from "./util";
 import "isomorphic-fetch";
 
 import config from "./config.json";
@@ -18,6 +17,9 @@ interface LoadingState {
   bio: string;
 }
 
+const avatarCacheID = "avatar";
+const apiCacheID = "api";
+
 class MainCard extends Component<{}, LoadingState> {
   constructor(props: {}) {
     super(props);
@@ -29,67 +31,42 @@ class MainCard extends Component<{}, LoadingState> {
   }
 
   componentDidMount() {
-    // Caching API calls to avoid unnecessary requests
-    var gitResponse = LocalStorage.get("gitAPI");
-    var cachedImage = LocalStorage.get("imageBlob");
+    // Load the cached data from local storage
+    const cachedResponse = LocalStorage.get(apiCacheID);
+    const restoredImage = fetchImageFromCache(avatarCacheID);
 
     // If the API call hasn't been made in the last 12 hours, refetch the data
-    if (gitResponse == null || cachedImage == null) {
-      this.fetchAvatar();
-      // Load the cached data from local storage
+    if (cachedResponse == null || restoredImage == "") {
+      this.fetchUserInfo(cachedResponse);
     } else {
-      // IE11 doesn't like creating blobs from data URIs, so we just use the data URI
-      var imageObjectURL = isIE
-        ? cachedImage
-        : URL.createObjectURL(dataURItoBlob(cachedImage));
-
+      // Use the cached data
       this.setState({
         loading: false,
-        imageURL: imageObjectURL,
-        bio: gitResponse.bio,
+        imageURL: restoredImage,
+        bio: cachedResponse.bio,
       });
     }
   }
 
-  async getUserInfo() {
-    return fetch(`https://api.github.com/users/${config.user_info.github}`)
-      .then((response) => response.json())
-      .then((jRes) => {
-        return jRes;
-      });
-  }
+  async fetchUserInfo(cachedResponse: string) {
+    const response =
+      cachedResponse == null
+        ? await getJSON(
+            `https://api.github.com/users/${config.user_info.github}`
+          )
+        : cachedResponse;
 
-  async fetchAvatar() {
-    const response = await this.getUserInfo();
-
-    fetch(response.avatar_url)
-      .then((response) => response.blob())
-      .then((imageBlob) => {
-        const imageObjectURL = URL.createObjectURL(imageBlob);
-        const reader = new FileReader();
-
-        reader.onload = (event) => {
-          LocalStorage.put("imageBlob", event.target?.result, 43200);
-        };
+    createBlobFromImage(response.avatar_url, avatarCacheID, 43200).then(
+      (imageBlobURL) => {
+        LocalStorage.put(apiCacheID, response, 43200);
 
         this.setState({
           loading: false,
-          imageURL: imageObjectURL,
+          imageURL: imageBlobURL,
           bio: response.bio,
         });
-        LocalStorage.put("gitAPI", response, 43200);
-        reader.readAsDataURL(imageBlob);
-      });
-  }
-
-  parsePoints() {
-    return config["profile-points"].map((point) => {
-      <div className="profile-point">
-        <span>
-          <i className="material-icons">{point.icon}</i> {point.content}
-        </span>
-      </div>;
-    });
+      }
+    );
   }
 
   render() {
@@ -100,9 +77,7 @@ class MainCard extends Component<{}, LoadingState> {
             <div className="progress">
               <div className="indeterminate"></div>
             </div>
-          ) : (
-            <></>
-          )}
+          ) : null}
           <div className="card-image">
             {this.state.loading ? (
               <ImagePlaceholder />
