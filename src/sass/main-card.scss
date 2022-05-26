@@ -41,3 +41,11 @@
     background-color: $secondary-colour;
   }
 }
+
+#tabs {
+  display: none;
+}
+
+.tabs-content.carousel.carousel-slider {
+  transition: all 0.5s linear;
+}

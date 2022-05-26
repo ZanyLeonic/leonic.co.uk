@@ -70,7 +70,7 @@ class Home extends Component<{}, HomeState> {
 
   render() {
     return (
-      <div className="home-wrapper">
+      <div className="home-wrapper" id="home-wrapper">
         {this.state.loading ? (
           <div className="progress">
             <div className="indeterminate"></div>
