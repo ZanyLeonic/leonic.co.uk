@@ -16,7 +16,11 @@ class Projects extends Component<{}, ProjectsState> {
 
   render() {
     return (
-      <div className="home-wrapper" id="projects-wrapper">
+      <div
+        className="home-wrapper"
+        id="projects-wrapper"
+        data-content="projects"
+      >
         {this.state.loading ? (
           <div className="progress">
             <div className="indeterminate"></div>

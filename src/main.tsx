@@ -13,6 +13,7 @@ import "./sass/ext/scanlines.scss";
 
 import "./sass/index.scss";
 
+import Header from "./header";
 import MainCard from "./main-card";
 import Footer from "./footer";
 
@@ -41,6 +42,9 @@ document.getElementsByTagName("head")[0].appendChild(css);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
+    <header>
+      <Header />
+    </header>
     <main>
       <div className="background-image scanlines"></div>
       <div className="container">

@@ -9,6 +9,8 @@ class MainCard extends Component {
     super(props);
   }
 
+  componentDidMount() {}
+
   render() {
     return (
       <div className="main-content col s12 m8 offset-m2 l6 offset-l3">

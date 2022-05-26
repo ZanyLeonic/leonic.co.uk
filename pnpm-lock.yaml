@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@fontsource/raleway': ^4.5.8
+  '@types/materialize-css': ^1.0.11
   '@types/react': ^18.0.0
   '@types/react-dom': ^18.0.0
   '@vitejs/plugin-legacy': ^1.8.2
@@ -16,6 +17,7 @@ specifiers:
   react-device-detect: ^2.2.2
   react-dom: ^18.0.0
   react-fade-in: ^2.0.1
+  react-materialize: ^3.10.0
   sass: ^1.51.0
   ttl-localstorage: ^2.0.0
   typescript: ^4.6.3
@@ -23,6 +25,7 @@ specifiers:
 
 dependencies:
   '@fontsource/raleway': 4.5.8
+  '@types/materialize-css': 1.0.11
   '@vitejs/plugin-legacy': 1.8.2_vite@2.9.8
   es6-promise: 4.2.8
   html-react-parser: 1.4.12_react@18.1.0
@@ -34,6 +37,7 @@ dependencies:
   react-device-detect: 2.2.2_react-dom@18.1.0+react@18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-fade-in: 2.0.1_react@18.1.0
+  react-materialize: 3.10.0_react-dom@18.1.0+react@18.1.0
   sass: 1.51.0
   ttl-localstorage: 2.0.0
 
@@ -353,6 +357,19 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /@types/jquery/3.5.14:
+    resolution: {integrity: sha512-X1gtMRMbziVQkErhTQmSe2jFwwENA/Zr+PprCkF63vFq+Yt5PZ4AlKqgmeNlwgn7dhsXEK888eIW2520EpC+xg==}
+    dependencies:
+      '@types/sizzle': 2.3.3
+    dev: false
+
+  /@types/materialize-css/1.0.11:
+    resolution: {integrity: sha512-V7/jSwuq6QrWAjzA2dkZhlqzrrcxcjB+RDfwhw8CosNYZgb+FaAJmmB6t7CT7SRFNRRSxG839e6iK32Vq6sZrQ==}
+    dependencies:
+      '@types/jquery': 3.5.14
+      cash-dom: 8.1.1
+    dev: false
+
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
@@ -374,6 +391,10 @@ packages:
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
     dev: true
+
+  /@types/sizzle/2.3.3:
+    resolution: {integrity: sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==}
+    dev: false
 
   /@vitejs/plugin-legacy/1.8.2_vite@2.9.8:
     resolution: {integrity: sha512-NCOKU+pU+cxLMR9P9RTolEuOK+h+zYBXlknj+zGcKSj/NXBZYgA1GAH1FnO4zijoWRiTaiOm2ha9LQrELE7XHg==}
@@ -448,6 +469,10 @@ packages:
     resolution: {integrity: sha512-Es8PiVqCe+uXdms0Gu5xP5PF2bxLR7OBp3wUzUnuO7OHzhOfCyg3hdiGWVPVxhiuniOzng+hTc1u3fEQ0TlkSQ==}
     dev: true
 
+  /cash-dom/8.1.1:
+    resolution: {integrity: sha512-aMESow+8m7EuifAeNhpnRHQHN8O24gGeiR53lebD5ShBCisBCoB4y5BBe9pGXtTPP6b1qCp90W9HaaUARyc16Q==}
+    dev: false
+
   /chalk/2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
     engines: {node: '>=4'}
@@ -470,6 +495,10 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: false
+
+  /classnames/2.3.1:
+    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
     dev: false
 
   /color-convert/1.9.3:
@@ -1022,6 +1051,18 @@ packages:
       react: ^16.8 || 17
     dependencies:
       react: 18.1.0
+    dev: false
+
+  /react-materialize/3.10.0_react-dom@18.1.0+react@18.1.0:
+    resolution: {integrity: sha512-KRu5HnScZv2PVlV7KHyIETPn/GyarJK56zdvS7rg3AHSzG+RWk3PxlJR+5Te8m+eNvTJzMt4ZeB3g677LV0hJg==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: ^17.0.2
+      react-dom: ^17.0.2
+    dependencies:
+      classnames: 2.3.1
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
     dev: false
 
   /react-property/2.0.0:
