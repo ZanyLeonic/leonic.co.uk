@@ -47,5 +47,9 @@
 }
 
 .tabs-content.carousel.carousel-slider {
-  transition: all 0.5s linear;
+  transition: all 0.1s linear;
+}
+
+.off-screen {
+  visibility: hidden;
 }

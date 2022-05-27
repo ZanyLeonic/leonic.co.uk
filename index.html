@@ -59,9 +59,12 @@
 
             for (var i = 0; i < nav.length; i++) {
               nav[i].parentNode.classList.remove("active");
+              content[i].classList.add("off-screen");
             }
 
             nav[inst.index].parentNode.classList.add("active");
+            content[inst.index].classList.remove("off-screen");
+
           }
 
           resizeWindow();
