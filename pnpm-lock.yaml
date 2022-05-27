@@ -11,13 +11,12 @@ specifiers:
   html-react-parser: ^1.4.12
   isomorphic-fetch: ^3.0.0
   material-icons: ^1.10.11
-  materialize-css: ^1.0.0-rc.2
+  materialize-css: github:zanyleonic/materialize
   react: ^18.0.0
   react-content-loader: ^6.2.0
   react-device-detect: ^2.2.2
   react-dom: ^18.0.0
   react-fade-in: ^2.0.1
-  react-materialize: ^3.10.0
   sass: ^1.51.0
   ttl-localstorage: ^2.0.0
   typescript: ^4.6.3
@@ -31,13 +30,12 @@ dependencies:
   html-react-parser: 1.4.12_react@18.1.0
   isomorphic-fetch: 3.0.0
   material-icons: 1.10.11
-  materialize-css: 1.0.0-rc.2
+  materialize-css: github.com/zanyleonic/materialize/4fe650d76f645d52e9a213d257b4a2309a4e260b
   react: 18.1.0
   react-content-loader: 6.2.0_react@18.1.0
   react-device-detect: 2.2.2_react-dom@18.1.0+react@18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-fade-in: 2.0.1_react@18.1.0
-  react-materialize: 3.10.0_react-dom@18.1.0+react@18.1.0
   sass: 1.51.0
   ttl-localstorage: 2.0.0
 
@@ -495,10 +493,6 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
-    dev: false
-
-  /classnames/2.3.1:
-    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
     dev: false
 
   /color-convert/1.9.3:
@@ -959,10 +953,6 @@ packages:
     resolution: {integrity: sha512-A0LqelW1j8Ik/8Cf3nKaUyabFrUXaGOpK2CyJvwWuobCDHtuW5hbM4mzyu3C5e4QfC0l8CjFBaP1h5sm91sRjw==}
     dev: false
 
-  /materialize-css/1.0.0-rc.2:
-    resolution: {integrity: sha512-FuQmSyq4Qv0ov7A2qXw0E6/jbQzSWx2P1pg2/XQDYTkkSc/GyiFAxu3fw9zgShwuTvyumEiw5jkxQWT9siqMBQ==}
-    dev: false
-
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
@@ -1005,6 +995,12 @@ packages:
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
+
+  /please-upgrade-node/3.2.0:
+    resolution: {integrity: sha512-gQR3WpIgNIKwBMVLkpMUeR3e1/E1y42bqDQZfql+kDeXd8COYfM8PQA4X6y7a8u9Ua9FHmsrrmirW2vHs45hWg==}
+    dependencies:
+      semver-compare: 1.0.0
+    dev: false
 
   /postcss/8.4.13:
     resolution: {integrity: sha512-jtL6eTBrza5MPzy8oJLFuUscHDXTV5KcLlqAWHl5q5WYRfnNRGSmOZmOZ1T6Gy7A99mOZfqungmZMpMmCVJ8ZA==}
@@ -1051,18 +1047,6 @@ packages:
       react: ^16.8 || 17
     dependencies:
       react: 18.1.0
-    dev: false
-
-  /react-materialize/3.10.0_react-dom@18.1.0+react@18.1.0:
-    resolution: {integrity: sha512-KRu5HnScZv2PVlV7KHyIETPn/GyarJK56zdvS7rg3AHSzG+RWk3PxlJR+5Te8m+eNvTJzMt4ZeB3g677LV0hJg==}
-    engines: {node: '>=8'}
-    peerDependencies:
-      react: ^17.0.2
-      react-dom: ^17.0.2
-    dependencies:
-      classnames: 2.3.1
-      react: 18.1.0
-      react-dom: 18.1.0_react@18.1.0
     dev: false
 
   /react-property/2.0.0:
@@ -1127,6 +1111,10 @@ packages:
     resolution: {integrity: sha512-6QAm1BgQI88NPYymgGQLCZgvep4FyePDWFpXVK+zNSUgHwlqpJy8VEh8Et0KxTACS4VWwMousBElAZOH9nkkoQ==}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
+
+  /semver-compare/1.0.0:
+    resolution: {integrity: sha1-De4hahyUGrN+nvsXiPavxf9VN/w=}
     dev: false
 
   /semver/6.3.0:
@@ -1238,4 +1226,12 @@ packages:
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
+    dev: false
+
+  github.com/zanyleonic/materialize/4fe650d76f645d52e9a213d257b4a2309a4e260b:
+    resolution: {tarball: https://codeload.github.com/zanyleonic/materialize/tar.gz/4fe650d76f645d52e9a213d257b4a2309a4e260b}
+    name: materialize-css
+    version: 1.0.0
+    dependencies:
+      please-upgrade-node: 3.2.0
     dev: false

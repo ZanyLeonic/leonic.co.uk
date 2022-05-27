@@ -42,6 +42,7 @@
 
       M.Tabs.init(tabControl, {
         swipeable: true,
+        disableHeightImageCalc: true,
         onShow: () => {
           const card = document.getElementsByClassName(
             "tabs-content carousel carousel-slider"
@@ -70,7 +71,7 @@
           var doit;
           window.onresize = function () {
             clearTimeout(doit);
-            doit = setTimeout(resizeWindow, 100);
+            doit = setTimeout(resizeWindow, 500);
           };
         },
       });
