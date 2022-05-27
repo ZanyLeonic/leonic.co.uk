@@ -6,4 +6,11 @@ nav {
   .brand-logo {
     margin-left: 10px;
   }
+
+  .active {
+    a {
+      color: $base-colour !important;
+      text-shadow: 0 0 0.12em $secondary-colour;
+    }
+  }
 }
