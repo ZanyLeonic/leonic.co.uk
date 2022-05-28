@@ -131,15 +131,28 @@ class Home extends Component<{}, HomeState> {
                     <tr key={i}>
                       <td>{link.title}</td>
                       <td className="right">
-                        <a
-                          href={link.url}
-                          className={
-                            "waves-effect waves-linkColour btn-flat" +
-                            (!link.enabled ? " disabled" : "")
-                          }
-                        >
-                          {link.button_text}
-                        </a>
+                        {link.nav_link ? (
+                          <a
+                            href="#"
+                            data-navlink={link.url}
+                            className={
+                              "waves-effect waves-linkColour btn-flat" +
+                              (!link.enabled ? " disabled" : "")
+                            }
+                          >
+                            {link.button_text}
+                          </a>
+                        ) : (
+                          <a
+                            href={link.url}
+                            className={
+                              "waves-effect waves-linkColour btn-flat" +
+                              (!link.enabled ? " disabled" : "")
+                            }
+                          >
+                            {link.button_text}
+                          </a>
+                        )}
                       </td>
                     </tr>
                   );

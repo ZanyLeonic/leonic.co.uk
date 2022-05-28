@@ -40,6 +40,24 @@ css.appendChild(
 
 document.getElementsByTagName("head")[0].appendChild(css);
 
+document.addEventListener("DOMContentLoaded", function () {
+  const elems = document.querySelectorAll("[data-navlink]");
+
+  for (var i = 0; i < elems.length; i++) {
+    elems[i].addEventListener("click", (e) => {
+      if (e.target == null) return;
+      const tabControl = M.Tabs.getInstance(
+        document.getElementById("tabs") as HTMLElement
+      );
+      e.preventDefault();
+
+      const eleTarget = e.target as HTMLElement;
+
+      tabControl.select(eleTarget.getAttribute("data-navlink") as string);
+    });
+  }
+});
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <header>
