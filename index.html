@@ -47,12 +47,10 @@
           const card = document.getElementsByClassName(
             "tabs-content carousel carousel-slider"
           )[0];
+
           const inst = M.Tabs.getInstance(tabControl);
           const nav = document.querySelectorAll("[data-nav]");
           const content = document.querySelectorAll("[data-content]");
-
-          console.log(nav);
-          console.log(content);
 
           const resizeWindow = function () {
             card.setAttribute("style", `height:${content[inst.index].offsetHeight}px`);
@@ -69,12 +67,10 @@
 
           resizeWindow();
 
-          // window.requestAnimationFrame(resizeWindow);
-
-          var doit;
+          var resizeHandler;
           window.onresize = function () {
-            clearTimeout(doit);
-            doit = setTimeout(resizeWindow, 500);
+            clearTimeout(resizeHandler);
+            resizeHandler = setTimeout(resizeWindow, 500);
           };
         },
       });

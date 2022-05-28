@@ -30,8 +30,8 @@ class Projects extends Component<{}, ProjectsState> {
         <div className="card-stacked">
           <div className="card-content">
             <div className="card-header">
-              <span className="card-title">sdsad</span>
-              <span className="card-subtitle">Other Aliases: sadas</span>
+              <span className="card-title">Projects</span>
+              <span className="card-subtitle">Previous commission works</span>
             </div>
             <div className="divider"></div>
             <div className="extra-info">sddf</div>
