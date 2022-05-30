@@ -82,7 +82,7 @@ class Home extends Component<{}, HomeState> {
           ) : (
             <FadeIn>
               <img
-                className="responsive-img"
+                className="responsive-img profile-image"
                 alt={config.user_info.github + "'s profile picture"}
                 src={this.state.imageURL}
                 height="373px"
