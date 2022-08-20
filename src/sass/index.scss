@@ -71,15 +71,15 @@ a {
     content: "";
     position: absolute;
     z-index: -1;
-    top: -40px;
-    left: -40px;
-    bottom: -40px;
-    right: -40px;
+    top: -10px;
+    left: -10px;
+    bottom: -10px;
+    right: -10px;
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    filter: blur(24px);
+    filter: blur(1.5rem);
   }
 }
 

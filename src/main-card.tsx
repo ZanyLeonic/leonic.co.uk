@@ -11,7 +11,13 @@ function MainCard() {
   return (
     <div className="card hoverable white-text max-w-xl w-full">
       <TransitionGroup component={null}>
-        <CSSTransition key={location.key} classNames="fade" timeout={300}>
+        <CSSTransition
+          key={location.key}
+          classNames="fade"
+          timeout={300}
+          mountOnEnter={false}
+          unmountOnExit={true}
+        >
           <Routes location={location}>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
