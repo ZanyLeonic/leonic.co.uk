@@ -1,0 +1,29 @@
+@import "ext/constants";
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  &::after {
+    content: "\a";
+    white-space: pre;
+  }
+}
+
+.project-langauge {
+  &::before {
+    content: "Lanuage: ";
+    font-weight: 450;
+  }
+  &::after {
+    content: "\a";
+    white-space: pre;
+  }
+}
+
+.project-year {
+  &::before {
+    content: "Year: ";
+    font-weight: 450;
+  }
+}

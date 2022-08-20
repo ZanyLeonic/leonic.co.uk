@@ -91,7 +91,7 @@ class Home extends Component<{}, HomeState> {
             </FadeIn>
           )}
         </div>
-        <div className="card-stacked">
+        <div className="home card-stacked">
           <div className="card-content">
             <div className="card-header">
               <span className="card-title">{config.user_info.name}</span>

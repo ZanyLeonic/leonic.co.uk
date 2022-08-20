@@ -1,46 +1,4 @@
 {
-  "user_info": {
-    "name": "Leo Durrant",
-    "aliases": "Leonic, ZanyLeonic",
-    "github": "ZanyLeonic"
-  },
-  "profile-points": [
-    {
-      "icon": "school",
-      "content": "BSc Computer Science (YINI) @ RHUL"
-    },
-    {
-      "icon": "location_city",
-      "content": "Egham, Surrey, United Kingdom"
-    },
-    {
-      "icon": "contact_mail",
-      "content": "<a href=\"mailto:admin@leonic.co.uk\">admin@leonic.co.uk</a>"
-    }
-  ],
-  "links": [
-    {
-      "title": "Portfolio",
-      "button_text": "Coming soon",
-      "url": "projects",
-      "nav_link": true,
-      "enabled": true
-    },
-    {
-      "title": "GitHub",
-      "button_text": "ZanyLeonic",
-      "url": "https://github.com/ZanyLeonic",
-      "nav_link": false,
-      "enabled": true
-    },
-    {
-      "title": "LinkedIn",
-      "button_text": "Leo Durrant",
-      "url": "https://linkedin.com/in/leo-durrant/",
-      "nav_link": false,
-      "enabled": true
-    }
-  ],
   "backgrounds": [
     {
       "author": "Leo Durrant",
@@ -84,5 +42,98 @@
       "url": "/img/bg06.jpg",
       "url_webp": "/img/bg06.webp"
     }
-  ]
+  ],
+  "links": [
+    {
+      "title": "Portfolio",
+      "button_text": "Coming soon",
+      "url": "projects",
+      "nav_link": true,
+      "enabled": true
+    },
+    {
+      "title": "GitHub",
+      "button_text": "ZanyLeonic",
+      "url": "https://github.com/ZanyLeonic",
+      "nav_link": false,
+      "enabled": true
+    },
+    {
+      "title": "LinkedIn",
+      "button_text": "Leo Durrant",
+      "url": "https://linkedin.com/in/leo-durrant/",
+      "nav_link": false,
+      "enabled": true
+    }
+  ],
+  "profile-points": [
+    {
+      "icon": "school",
+      "content": "BSc Computer Science (YINI) @ RHUL"
+    },
+    {
+      "icon": "location_city",
+      "content": "Egham, Surrey, United Kingdom"
+    },
+    {
+      "icon": "contact_mail",
+      "content": "<a href=\"mailto:admin@leonic.co.uk\">admin@leonic.co.uk</a>"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Warspite",
+      "description": "A 2D modular game engine created to learn development with C++ and SDL2 for an A-Level Computer Science project",
+      "image_url": "",
+      "language": "C++",
+      "year": "2020"
+    },
+    {
+      "title": "Swordle",
+      "description": "An online competitive multiplayer version of Wordle, powered by Django. Won 2nd place at Royal Hackaway 2022",
+      "image_url": "",
+      "language": "Python",
+      "year": "2022"
+    },
+    {
+      "title": "Nina Aquila: Legal Eagle Season 1",
+      "description": "Wrote a set of bespoke plugins to customise the look and feel of the dialog boxes in RPGMaker MV.",
+      "image_url": "",
+      "language": "JavaScript",
+      "year": "2021"
+    },
+    {
+      "title": "Warspite Authoring Tools",
+      "description": "Engine tools and utilities for the Warspite game engine.",
+      "image_url": "",
+      "language": "C#",
+      "year": "2020"
+    },
+    {
+      "title": "Sixth Form Foyer Editor",
+      "description": "A WYSIWYG editor for the Sixth Form Foyer commissioned by the head of Sixth Form",
+      "image_url": "",
+      "language": "C#",
+      "year": "2021"
+    },
+    {
+      "title": "Pico LCD Server",
+      "description": "A small program that runs a webserver allowing users to submit text to be displayed on a LCD screen attached to a RP2040 device",
+      "image_url": "",
+      "language": "C",
+      "year": "2021"
+    },
+    {
+      "title": "Leonic WEB: BETA",
+      "description": "The 2016 iteration of my website, designed using MaterializeCSS and powered by PHP and MySQL",
+      "image_url": "",
+      "language": "PHP",
+      "year": "2016"
+    }
+  ],
+  "user_info": {
+    "name": "Leo Durrant",
+    "aliases": "Leonic, ZanyLeonic",
+    "github": "ZanyLeonic"
+  }
 }

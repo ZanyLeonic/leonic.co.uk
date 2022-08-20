@@ -64,8 +64,9 @@
             content[inst.index].classList.remove("off-screen");
 
           }
-
-          resizeWindow();
+          var resizeHandler2;
+          clearTimeout(resizeHandler);
+          resizeHandler = setTimeout(resizeWindow, 500);
 
           var resizeHandler;
           window.onresize = function () {

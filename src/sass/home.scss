@@ -8,16 +8,18 @@
 }
 
 @media only screen and (min-width: $large-screen) {
-  .card-image {
-    width: 75%;
-    .loader {
-      height: 373px;
-      width: 100%;
-      margin-left: 16.5%;
-    }
+  .home {
+    .card-image {
+      width: 75%;
+      .loader {
+        height: 373px;
+        width: 100%;
+        margin-left: 16.5%;
+      }
 
-    img.profile-image {
-      margin-left: 16.5%;
+      img.profile-image {
+        margin-left: 16.5%;
+      }
     }
   }
   .row {
@@ -31,7 +33,7 @@
 }
 
 // Card customizations
-.card {
+.home {
   .card-title {
     font-size: 2rem;
     font-weight: 300;
