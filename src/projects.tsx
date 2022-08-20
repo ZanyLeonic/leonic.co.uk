@@ -33,30 +33,35 @@ class Projects extends Component<{}, ProjectsState> {
             <div className="card-header">
               <span className="card-title">Projects</span>
               <span className="card-subtitle">
-                A few highlights of a my previous passion and comission work
+                A few highlights of a my previous passion and commission work
               </span>
             </div>
             <div className="divider"></div>
             <div className="project-container">
-              <div>
-                <h2 className="header">Horizontal Card</h2>
-                <div className="card">
-                  <div className="card-image">
-                    <img src="https://picsum.photos/100/190" />
-                  </div>
-                  <div className="card-stacked">
-                    <div className="card-content">
-                      <p>
-                        I am a very simple card. I am good at containing small
-                        bits of information.
-                      </p>
+              {config.projects.map((project, i) => {
+                return (
+                  <div key={i}>
+                    <div className="card">
+                      <div className="card-image">
+                        <img src="/img/card-test.png" />
+                        <span className="card-title">
+                          {project.title} ({project.year})
+                        </span>
+                      </div>
+                      <div className="card-content">
+                        <p>
+                          I am a very simple card. I am good at containing small
+                          bits of information. I am convenient because I require
+                          little markup to use effectively.
+                        </p>
+                      </div>
+                      <div className="card-action">
+                        <a href="#">This is a link</a>
+                      </div>
                     </div>
-                    <div className="card-action">
-                      <a href="#">This is a link</a>
-                    </div>
                   </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>

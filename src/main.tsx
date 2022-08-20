@@ -13,12 +13,6 @@ import "./sass/ext/scanlines.scss";
 
 import "./sass/index.scss";
 
-import Header from "./header";
-import MainCard from "./main-card";
-import Footer from "./footer";
-
-import { IndexContext } from "./sharedContext";
-
 import "./sass/ie11.scss";
 import App from "./app";
 

@@ -13,6 +13,7 @@ function MainCard() {
   return (
     <div className="card hoverable white-text max-w-xl w-full">
       <Carousel
+        className="card-carousel"
         autoPlay={false}
         swipe={false}
         indicators={false}
