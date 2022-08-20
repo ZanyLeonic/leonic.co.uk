@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { support_format_webp } from "./util";
 import config from "./config.json";
@@ -17,7 +17,10 @@ import Header from "./header";
 import MainCard from "./main-card";
 import Footer from "./footer";
 
+import { IndexContext } from "./sharedContext";
+
 import "./sass/ie11.scss";
+import App from "./app";
 
 const backgrounds = config.backgrounds;
 const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
@@ -40,42 +43,8 @@ css.appendChild(
 
 document.getElementsByTagName("head")[0].appendChild(css);
 
-document.addEventListener("DOMContentLoaded", function () {
-  const elems = document.querySelectorAll("[data-navlink]");
-
-  for (var i = 0; i < elems.length; i++) {
-    elems[i].addEventListener("click", (e) => {
-      if (e.target == null) return;
-      const tabControl = M.Tabs.getInstance(
-        document.getElementById("tabs") as HTMLElement
-      );
-      e.preventDefault();
-
-      const eleTarget = e.target as HTMLElement;
-
-      tabControl.select(eleTarget.getAttribute("data-navlink") as string);
-    });
-  }
-});
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <header>
-      <Header />
-    </header>
-    <main>
-      <div className="background-image scanlines"></div>
-      <div className="container">
-        <div className="row">
-          <MainCard />
-        </div>
-      </div>
-    </main>
-    <Footer
-      author={background.author}
-      authorURL={background.author_url}
-      copyrightOwner={config.user_info.name}
-      photo={background.photo}
-    />
+    <App background={background} userInfo={config.user_info} />
   </React.StrictMode>
 );

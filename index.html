@@ -36,60 +36,6 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function () {
-      const tabControl = document.getElementById("tabs");
-
-      M.Tabs.init(tabControl, {
-        swipeable: true,
-        disableHeightImageCalc: true,
-        onShow: () => {
-          const card = document.getElementsByClassName(
-            "tabs-content carousel carousel-slider"
-          )[0];
-
-          const inst = M.Tabs.getInstance(tabControl);
-          const nav = document.querySelectorAll("[data-nav]");
-          const content = document.querySelectorAll("[data-content]");
-
-          const resizeWindow = function () {
-            card.setAttribute("style", `height:${content[inst.index].offsetHeight}px`);
-
-            for (var i = 0; i < nav.length; i++) {
-              nav[i].parentNode.classList.remove("active");
-              content[i].classList.add("off-screen");
-            }
-
-            nav[inst.index].parentNode.classList.add("active");
-            content[inst.index].classList.remove("off-screen");
-
-          }
-          var resizeHandler2;
-          clearTimeout(resizeHandler);
-          resizeHandler = setTimeout(resizeWindow, 500);
-
-          var resizeHandler;
-          window.onresize = function () {
-            clearTimeout(resizeHandler);
-            resizeHandler = setTimeout(resizeWindow, 500);
-          };
-        },
-      });
-      // Remove swiping event listeners
-      const card = document.getElementsByClassName(
-        "tabs-content carousel carousel-slider"
-      )[0];
-
-      var ins = M.Carousel.getInstance(card);
-
-      card.removeEventListener("mousedown", ins._handleCarouselTapBound);
-      card.removeEventListener("mousemove", ins._handleCarouselDragBound);
-      card.removeEventListener("mouseup", ins._handleCarouselReleaseBound);
-      card.removeEventListener("mouseleave", ins._handleCarouselReleaseBound);
-      card.removeEventListener("click", ins._handleCarouselClickBound);
-    });
-
-  </script>
 </body>
 
 </html>

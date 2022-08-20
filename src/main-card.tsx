@@ -1,38 +1,36 @@
-import { Component } from "react";
+import React, { useContext } from "react";
+import Carousel from "react-material-ui-carousel";
 
 import Home from "./home";
 import Projects from "./projects";
 
+import { IndexContext } from "./sharedContext";
+
 import "./sass/main-card.scss";
-class MainCard extends Component {
-  constructor(props: {}) {
-    super(props);
-  }
+function MainCard() {
+  const indexContext = useContext(IndexContext);
 
-  componentDidMount() {}
-
-  render() {
-    return (
-      <div className="main-content col s12 m8 offset-m2 l6 offset-l3">
-        <div className="card hoverable white-text" id="card">
-          <ul id="tabs">
-            <li className="tab col s3">
-              <a className="active" href="#home"></a>
-            </li>
-            <li className="tab col s3">
-              <a href="#projects"></a>
-            </li>
-          </ul>
-          <div id="home">
-            <Home />
-          </div>
-          <div id="projects" className="col s12">
-            <Projects />
-          </div>
-        </div>
-      </div>
-    );
-  }
+  return (
+    <div className="card hoverable white-text max-w-xl w-full">
+      <Carousel
+        autoPlay={false}
+        swipe={false}
+        indicators={false}
+        animation="slide"
+        cycleNavigation={false}
+        navButtonsAlwaysInvisible={true}
+        index={indexContext.value!}
+        duration={750}
+      >
+        <Home
+          updateIndex={(index) => {
+            indexContext.setValue(index);
+          }}
+        />
+        <Projects />
+      </Carousel>
+    </div>
+  );
 }
 
 export default MainCard;

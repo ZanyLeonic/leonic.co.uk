@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, useContext } from "react";
 import { LocalStorage } from "ttl-localstorage";
 
 import FadeIn from "react-fade-in";
@@ -9,6 +9,7 @@ import { createBlobFromImage, fetchImageFromCache, getJSON } from "./util";
 import config from "./config.json";
 
 import "./sass/home.scss";
+import { IndexContext } from "./sharedContext";
 
 interface HomeState {
   loading: boolean;
@@ -19,8 +20,11 @@ interface HomeState {
 const avatarCacheID = "avatar";
 const apiCacheID = "api";
 
-class Home extends Component<{}, HomeState> {
-  constructor(props: {}) {
+class Home extends Component<
+  { updateIndex: (index: number) => void },
+  HomeState
+> {
+  constructor(props: { updateIndex: (index: number) => void }) {
     super(props);
     this.state = {
       loading: true,
@@ -134,7 +138,9 @@ class Home extends Component<{}, HomeState> {
                         {link.nav_link ? (
                           <a
                             href="#"
-                            data-navlink={link.url}
+                            onClick={() => {
+                              this.props.updateIndex(parseInt(link.url));
+                            }}
                             className={
                               "waves-effect waves-linkColour btn-flat" +
                               (!link.enabled ? " disabled" : "")
