@@ -15,6 +15,7 @@ import "./sass/index.scss";
 
 import "./sass/ie11.scss";
 import App from "./app";
+import { BrowserRouter } from "react-router-dom";
 
 const backgrounds = config.backgrounds;
 const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
@@ -39,6 +40,8 @@ document.getElementsByTagName("head")[0].appendChild(css);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App background={background} userInfo={config.user_info} />
+    <BrowserRouter>
+      <App background={background} userInfo={config.user_info} />
+    </BrowserRouter>
   </React.StrictMode>
 );

@@ -9,7 +9,7 @@ import { createBlobFromImage, fetchImageFromCache, getJSON } from "./util";
 import config from "./config.json";
 
 import "./sass/home.scss";
-import { IndexContext } from "./sharedContext";
+import { Link } from "react-router-dom";
 
 interface HomeState {
   loading: boolean;
@@ -20,11 +20,8 @@ interface HomeState {
 const avatarCacheID = "avatar";
 const apiCacheID = "api";
 
-class Home extends Component<
-  { updateIndex: (index: number) => void },
-  HomeState
-> {
-  constructor(props: { updateIndex: (index: number) => void }) {
+class Home extends Component<{}, HomeState> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       loading: true,
@@ -136,18 +133,17 @@ class Home extends Component<
                       <td>{link.title}</td>
                       <td className="right">
                         {link.nav_link ? (
-                          <a
-                            href="#"
-                            onClick={() => {
-                              this.props.updateIndex(parseInt(link.url));
-                            }}
-                            className={
-                              "waves-effect waves-linkColour btn-flat" +
-                              (!link.enabled ? " disabled" : "")
-                            }
-                          >
-                            {link.button_text}
-                          </a>
+                          <Link to={link.url}>
+                            <a
+                              href="#"
+                              className={
+                                "waves-effect waves-linkColour btn-flat" +
+                                (!link.enabled ? " disabled" : "")
+                              }
+                            >
+                              {link.button_text}
+                            </a>
+                          </Link>
                         ) : (
                           <a
                             href={link.url}

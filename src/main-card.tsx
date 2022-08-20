@@ -1,35 +1,23 @@
-import React, { useContext } from "react";
-import Carousel from "react-material-ui-carousel";
-
 import Home from "./home";
 import Projects from "./projects";
 
-import { IndexContext } from "./sharedContext";
-
 import "./sass/main-card.scss";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
 function MainCard() {
-  const indexContext = useContext(IndexContext);
+  const location = useLocation();
 
   return (
     <div className="card hoverable white-text max-w-xl w-full">
-      <Carousel
-        className="card-carousel"
-        autoPlay={false}
-        swipe={false}
-        indicators={false}
-        animation="slide"
-        cycleNavigation={false}
-        navButtonsAlwaysInvisible={true}
-        index={indexContext.value!}
-        duration={750}
-      >
-        <Home
-          updateIndex={(index) => {
-            indexContext.setValue(index);
-          }}
-        />
-        <Projects />
-      </Carousel>
+      <TransitionGroup component={null}>
+        <CSSTransition key={location.key} classNames="fade" timeout={300}>
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
     </div>
   );
 }

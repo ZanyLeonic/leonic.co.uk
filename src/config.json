@@ -47,7 +47,7 @@
     {
       "title": "Portfolio",
       "button_text": "Coming soon",
-      "url": "1",
+      "url": "/projects",
       "nav_link": true,
       "enabled": true
     },
