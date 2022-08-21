@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import config from "./config.json";
 
 import "./sass/projects.scss";
@@ -52,7 +53,9 @@ class Projects extends Component<{}, ProjectsState> {
                         <p>{project.description}</p>
                       </div>
                       <div className="card-action">
-                        <a href="#">Learn more</a>
+                        <Link to={`/projects/${i}`}>
+                          <span style={{ cursor: "pointer" }}>Learn more</span>
+                        </Link>
                       </div>
                     </div>
                   </div>

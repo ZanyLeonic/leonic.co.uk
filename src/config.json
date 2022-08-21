@@ -84,49 +84,105 @@
     {
       "title": "Warspite",
       "description": "A 2D modular game engine created to learn development with C++ and SDL2 for an A-Level Computer Science project",
-      "image_url": "",
+      "thumb_image_url": "",
+      "image_urls": [
+        "/img/FXMEDEZVUAAcm7C.jpg",
+        "/img/jridfx487de91.png",
+        "/img/njiff3bsa3i91.jpg",
+        "/img/7e047qkvrpy21.png"
+      ],
+      "links": [
+        {
+          "title": "Testing/Demonstration videos",
+          "url": "https://www.youtube.com/playlist?list=PLj8k3y39-L1rf4Ev-Q03nCzX6lIRKNsMp"
+        },
+        {
+          "title": "GitHub Repository",
+          "url": "https://github.com/ZanyLeonic/Warspite"
+        }
+      ],
       "language": "C++",
       "year": "2020"
     },
     {
       "title": "Swordle",
       "description": "An online competitive multiplayer version of Wordle, powered by Django. Won 2nd place at Royal Hackaway 2022",
-      "image_url": "",
+      "thumb_image_url": "",
+      "image_urls": [],
+      "links": [
+        {
+          "title": "DevPost",
+          "url": "https://devpost.com/software/swordle"
+        },
+        {
+          "title": "GitHub Repository",
+          "url": "https://github.com/stephanie-flower/swordle"
+        }
+      ],
       "language": "Python",
       "year": "2022"
     },
     {
       "title": "Nina Aquila: Legal Eagle Season 1",
       "description": "Wrote a set of bespoke plugins to customise the look and feel of the dialog boxes in RPGMaker MV.",
-      "image_url": "",
+      "thumb_image_url": "",
+      "image_urls": [],
+      "links": [
+        {
+          "title": "itch.io",
+          "url": "https://tanuki-sama-studios.itch.io"
+        },
+        {
+          "title": "Steam",
+          "url": "https://store.steampowered.com/app/1547290"
+        }
+      ],
       "language": "JavaScript",
       "year": "2021"
     },
     {
       "title": "Warspite Authoring Tools",
       "description": "Engine tools and utilities for the Warspite game engine.",
-      "image_url": "",
+      "thumb_image_url": "",
+      "image_urls": [],
+      "links": [
+        {
+          "title": "GitHub Repository",
+          "url": "https://github.com/ZanyLeonic/WarspiteEngine.AuthoringTools"
+        }
+      ],
       "language": "C#",
       "year": "2020"
     },
     {
       "title": "Sixth Form Foyer Editor",
       "description": "A WYSIWYG editor for the Sixth Form Foyer commissioned by the head of Sixth Form",
-      "image_url": "",
+      "thumb_image_url": "",
+      "image_urls": [],
+      "links": [],
       "language": "C#",
       "year": "2021"
     },
     {
       "title": "Pico LCD Server",
       "description": "A small program that runs a webserver allowing users to submit text to be displayed on a LCD screen attached to a RP2040 device",
-      "image_url": "",
+      "thumb_image_url": "",
+      "image_urls": [],
+      "links": [
+        {
+          "title": "GitHub Repository",
+          "url": "https://github.com/ZanyLeonic/WarspiteEngine.AuthoringTools"
+        }
+      ],
       "language": "C",
       "year": "2021"
     },
     {
       "title": "Leonic WEB: BETA",
       "description": "The 2016 iteration of my website, designed using MaterializeCSS and powered by PHP and MySQL",
-      "image_url": "",
+      "thumb_image_url": "",
+      "image_urls": [],
+      "links": [],
       "language": "PHP",
       "year": "2016"
     }

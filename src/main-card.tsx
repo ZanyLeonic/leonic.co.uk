@@ -4,6 +4,7 @@ import Projects from "./projects";
 import "./sass/main-card.scss";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import Project from "./project";
 
 function MainCard() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function MainCard() {
           <Routes location={location}>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:projectId" element={<Project />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>
