@@ -1,5 +1,4 @@
 import { Component } from "react";
-import FadeIn from "react-fade-in";
 import { Link, useParams } from "react-router-dom";
 import parse from "html-react-parser";
 import config from "./config.json";
@@ -77,22 +76,20 @@ class Project extends Component<{ params: any }, ProjectState> {
           {this.state.loading ? (
             <ImagePlaceholder />
           ) : (
-            <FadeIn>
-              <Carousel animation="slide">
-                {currentProject.image_urls.map((url, i) => {
-                  return (
-                    <a href={url} target="_blank">
-                      <img
-                        className="object-contain max-w-6xl max-h-80"
-                        alt={currentProject.title}
-                        key={i}
-                        src={url}
-                      />
-                    </a>
-                  );
-                })}
-              </Carousel>
-            </FadeIn>
+            <Carousel animation="slide">
+              {currentProject.image_urls.map((url, i) => {
+                return (
+                  <a href={url} target="_blank">
+                    <img
+                      className="object-contain max-w-6xl max-h-80"
+                      alt={currentProject.title}
+                      key={i}
+                      src={url}
+                    />
+                  </a>
+                );
+              })}
+            </Carousel>
           )}
         </div>
         <div className="card-stacked">

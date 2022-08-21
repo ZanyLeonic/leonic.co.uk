@@ -1,7 +1,6 @@
 import { Component, useContext } from "react";
 import { LocalStorage } from "ttl-localstorage";
 
-import FadeIn from "react-fade-in";
 import ImagePlaceholder from "./image-placeholder";
 import parse from "html-react-parser";
 
@@ -81,15 +80,13 @@ class Home extends Component<{}, HomeState> {
           {this.state.loading ? (
             <ImagePlaceholder />
           ) : (
-            <FadeIn>
-              <img
-                className="responsive-img profile-image"
-                alt={config.user_info.github + "'s profile picture"}
-                src={this.state.imageURL}
-                height="373px"
-                width="373px"
-              />
-            </FadeIn>
+            <img
+              className="responsive-img profile-image"
+              alt={config.user_info.github + "'s profile picture"}
+              src={this.state.imageURL}
+              height="373px"
+              width="373px"
+            />
           )}
         </div>
         <div className="home card-stacked">

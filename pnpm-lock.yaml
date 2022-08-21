@@ -14,12 +14,12 @@ specifiers:
   isomorphic-fetch: ^3.0.0
   material-icons: ^1.10.11
   materialize-css: github:zanyleonic/materialize
+  pnpm: ^7.9.3
   postcss: ^8.4.16
   react: ^18.0.0
   react-content-loader: ^6.2.0
   react-device-detect: ^2.2.2
   react-dom: ^18.0.0
-  react-fade-in: ^2.0.1
   react-material-ui-carousel: ^3.4.2
   react-router-dom: '6'
   react-transition-group: ^4.4.5
@@ -43,7 +43,6 @@ dependencies:
   react-content-loader: 6.2.0_react@18.1.0
   react-device-detect: 2.2.2_react-dom@18.1.0+react@18.1.0
   react-dom: 18.1.0_react@18.1.0
-  react-fade-in: 2.0.1_react@18.1.0
   react-material-ui-carousel: 3.4.2_b79c35519669af94259ae33a954127ab
   react-router-dom: 6.3.0_react-dom@18.1.0+react@18.1.0
   react-transition-group: 4.4.5_react-dom@18.1.0+react@18.1.0
@@ -55,6 +54,7 @@ devDependencies:
   '@types/react-dom': 18.0.3
   '@vitejs/plugin-react': 1.3.2
   autoprefixer: 10.4.8_postcss@8.4.16
+  pnpm: 7.9.3
   postcss: 8.4.16
   tailwindcss: 3.1.8
   typescript: 4.6.4
@@ -1629,6 +1629,12 @@ packages:
       semver-compare: 1.0.0
     dev: false
 
+  /pnpm/7.9.3:
+    resolution: {integrity: sha512-0hpAD1vtILw0i9gTN4ffagnScWMW9/avfZIKllBUd++fAvCss+hVgPPDd0HS9XcOT675gid4H9esGkbLdaFy+w==}
+    engines: {node: '>=14.6'}
+    hasBin: true
+    dev: true
+
   /popmotion/9.3.6:
     resolution: {integrity: sha512-ZTbXiu6zIggXzIliMi8LGxXBF5ST+wkpXGEjeTUDUOCdSQ356hij/xjeUdv0F8zCQNeqB1+PR5/BB+gC+QLAPw==}
     dependencies:
@@ -1753,14 +1759,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.1.0
       scheduler: 0.22.0
-    dev: false
-
-  /react-fade-in/2.0.1_react@18.1.0:
-    resolution: {integrity: sha512-oqS/WT4znaXEHmL+yo0IDUDY7uC9K4RP35j1SdRUEBspR09B2iIC0i8oJ28tPOr6Ez/L2aktF9p89j+DbsTVNw==}
-    peerDependencies:
-      react: ^16.8 || 17
-    dependencies:
-      react: 18.1.0
     dev: false
 
   /react-is/16.13.1:
