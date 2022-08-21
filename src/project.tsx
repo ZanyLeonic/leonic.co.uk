@@ -55,7 +55,7 @@ class Project extends Component<{ params: any }, ProjectState> {
             </div>
             <div className="card-action">
               <Link to="/projects">
-                <span style={{ cursor: "pointer" }}>Back to all projects</span>
+                <a href="#">Back to all projects</a>
               </Link>
             </div>
           </div>
