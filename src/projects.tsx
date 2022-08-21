@@ -32,7 +32,14 @@ class Projects extends Component<{}, ProjectsState> {
         <div className="card-stacked">
           <div className="card-content">
             <div className="card-header">
-              <span className="card-title">Projects</span>
+              <span className="card-title">
+                <span className="inline lg:hidden">
+                  <Link to="/">
+                    <i className="material-icons">arrow_back</i>
+                  </Link>{" "}
+                </span>
+                Projects
+              </span>
               <span className="card-subtitle">
                 A few highlights of a my previous passion and commission work
               </span>
@@ -71,6 +78,9 @@ class Projects extends Component<{}, ProjectsState> {
                   </div>
                 );
               })}
+            </div>
+            <div className="card-action">
+              <a href="#">Go to Top</a>
             </div>
           </div>
         </div>

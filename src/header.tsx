@@ -1,15 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./sass/header.scss";
+import M from "materialize-css";
 
 const links = [
   {
     title: "Home",
     path: "/",
+    icon: "home",
   },
   {
     title: "Projects",
     path: "/projects",
+    icon: "folder_special",
   },
 ];
 
@@ -23,18 +26,11 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <div className="navbar-fixed">
+        <nav className="navbar-fixed">
           <nav>
             <div className="nav-wrapper">
               <a href="#!" className="brand-logo">
                 leonic.co.uk
-              </a>
-              <a
-                href="#"
-                data-target="mobile-navigation"
-                className="sidenav-trigger"
-              >
-                <i className="material-icons">menu</i>
               </a>
               <ul className="right hide-on-med-and-down" id="nav-items">
                 {links.map((link, i) => {
@@ -44,7 +40,7 @@ class Header extends React.Component {
                         to={link.path}
                         className={({ isActive }) => (isActive ? "active" : "")}
                       >
-                        <a href="#">{link.title}</a>
+                        {link.title}
                       </NavLink>
                     </li>
                   );
@@ -52,21 +48,7 @@ class Header extends React.Component {
               </ul>
             </div>
           </nav>
-        </div>
-        <ul className="sidenav sidenav-close" id="mobile-navigation">
-          {links.map((link, i) => {
-            return (
-              <li key={i}>
-                <NavLink
-                  to={link.path}
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                  <a href="#">{link.title}</a>
-                </NavLink>
-              </li>
-            );
-          })}
-        </ul>
+        </nav>
       </header>
     );
   }
