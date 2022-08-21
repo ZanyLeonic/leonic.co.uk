@@ -10,7 +10,7 @@ function MainCard() {
   const location = useLocation();
 
   return (
-    <div className="card hoverable white-text max-w-xl md:max-w-2xl w-full">
+    <div className="card main-card hoverable white-text max-w-xl md:max-w-2xl w-full">
       <TransitionGroup component={null}>
         <CSSTransition
           key={location.key}

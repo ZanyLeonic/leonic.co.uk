@@ -57,32 +57,6 @@ a {
   z-index: -999;
 }
 
-.card {
-  background-color: transparent !important;
-  overflow: hidden;
-  // For the links
-  .card-action
-    a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
-    text-transform: none;
-    margin-right: 0;
-  }
-
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -10px;
-    left: -10px;
-    bottom: -10px;
-    right: -10px;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    filter: blur(1.5rem);
-  }
-}
-
 .waves-effect {
   &.waves-linkColour .waves-ripple {
     background-color: $secondary-colour;

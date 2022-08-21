@@ -12,7 +12,7 @@ function App(props: { background: any; userInfo: any }) {
         <Header />
       </header>
       <main>
-        <div className="background-image scanlines"></div>
+        <div className="background-image"></div>
         <div className="flex justify-center items-center w-full h-full">
           <MainCard />
         </div>
