@@ -40,7 +40,7 @@ class Header extends React.Component {
                         to={link.path}
                         className={({ isActive }) => (isActive ? "active" : "")}
                       >
-                        {link.title}
+                        <a href="#">{link.title}</a>
                       </NavLink>
                     </li>
                   );
