@@ -119,6 +119,11 @@
       ],
       "links": [
         {
+          "title": "Twitter",
+          "icon": "",
+          "url": "https://twitter.com/NinaAquilaGame"
+        },
+        {
           "title": "itch.io",
           "icon": "",
           "url": "https://tanuki-sama-studios.itch.io"
