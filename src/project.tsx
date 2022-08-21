@@ -123,7 +123,7 @@ class Project extends Component<{ params: any }, ProjectState> {
                           height="18"
                           width="18"
                           style={{ verticalAlign: "middle", display: "inline" }}
-                        />
+                        />{" "}
                         <a href={link.url} target="_blank" style={{}}>
                           {link.title}
                         </a>
