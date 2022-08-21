@@ -83,7 +83,7 @@
   "projects": [
     {
       "title": "Swordle",
-      "description": "An online competitive multiplayer version of Wordle, powered by Django. Won 2nd place at Royal Hackaway 2022",
+      "description": "Won 2nd place at Royal Hackaway, Swordle is an online competitive multiplayer version of Wordle.",
       "extended_description": "",
       "thumb_image_url": "/img/projects/swordle/thumbnail.png",
       "image_urls": [
