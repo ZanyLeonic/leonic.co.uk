@@ -83,7 +83,7 @@
   "projects": [
     {
       "title": "Swordle",
-      "description": "Won 2nd place at Royal Hackaway, Swordle is an online competitive multiplayer version of Wordle.",
+      "description": "Swordle is an online competitive multiplayer version of Wordle, won 2nd place at Royal Hackaway v5.",
       "extended_description": "",
       "thumb_image_url": "/img/projects/swordle/thumbnail.png",
       "image_urls": [
