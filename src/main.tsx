@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { support_format_webp } from "./util";
 import config from "./config.json";
@@ -13,10 +13,9 @@ import "./sass/ext/scanlines.scss";
 
 import "./sass/index.scss";
 
-import MainCard from "./main-card";
-import Footer from "./footer";
-
 import "./sass/ie11.scss";
+import App from "./app";
+import { BrowserRouter } from "react-router-dom";
 
 const backgrounds = config.backgrounds;
 const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
@@ -41,19 +40,8 @@ document.getElementsByTagName("head")[0].appendChild(css);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <main>
-      <div className="background-image scanlines"></div>
-      <div className="container">
-        <div className="row">
-          <MainCard />
-        </div>
-      </div>
-    </main>
-    <Footer
-      author={background.author}
-      authorURL={background.author_url}
-      copyrightOwner={config.user_info.name}
-      photo={background.photo}
-    />
+    <BrowserRouter>
+      <App background={background} userInfo={config.user_info} />
+    </BrowserRouter>
   </React.StrictMode>
 );

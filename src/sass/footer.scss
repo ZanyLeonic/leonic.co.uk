@@ -2,7 +2,9 @@
 
 .page-footer {
   padding-top: 0 !important;
-  background-color: rgba($base-colour, 0.4) !important;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: rgba(#2d2d31, 0.85) !important;
 
   transition: all 250ms ease;
   -webkit-transition: all 250ms ease;
@@ -11,6 +13,6 @@
   -ms-transition: all 250ms ease;
 
   &:hover {
-    background-color: rgba($accent-color, 0.4) !important;
+    background-color: rgba($base-colour, 0.4) !important;
   }
 }

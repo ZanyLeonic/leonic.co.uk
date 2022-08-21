@@ -1,0 +1,84 @@
+@import "ext/constants.scss";
+
+// Mobile screens
+@media only screen and (max-width: $mobile-screen) {
+  .loader svg {
+    max-height: 379px;
+  }
+}
+
+@media only screen and (min-width: $large-screen) {
+  .home {
+    .card-image {
+      width: 75%;
+      .loader {
+        height: 373px;
+        width: 100%;
+        margin-left: 16.5%;
+      }
+
+      img.profile-image {
+        margin-left: 16.5%;
+      }
+    }
+  }
+  .row {
+    .col.offset-l3 {
+      margin-left: 30%;
+    }
+    .col.l6 {
+      width: 40%;
+    }
+  }
+}
+
+// Card customizations
+.home {
+  .card-title {
+    font-size: 2rem;
+    font-weight: 300;
+    &.activator {
+      cursor: pointer;
+    }
+  }
+
+  .card-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    &.activator {
+      cursor: pointer;
+    }
+  }
+
+  .profile-point {
+    a {
+      padding-left: 3px;
+    }
+  }
+
+  .card-content {
+    .divider {
+      margin-top: 2.5%;
+      margin-bottom: 2.5%;
+    }
+  }
+
+  span.card-subtitle {
+    break-after: always;
+  }
+
+  td {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  table {
+    border-collapse: unset;
+  }
+}
+
+.profile-point {
+  font-size: 1rem;
+  break-after: always;
+  margin-bottom: 5px;
+}

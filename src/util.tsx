@@ -1,3 +1,8 @@
+import { LocalStorage } from "ttl-localstorage";
+import { isIE } from "react-device-detect";
+
+import "isomorphic-fetch";
+
 function support_format_webp(): boolean {
   var elem = document.createElement("canvas");
 
@@ -37,4 +42,56 @@ function dataURItoBlob(dataURI: string) {
   return blob;
 }
 
-export { support_format_webp, dataURItoBlob };
+function fetchImageFromCache(id: string): string {
+  const cachedImage = LocalStorage.get(id);
+
+  if (cachedImage) {
+    // IE11 doesn't like creating blobs from data URIs, so we just use the data URI
+    return isIE ? cachedImage : URL.createObjectURL(dataURItoBlob(cachedImage));
+  } else {
+    return "";
+  }
+}
+
+async function getJSON(url: string): Promise<any> {
+  return fetch(url)
+    .then((response) => response.json())
+    .then((jRes) => {
+      return jRes;
+    });
+}
+
+function createBlobFromImage(
+  url: string,
+  id?: string,
+  ttl?: number
+): Promise<string> {
+  return new Promise<string>((resolve, reject) => {
+    fetch(url)
+      .then((response) => response.blob())
+      .then((imageBlob) => {
+        // Create a URI pointing to the blob
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+
+        // Cache the image in local storage
+        if (typeof id !== "undefined" && typeof ttl !== "undefined") {
+          const reader = new FileReader();
+
+          reader.onload = (event) => {
+            LocalStorage.put(id, event.target?.result, ttl);
+          };
+
+          reader.readAsDataURL(imageBlob);
+        }
+        resolve(imageObjectURL);
+      });
+  });
+}
+
+export {
+  createBlobFromImage,
+  dataURItoBlob,
+  fetchImageFromCache,
+  getJSON,
+  support_format_webp,
+};
