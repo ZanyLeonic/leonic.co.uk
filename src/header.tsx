@@ -26,13 +26,13 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <nav className="navbar-fixed">
+        <nav className="navbar-fixed hide-on-med-and-down">
           <nav>
             <div className="nav-wrapper">
               <a href="#!" className="brand-logo">
                 leonic.co.uk
               </a>
-              <ul className="right hide-on-med-and-down" id="nav-items">
+              <ul className="right" id="nav-items">
                 {links.map((link, i) => {
                   return (
                     <li key={i}>
