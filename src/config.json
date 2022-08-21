@@ -46,7 +46,7 @@
   "links": [
     {
       "title": "Portfolio",
-      "button_text": "Coming soon",
+      "button_text": "View Projects",
       "url": "/projects",
       "nav_link": true,
       "enabled": true
@@ -102,7 +102,7 @@
           "url": "https://github.com/stephanie-flower/swordle"
         }
       ],
-      "language": "Python",
+      "language": "Python + JavaScript",
       "year": "2022"
     },
     {

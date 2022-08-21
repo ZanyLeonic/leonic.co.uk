@@ -56,6 +56,10 @@ class Projects extends Component<{}, ProjectsState> {
                         </span>
                       </div>
                       <div className="card-content">
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>Language: </span>
+                          {project.language}
+                        </p>
                         <p>{project.description}</p>
                       </div>
                       <div className="card-action">
