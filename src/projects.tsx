@@ -50,18 +50,20 @@ class Projects extends Component<{}, ProjectsState> {
                 return (
                   <div key={i}>
                     <div className="card">
-                      <div className="card-image">
-                        <img
-                          src={
-                            project.thumb_image_url == ""
-                              ? "/img/projects/unknown.png"
-                              : project.thumb_image_url
-                          }
-                        />
-                        <span className="card-title">
-                          {project.title} ({project.year})
-                        </span>
-                      </div>
+                      <Link to={`/projects/${i}`}>
+                        <div className="card-image waves-effect w-full">
+                          <img
+                            src={
+                              project.thumb_image_url == ""
+                                ? "/img/projects/unknown.png"
+                                : project.thumb_image_url
+                            }
+                          />
+                          <span className="card-title">
+                            {project.title} ({project.year})
+                          </span>
+                        </div>
+                      </Link>
                       <div className="card-content">
                         <p>
                           <span style={{ fontWeight: "bold" }}>Language: </span>
