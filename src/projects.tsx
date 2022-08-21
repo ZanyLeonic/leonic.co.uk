@@ -44,7 +44,13 @@ class Projects extends Component<{}, ProjectsState> {
                   <div key={i}>
                     <div className="card">
                       <div className="card-image">
-                        <img src="/img/card-test.png" />
+                        <img
+                          src={
+                            project.thumb_image_url == ""
+                              ? "/img/projects/unknown.png"
+                              : project.thumb_image_url
+                          }
+                        />
                         <span className="card-title">
                           {project.title} ({project.year})
                         </span>
@@ -54,7 +60,7 @@ class Projects extends Component<{}, ProjectsState> {
                       </div>
                       <div className="card-action">
                         <Link to={`/projects/${i}`}>
-                          <span style={{ cursor: "pointer" }}>Learn more</span>
+                          <a href="#">Learn more</a>
                         </Link>
                       </div>
                     </div>

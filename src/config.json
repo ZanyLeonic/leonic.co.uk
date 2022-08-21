@@ -82,40 +82,22 @@
   ],
   "projects": [
     {
-      "title": "Warspite",
-      "description": "A 2D modular game engine created to learn development with C++ and SDL2 for an A-Level Computer Science project",
-      "thumb_image_url": "",
-      "image_urls": [
-        "/img/FXMEDEZVUAAcm7C.jpg",
-        "/img/jridfx487de91.png",
-        "/img/njiff3bsa3i91.jpg",
-        "/img/7e047qkvrpy21.png"
-      ],
-      "links": [
-        {
-          "title": "Testing/Demonstration videos",
-          "url": "https://www.youtube.com/playlist?list=PLj8k3y39-L1rf4Ev-Q03nCzX6lIRKNsMp"
-        },
-        {
-          "title": "GitHub Repository",
-          "url": "https://github.com/ZanyLeonic/Warspite"
-        }
-      ],
-      "language": "C++",
-      "year": "2020"
-    },
-    {
       "title": "Swordle",
       "description": "An online competitive multiplayer version of Wordle, powered by Django. Won 2nd place at Royal Hackaway 2022",
-      "thumb_image_url": "",
-      "image_urls": [],
+      "thumb_image_url": "/img/projects/swordle/thumbnail.png",
+      "image_urls": [
+        "/img/projects/swordle/gallery.jpg",
+        "/img/projects/swordle/gallery-2.jpg"
+      ],
       "links": [
         {
           "title": "DevPost",
+          "icon": "",
           "url": "https://devpost.com/software/swordle"
         },
         {
           "title": "GitHub Repository",
+          "icon": "",
           "url": "https://github.com/stephanie-flower/swordle"
         }
       ],
@@ -125,15 +107,23 @@
     {
       "title": "Nina Aquila: Legal Eagle Season 1",
       "description": "Wrote a set of bespoke plugins to customise the look and feel of the dialog boxes in RPGMaker MV.",
-      "thumb_image_url": "",
-      "image_urls": [],
+      "thumb_image_url": "/img/projects/nina/thumbnail.png",
+      "image_urls": [
+        "/img/projects/nina/ss_a7091527b42a401133289ec295bda90b5de72bc4.jpg",
+        "/img/projects/nina/ss_b65db22be864ea18678cf1fb1d900215953b2a6c.jpg",
+        "/img/projects/nina/20220821122952_1.jpg",
+        "/img/projects/nina/20220821122842_1.jpg",
+        "/img/projects/nina/20220821122602_1.jpg"
+      ],
       "links": [
         {
           "title": "itch.io",
+          "icon": "",
           "url": "https://tanuki-sama-studios.itch.io"
         },
         {
           "title": "Steam",
+          "icon": "",
           "url": "https://store.steampowered.com/app/1547290"
         }
       ],
@@ -141,24 +131,14 @@
       "year": "2021"
     },
     {
-      "title": "Warspite Authoring Tools",
-      "description": "Engine tools and utilities for the Warspite game engine.",
-      "thumb_image_url": "",
-      "image_urls": [],
-      "links": [
-        {
-          "title": "GitHub Repository",
-          "url": "https://github.com/ZanyLeonic/WarspiteEngine.AuthoringTools"
-        }
-      ],
-      "language": "C#",
-      "year": "2020"
-    },
-    {
       "title": "Sixth Form Foyer Editor",
       "description": "A WYSIWYG editor for the Sixth Form Foyer commissioned by the head of Sixth Form",
-      "thumb_image_url": "",
-      "image_urls": [],
+      "thumb_image_url": "/img/projects/foyer-editor/thumbnail.png",
+      "image_urls": [
+        "/img/projects/foyer-editor/site.png",
+        "/img/projects/foyer-editor/editor.png",
+        "/img/projects/foyer-editor/image-slideshow.png"
+      ],
       "links": [],
       "language": "C#",
       "year": "2021"
@@ -171,18 +151,79 @@
       "links": [
         {
           "title": "GitHub Repository",
-          "url": "https://github.com/ZanyLeonic/WarspiteEngine.AuthoringTools"
+          "icon": "",
+          "url": "https://github.com/ZanyLeonic/Pico-LCD-Server"
         }
       ],
       "language": "C",
       "year": "2021"
     },
     {
+      "title": "Warspite",
+      "description": "A 2D modular game engine created to learn development with C++ and SDL2 for an A-Level Computer Science project",
+      "thumb_image_url": "/img/projects/warspite/thumbnail.png",
+      "image_urls": [
+        "/img/projects/warspite/title.png",
+        "/img/projects/warspite/inengine.png",
+        "/img/projects/warspite/dialogue.png",
+        "/img/projects/warspite/input-test.png"
+      ],
+      "links": [
+        {
+          "title": "Testing/Demonstration videos",
+          "icon": "",
+          "url": "https://www.youtube.com/playlist?list=PLj8k3y39-L1rf4Ev-Q03nCzX6lIRKNsMp"
+        },
+        {
+          "title": "GitHub Repository",
+          "icon": "",
+          "url": "https://github.com/ZanyLeonic/Warspite"
+        }
+      ],
+      "language": "C++",
+      "year": "2020"
+    },
+    {
+      "title": "Warspite Authoring Tools",
+      "description": "Engine tools and utilities for the Warspite game engine.",
+      "thumb_image_url": "/img/projects/ws-authoringtools/thumbnail.png",
+      "image_urls": [
+        "/img/projects/ws-authoringtools/authoringtool.png",
+        "/img/projects/ws-authoringtools/diageditor.png",
+        "/img/projects/ws-authoringtools/dialogueeditor.png",
+        "/img/projects/ws-authoringtools/dialoguepropertyeditor.png",
+        "/img/projects/ws-authoringtools/fonteditor.png",
+        "/img/projects/ws-authoringtools/in-editor.png",
+        "/img/projects/ws-authoringtools/objecteditor.png",
+        "/img/projects/ws-authoringtools/textureeditor.png"
+      ],
+      "links": [
+        {
+          "title": "GitHub Repository",
+          "icon": "",
+          "url": "https://github.com/ZanyLeonic/WarspiteEngine.AuthoringTools"
+        }
+      ],
+      "language": "C#",
+      "year": "2020"
+    },
+    {
       "title": "Leonic WEB: BETA",
       "description": "The 2016 iteration of my website, designed using MaterializeCSS and powered by PHP and MySQL",
-      "thumb_image_url": "",
-      "image_urls": [],
-      "links": [],
+      "thumb_image_url": "/img/projects/leonicwebbeta/home.png",
+      "image_urls": [
+        "/img/projects/leonicwebbeta/home.png",
+        "/img/projects/leonicwebbeta/applications.png",
+        "/img/projects/leonicwebbeta/comments.png",
+        "/img/projects/leonicwebbeta/all-updates.png"
+      ],
+      "links": [
+        {
+          "title": "Archived version",
+          "icon": "https://archive.org/favicon.ico",
+          "url": "https://web.archive.org/web/20170918171117/http://leonic.no-ip.biz/"
+        }
+      ],
       "language": "PHP",
       "year": "2016"
     }

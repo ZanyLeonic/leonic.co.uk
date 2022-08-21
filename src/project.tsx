@@ -54,6 +54,11 @@ class Project extends Component<{ params: any }, ProjectState> {
                 </span>
               </div>
             </div>
+            <div className="card-action">
+              <Link to="/projects">
+                <span style={{ cursor: "pointer" }}>Back to all projects</span>
+              </Link>
+            </div>
           </div>
         </div>
       );
@@ -76,11 +81,14 @@ class Project extends Component<{ params: any }, ProjectState> {
               <Carousel animation="slide">
                 {currentProject.image_urls.map((url, i) => {
                   return (
-                    <img
-                      className="object-contain max-w-6xl max-h-80"
-                      alt={currentProject.title}
-                      src={url}
-                    />
+                    <a href={url} target="_blank">
+                      <img
+                        className="object-contain max-w-6xl max-h-80"
+                        alt={currentProject.title}
+                        key={i}
+                        src={url}
+                      />
+                    </a>
                   );
                 })}
               </Carousel>
@@ -91,35 +99,46 @@ class Project extends Component<{ params: any }, ProjectState> {
           <div className="card-content">
             <div className="card-header">
               <span className="card-title">{currentProject.title}</span>
-              <span className="card-subtitle">
+              <span className="card-subtitle pb-2 block">
                 {parse(currentProject.description)}
               </span>
             </div>
             <div className="divider"></div>
-            <div className="project-container pt-2 pb-2">
-              {currentProject.links.map((link, i) => {
-                let uri = new URL(link.url);
 
-                return (
-                  <p>
-                    <img
-                      className="bg-slate-500"
-                      src={`${uri.protocol}//${uri.hostname}/favicon.ico`}
-                      height="18"
-                      width="18"
-                      style={{ verticalAlign: "middle", display: "inline" }}
-                    />{" "}
-                    <a href={link.url} target="_blank" style={{}}>
-                      {link.title}
-                    </a>
-                  </p>
-                );
-              })}
-            </div>
-            <div className="divider"></div>
+            {currentProject.links.length > 0 ? (
+              <>
+                <div className="project-container pt-2 pb-2">
+                  {currentProject.links.map((link, i) => {
+                    let uri = new URL(link.url);
+
+                    return (
+                      <p key={i}>
+                        <img
+                          className="bg-white"
+                          src={
+                            link.icon == ""
+                              ? `${uri.protocol}//${uri.hostname}/favicon.ico`
+                              : link.icon
+                          }
+                          height="18"
+                          width="18"
+                          style={{ verticalAlign: "middle", display: "inline" }}
+                        />
+                        <a href={link.url} target="_blank" style={{}}>
+                          {link.title}
+                        </a>
+                      </p>
+                    );
+                  })}
+                </div>
+                <div className="divider"></div>
+              </>
+            ) : (
+              <></>
+            )}
             <div className="card-action">
               <Link to="/projects">
-                <span style={{ cursor: "pointer" }}>Back to all projects</span>
+                <a href="#">Back to all projects</a>
               </Link>
             </div>
           </div>
