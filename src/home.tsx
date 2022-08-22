@@ -81,11 +81,9 @@ class Home extends Component<{}, HomeState> {
             <ImagePlaceholder />
           ) : (
             <img
-              className="responsive-img profile-image"
+              className="profile-image"
               alt={config.user_info.github + "'s profile picture"}
               src={this.state.imageURL}
-              height="373px"
-              width="373px"
             />
           )}
         </div>
