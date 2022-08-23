@@ -45,6 +45,7 @@ class Home extends Component<{}, HomeState> {
         bio: cachedResponse.bio,
       });
     }
+    document.title = "Leo Durrant | leonic.co.uk";
   }
 
   async fetchUserInfo(cachedResponse: string) {

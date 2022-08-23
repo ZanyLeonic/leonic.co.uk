@@ -37,6 +37,11 @@ class Project extends Component<{ params: any }, ProjectState> {
     };
   }
 
+  componentDidMount(): void {
+    const currentProject = config.projects[this.state.params];
+    document.title = 'Project "' + currentProject.title + '" | leonic.co.uk';
+  }
+
   render() {
     const projects = config.projects;
 

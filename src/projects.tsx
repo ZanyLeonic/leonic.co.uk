@@ -16,6 +16,10 @@ class Projects extends Component<{}, ProjectsState> {
     };
   }
 
+  componentDidMount(): void {
+    document.title = "Projects | leonic.co.uk";
+  }
+
   render() {
     return (
       <div
