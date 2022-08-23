@@ -102,6 +102,10 @@ class Project extends Component<{ params: any }, ProjectState> {
             <div className="card-header">
               <span className="card-title">{currentProject.title}</span>
               <span className="card-subtitle pb-2 block">
+                <span className="font-bold">Language: </span>
+                {currentProject.language}
+              </span>
+              <span className="card-subtitle pb-2 block">
                 {currentProject.extended_description.length < 1
                   ? parse(currentProject.description)
                   : parse(currentProject.extended_description)}
@@ -120,6 +124,7 @@ class Project extends Component<{ params: any }, ProjectState> {
                         href={link.url}
                         className="waves-effect waves-linkColour btn-flat block text-xl pt-2"
                         target="_blank"
+                        key={i}
                       >
                         <div className="flex items-center">
                           <img

@@ -107,8 +107,8 @@
     },
     {
       "title": "Nina Aquila: Legal Eagle Season 1",
-      "description": "Wrote a set of bespoke plugins to customise the look and feel of the dialog boxes in RPGMaker MV.",
-      "extended_description": "",
+      "description": "Wrote a set of bespoke plugins to customise the look and feel of the dialogue boxes in RPGMaker MV",
+      "extended_description": "Wrote a set of bespoke RPGMaker MV plugins to add stylised dialogue backgrounds, along with name plate system to allow the creator to decide when the player knows the NPCs name.",
       "thumb_image_url": "/img/projects/nina/thumbnail.png",
       "image_urls": [
         "/img/projects/nina/ss_a7091527b42a401133289ec295bda90b5de72bc4.jpg",
@@ -140,7 +140,7 @@
     {
       "title": "Sixth Form Foyer Editor",
       "description": "A WYSIWYG editor for the Sixth Form Foyer commissioned by the head of Sixth Form",
-      "extended_description": "",
+      "extended_description": "Designed and wrote an editor that allowed admin staff to change the contents the pre-existing foyer webpage without ever touching HTML.<br />This allows any member of staff to change text or the image carousel with a few clicks.<br />In addition to this editor, setup an easy method (via RDP, and VNC) for staff to remotely access the machine and modify the current display.",
       "thumb_image_url": "/img/projects/foyer-editor/thumbnail.png",
       "image_urls": [
         "/img/projects/foyer-editor/site.png",
@@ -154,7 +154,7 @@
     {
       "title": "Pico LCD Server",
       "description": "A small program that runs a webserver allowing users to submit text to be displayed on a LCD screen attached to a RP2040 device",
-      "extended_description": "",
+      "extended_description": "Using LCD, and an Ethernet module connected up to a Raspberry Pi Pico running a customised fork of lwip. This allowed users to submit text by browsing to it's IP address. ",
       "thumb_image_url": "/img/projects/lcdserver/thumbnail.png",
       "image_urls": [
         "/img/projects/lcdserver/Screenshot_20210819-014705.jpg",
@@ -201,7 +201,7 @@
     {
       "title": "Warspite Authoring Tools",
       "description": "Engine tools and utilities for the Warspite game engine.",
-      "extended_description": "",
+      "extended_description": "Provides a visual method for people using the Warspite game engine to create states, fonts, and dialogue trees in a faster fashion.",
       "thumb_image_url": "/img/projects/ws-authoringtools/thumbnail.png",
       "image_urls": [
         "/img/projects/ws-authoringtools/authoringtool.png",
