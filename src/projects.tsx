@@ -33,10 +33,8 @@ class Projects extends Component<{}, ProjectsState> {
           <div className="card-content">
             <div className="card-header">
               <span className="card-title">
-                <span className="inline lg:hidden">
-                  <Link to="/">
-                    <i className="material-icons">arrow_back</i>
-                  </Link>{" "}
+                <span className="inline text-4xl lg:hidden material-icons">
+                  <Link to="/">arrow_back</Link>
                 </span>
                 Projects
               </span>
@@ -51,7 +49,7 @@ class Projects extends Component<{}, ProjectsState> {
                   <div key={i}>
                     <div className="card">
                       <Link to={`/projects/${i}`}>
-                        <div className="card-image waves-effect w-full">
+                        <div className="card-image waves-effect waves-linkColour w-full">
                           <img
                             src={
                               project.thumb_image_url == ""

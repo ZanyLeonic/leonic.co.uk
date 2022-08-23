@@ -76,20 +76,25 @@ class Project extends Component<{ params: any }, ProjectState> {
           {this.state.loading ? (
             <ImagePlaceholder />
           ) : (
-            <Carousel animation="slide">
-              {currentProject.image_urls.map((url, i) => {
-                return (
-                  <a href={url} target="_blank">
-                    <img
-                      className="object-contain max-w-6xl max-h-80"
-                      alt={currentProject.title}
-                      key={i}
-                      src={url}
-                    />
-                  </a>
-                );
-              })}
-            </Carousel>
+            <>
+              <Carousel animation="slide">
+                {currentProject.image_urls.map((url, i) => {
+                  return (
+                    <a href={url} target="_blank">
+                      <img
+                        className="object-contain max-w-6xl max-h-80"
+                        alt={currentProject.title}
+                        key={i}
+                        src={url}
+                      />
+                    </a>
+                  );
+                })}
+              </Carousel>
+              <p className="text-center">
+                (Click or tap on an image to enlarge)
+              </p>
+            </>
           )}
         </div>
         <div className="card-stacked">
@@ -103,34 +108,37 @@ class Project extends Component<{ params: any }, ProjectState> {
               </span>
             </div>
             <div className="divider"></div>
-
             {currentProject.links.length > 0 ? (
               <>
                 <div className="project-container pt-2 pb-2">
+                  <p className="pb-1">Related links:</p>
                   {currentProject.links.map((link, i) => {
                     let uri = new URL(link.url);
 
                     return (
-                      <p key={i}>
-                        <img
-                          className="bg-white"
-                          src={
-                            link.icon == ""
-                              ? `${uri.protocol}//${uri.hostname}/favicon.ico`
-                              : link.icon
-                          }
-                          height="18"
-                          width="18"
-                          style={{ verticalAlign: "middle", display: "inline" }}
-                        />{" "}
-                        <a href={link.url} target="_blank" style={{}}>
-                          {link.title}
-                        </a>
-                      </p>
+                      <a
+                        href={link.url}
+                        className="waves-effect waves-linkColour btn-flat block text-xl pt-2"
+                        target="_blank"
+                      >
+                        <div className="flex items-center">
+                          <img
+                            className="bg-white"
+                            src={
+                              link.icon == ""
+                                ? `${uri.protocol}//${uri.hostname}/favicon.ico`
+                                : link.icon
+                            }
+                            height="24"
+                            width="24"
+                          />
+
+                          <span className="link-colour pl-1">{link.title}</span>
+                        </div>
+                      </a>
                     );
                   })}
                 </div>
-                <div className="divider"></div>
               </>
             ) : (
               <></>

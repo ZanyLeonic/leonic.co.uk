@@ -43,6 +43,21 @@ a {
   }
 }
 
+.link-colour {
+  color: $accent-color !important;
+  text-shadow: 0.2px 0.2px 0.12em $accent-color;
+  transition: all 250ms ease;
+  -webkit-transition: all 250ms ease;
+  -moz-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  -ms-transition: all 250ms ease;
+
+  &:hover {
+    color: $base-colour !important;
+    text-shadow: 0 0 0.12em $secondary-colour;
+  }
+}
+
 .background-image {
   position: fixed;
   top: 0;
@@ -59,7 +74,7 @@ a {
 
 .waves-effect {
   &.waves-linkColour .waves-ripple {
-    background-color: $secondary-colour;
+    background-color: rgba($secondary-colour, 0.86);
   }
 }
 
