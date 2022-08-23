@@ -133,7 +133,7 @@ class Project extends Component<{ params: any }, ProjectState> {
                       >
                         <div className="flex items-center">
                           <img
-                            className="bg-white"
+                            className="bg-white rounded"
                             src={
                               link.icon == ""
                                 ? `${uri.protocol}//${uri.hostname}/favicon.ico`
