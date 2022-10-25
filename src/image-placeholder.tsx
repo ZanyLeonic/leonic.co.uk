@@ -13,7 +13,7 @@ export default class ImagePlaceholder extends Component {
           backgroundColor="#ecebeb"
           style={{ width: "100%", height: "100%" }}
         >
-          <rect x="0" y="0" rx="0" ry="0" width="600" height="600" />
+          <rect x="0" y="0" rx="0" ry="0" width="700" height="700" />
         </ContentLoader>
       </div>
     );
