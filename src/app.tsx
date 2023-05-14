@@ -3,6 +3,10 @@ import Footer from "./footer";
 import Header from "./header";
 import MainCard from "./main-card";
 import { IndexContext } from "./sharedContext";
+import { Route, Routes } from "react-router-dom";
+import Home from "./home";
+import Projects from "./projects";
+import Project from "./project";
 
 function App(props: { background: any; userInfo: any }) {
   const [value, setValue] = useState<number | null>(0);
@@ -14,7 +18,11 @@ function App(props: { background: any; userInfo: any }) {
       <main>
         <div className="background-image"></div>
         <div className="flex justify-center items-center w-full h-full">
-          <MainCard />
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:projectId" element={<Project />} />
+          </Routes>
         </div>
       </main>
       <Footer

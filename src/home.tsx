@@ -8,6 +8,7 @@ import { createBlobFromImage, fetchImageFromCache, getJSON } from "./util";
 import config from "./config.json";
 
 import "./sass/home.scss";
+import "./sass/main-card.scss";
 import { Link } from "react-router-dom";
 
 interface HomeState {
@@ -52,8 +53,8 @@ class Home extends Component<{}, HomeState> {
     const response =
       cachedResponse == null
         ? await getJSON(
-            `https://api.github.com/users/${config.user_info.github}`
-          )
+          `https://api.github.com/users/${config.user_info.github}`
+        )
         : cachedResponse;
 
     createBlobFromImage(response.avatar_url, avatarCacheID, 43200).then(
@@ -71,67 +72,79 @@ class Home extends Component<{}, HomeState> {
 
   render() {
     return (
-      <div className="home-wrapper" id="home-wrapper" data-content="home">
-        {this.state.loading ? (
-          <div className="progress">
-            <div className="indeterminate"></div>
-          </div>
-        ) : null}
-        <div className="card-image">
+      <div className="card main-card hoverable white-text w-auto w-full">
+        <div className="home-wrapper max-w-xl md:max-w-2xl" id="home-wrapper" data-content="home">
           {this.state.loading ? (
-            <ImagePlaceholder />
-          ) : (
-            <img
-              className="profile-image"
-              alt={config.user_info.github + "'s profile picture"}
-              src={this.state.imageURL}
-            />
-          )}
-        </div>
-        <div className="home card-stacked">
-          <div className="card-content">
-            <div className="card-header">
-              <span className="card-title">{config.user_info.name}</span>
-              <span className="card-subtitle">
-                Other Aliases: {config.user_info.aliases}
-              </span>
+            <div className="progress">
+              <div className="indeterminate"></div>
             </div>
-            <div className="divider"></div>
-            <div className="extra-info">
-              {config["profile-points"].map((point, i) => {
-                return (
-                  <div className="profile-point" key={i}>
+          ) : null}
+          <div className="card-image">
+            {this.state.loading ? (
+              <ImagePlaceholder />
+            ) : (
+              <img
+                className="profile-image"
+                alt={config.user_info.github + "'s profile picture"}
+                src={this.state.imageURL}
+              />
+            )}
+          </div>
+          <div className="home card-stacked">
+            <div className="card-content">
+              <div className="card-header">
+                <span className="card-title">{config.user_info.name}</span>
+                <span className="card-subtitle">
+                  Other Aliases: {config.user_info.aliases}
+                </span>
+              </div>
+              <div className="divider"></div>
+              <div className="extra-info">
+                {config["profile-points"].map((point, i) => {
+                  return (
+                    <div className="profile-point" key={i}>
+                      <span>
+                        <i className="material-icons">{point.icon}</i>{" "}
+                        {parse(point.content)}
+                      </span>
+                    </div>
+                  );
+                })}
+                {this.state.bio != null ? (
+                  <div className="profile-point">
                     <span>
-                      <i className="material-icons">{point.icon}</i>{" "}
-                      {parse(point.content)}
+                      <i className="material-icons">info_outline</i> "
+                      <i>{this.state.bio}</i>"
                     </span>
                   </div>
-                );
-              })}
-              {this.state.bio != null ? (
-                <div className="profile-point">
-                  <span>
-                    <i className="material-icons">info_outline</i> "
-                    <i>{this.state.bio}</i>"
-                  </span>
-                </div>
-              ) : (
-                <></>
-              )}
+                ) : (
+                  <></>
+                )}
+              </div>
             </div>
-          </div>
-          <div className="card-action">
-            <table>
-              <tbody>
-                {config.links.map((link, i) => {
-                  return (
-                    <tr key={i}>
-                      <td>{link.title}</td>
-                      <td className="right">
-                        {link.nav_link ? (
-                          <Link to={link.url}>
+            <div className="card-action">
+              <table>
+                <tbody>
+                  {config.links.map((link, i) => {
+                    return (
+                      <tr key={i}>
+                        <td>{link.title}</td>
+                        <td className="right">
+                          {link.nav_link ? (
+                            <Link to={link.url}>
+                              <a
+                                href="#"
+                                className={
+                                  "waves-effect waves-linkColour btn-flat" +
+                                  (!link.enabled ? " disabled" : "")
+                                }
+                              >
+                                {link.button_text}
+                              </a>
+                            </Link>
+                          ) : (
                             <a
-                              href="#"
+                              href={link.url}
                               className={
                                 "waves-effect waves-linkColour btn-flat" +
                                 (!link.enabled ? " disabled" : "")
@@ -139,24 +152,14 @@ class Home extends Component<{}, HomeState> {
                             >
                               {link.button_text}
                             </a>
-                          </Link>
-                        ) : (
-                          <a
-                            href={link.url}
-                            className={
-                              "waves-effect waves-linkColour btn-flat" +
-                              (!link.enabled ? " disabled" : "")
-                            }
-                          >
-                            {link.button_text}
-                          </a>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
