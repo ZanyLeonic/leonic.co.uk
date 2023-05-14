@@ -32,29 +32,24 @@ class Projects extends Component<{}, ProjectsState> {
             <div className="indeterminate"></div>
           </div>
         ) : null}
-        <div className="card-image"></div>
-        <div className="card-content">
-          <div className="card-header">
-            <span className="card-title">
-              <span className="inline text-4xl lg:hidden material-icons">
-                <Link to="/">arrow_back</Link>
-              </span>
-              Projects
-            </span>
-            <span className="card-subtitle">
-              A few highlights of a my previous passion and commission work
-            </span>
-          </div>
+
+        <div className="p-4 md:mt-6 md:ml-12 md:mr-12 md:p-4 backdrop-blur-sm rounded-lg">
+          <span className="text-5xl font-bold">
+            Projects
+          </span>
+          <p>
+            A few highlights of a my previous passion and commission work
+          </p>
           <div className="divider"></div>
-          <div className="project-container flex flex-col md:grid md:h-full md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-8 m-12">
+          <div className="project-container flex flex-col m-2 md:grid md:h-full md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-8">
             {config.projects.map((project, i) => {
               return (
                 <div key={i}>
                   <div className="card md:h-full md:flex md:flex-col md:justify-end">
-                    <Link to={`/projects/${i}`}>
-                      <div className="card-image waves-effect waves-linkColour w-full">
+                    <Link className="h-full" to={`/projects/${i}`}>
+                      <div className="card-image waves-effect waves-linkColour">
                         <img
-                          className="md:object-fill"
+                          className="object-cover min-h-[25.75em]"
                           src={
                             project.thumb_image_url == ""
                               ? "/img/projects/unknown.png"
@@ -66,7 +61,7 @@ class Projects extends Component<{}, ProjectsState> {
                         </span>
                       </div>
                     </Link>
-                    <div className="card-content backdrop-blur-lg md:min-h-[20%] lg:min-h-[25%]">
+                    <div className="card-content backdrop-blur-lg h-full">
                       <p>
                         <span style={{ fontWeight: "bold" }}>Language: </span>
                         {project.language}
@@ -82,9 +77,6 @@ class Projects extends Component<{}, ProjectsState> {
                 </div>
               );
             })}
-          </div>
-          <div className="card-action">
-            <a href="#">Go to Top</a>
           </div>
         </div>
       </div>
