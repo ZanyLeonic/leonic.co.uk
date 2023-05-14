@@ -61,19 +61,19 @@ class Projects extends Component<{}, ProjectsState> {
                               : project.thumb_image_url
                           }
                         />
-                        <span className="card-title">
+                        <span className="card-title backdrop-blur-lg">
                           {project.title} ({project.year})
                         </span>
                       </div>
                     </Link>
-                    <div className="card-content md:min-h-[20%] lg:min-h-[25%]">
+                    <div className="card-content backdrop-blur-lg md:min-h-[20%] lg:min-h-[25%]">
                       <p>
                         <span style={{ fontWeight: "bold" }}>Language: </span>
                         {project.language}
                       </p>
                       <p>{project.description}</p>
                     </div>
-                    <div className="card-action">
+                    <div className="card-action backdrop-blur-lg">
                       <Link to={`/projects/${i}`}>
                         <a href="#">Learn more</a>
                       </Link>
