@@ -1,16 +1,14 @@
-import Home from "./home";
-import Projects from "./projects";
-
+import React from 'react';
 import "./sass/main-card.scss";
-import { Route, Routes, useLocation } from "react-router-dom";
-import Project from "./project";
 
-function MainCard() {
-  const location = useLocation();
+export interface MainCardProps {
+  children: React.ReactNode
+}
 
+const MainCard = ({ children }: MainCardProps) => {
   return (
-    <div className="card main-card hoverable white-text w-auto w-full">
-      
+    <div className="card main-card hoverable white-text w-auto">
+      {children}
     </div>
   );
 }
