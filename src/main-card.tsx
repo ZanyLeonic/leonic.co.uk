@@ -3,11 +3,12 @@ import "./sass/main-card.scss";
 
 export interface MainCardProps {
   children: React.ReactNode
+  className?: string
 }
 
-const MainCard = ({ children }: MainCardProps) => {
+const MainCard = ({ className, children }: MainCardProps) => {
   return (
-    <div className="card main-card hoverable white-text w-auto">
+    <div className={`card main-card hoverable white-text w-auto ${className}`}>
       {children}
     </div>
   );
