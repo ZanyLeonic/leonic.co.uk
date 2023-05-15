@@ -33,7 +33,7 @@ class Projects extends Component<{}, ProjectsState> {
           </div>
         ) : null}
 
-        <div className="p-4 md:mt-6 md:ml-2 md:mr-2 md:p-4 backdrop-blur-sm rounded-lg">
+        <div className="blurred-panel p-4 md:mt-6 md:ml-2 md:mr-2 md:p-4 rounded-lg">
           <span className="text-5xl font-bold">
             Projects
           </span>
@@ -56,12 +56,12 @@ class Projects extends Component<{}, ProjectsState> {
                               : project.thumb_image_url
                           }
                         />
-                        <span className="card-title backdrop-blur-lg">
+                        <span className="card-title backdrop-blur-sm">
                           {project.title}
                         </span>
                       </div>
                     </Link>
-                    <div className="card-content backdrop-blur-lg h-full">
+                    <div className="card-content h-full">
                       <p className="text-md">
                         <span className="font-semibold">Language: </span>
                         {project.language}
@@ -69,7 +69,7 @@ class Projects extends Component<{}, ProjectsState> {
                       <p className="text-md"><span className="font-semibold">Year:</span> {project.year}</p>
                       <p className="pt-4">{project.description}</p>
                     </div>
-                    <div className="card-action backdrop-blur-lg">
+                    <div className="card-action">
                       <Link to={`/projects/${i}`}>
                         <a href="#">Learn more</a>
                       </Link>
