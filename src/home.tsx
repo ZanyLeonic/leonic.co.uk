@@ -1,15 +1,18 @@
 import { Component, useContext } from "react";
+import { Link } from "react-router-dom";
+
 import { LocalStorage } from "ttl-localstorage";
 
 import ImagePlaceholder from "./image-placeholder";
 import parse from "html-react-parser";
 
+import MainCard from "./main-card";
+
 import { createBlobFromImage, fetchImageFromCache, getJSON } from "./util";
 import config from "./config.json";
 
 import "./sass/home.scss";
-import "./sass/main-card.scss";
-import { Link } from "react-router-dom";
+
 
 interface HomeState {
   loading: boolean;
@@ -72,7 +75,7 @@ class Home extends Component<{}, HomeState> {
 
   render() {
     return (
-      <div className="card main-card hoverable white-text w-auto w-full">
+      <MainCard>
         <div className="home-wrapper max-w-xl md:max-w-2xl" id="home-wrapper" data-content="home">
           {this.state.loading ? (
             <div className="progress">
@@ -162,7 +165,7 @@ class Home extends Component<{}, HomeState> {
             </div>
           </div>
         </div>
-      </div>
+      </MainCard>
     );
   }
 }
