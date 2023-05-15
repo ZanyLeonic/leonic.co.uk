@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./sass/header.scss";
 import M from "materialize-css";
 
@@ -16,42 +16,45 @@ const links = [
   },
 ];
 
-class Header extends React.Component {
-  componentDidMount(): void {
-    document.addEventListener("DOMContentLoaded", function () {
-      M.Sidenav.init(document.querySelectorAll(".sidenav"), {});
-    });
-  }
+function Header() {
 
-  render() {
-    return (
-      <header>
-        <nav className="navbar-fixed hide-on-med-and-down">
-          <nav>
-            <div className="nav-wrapper">
-              <a href="#!" className="brand-logo">
-                leonic.co.uk
-              </a>
-              <ul className="right" id="nav-items">
-                {links.map((link, i) => {
-                  return (
-                    <li key={i}>
-                      <NavLink
-                        to={link.path}
-                        className={({ isActive }) => (isActive ? "active" : "")}
-                      >
-                        <a href="#">{link.title}</a>
-                      </NavLink>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </nav>
+  const location = useLocation();
+
+  document.addEventListener("DOMContentLoaded", function () {
+    M.Sidenav.init(document.querySelectorAll(".sidenav"), {});
+  });
+
+  return (
+    <header>
+      <nav className="navbar-fixed">
+        <nav>
+          <div className="nav-wrapper">
+            <a href="#" data-target="mobile-sidenav" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+            <a href="#!" className="brand-logo">
+              leonic.co.uk
+            </a>
+            <ul className="right hide-on-med-and-down" id="nav-items">
+              {links.map((link, i) => (
+                <li key={i} className={location.pathname === link.path ? "active" : ""}>
+                  <Link to={link.path}>
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </nav>
-      </header>
-    );
-  }
+      </nav>
+      <ul className="sidenav" id="mobile-sidenav">
+        {links.map((link, i) => (<li key={i}><Link className="mobile-navItem" to={link.path} onClick={() => {
+          const sidebar = document.getElementById("mobile-sidenav")!;
+          M.Sidenav.getInstance(sidebar).close();
+        }}>
+          {link.title}
+        </Link></li>))}
+      </ul>
+    </header>
+  );
 }
 
 export default Header;
