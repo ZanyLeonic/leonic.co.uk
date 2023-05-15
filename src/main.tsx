@@ -28,10 +28,13 @@ css.type = "text/css";
 css.appendChild(
   document.createTextNode(
     `.background-image { 
-      background-image: url(${webp ? background.url_webp : background.url}); 
+      background-image: url(${background.base_url}.${webp ? "webp" : "jpg"}); 
     } 
     .card::before { 
-      background-image: url(${webp ? background.url_webp : background.url}); 
+      background-image: url(${background.base_url}.${webp ? "webp" : "jpg"}); 
+    }
+    .blurred-panel {
+      background-image: url(${background.base_url}.blur.${webp ? "webp" : "jpg"}); 
     }`
   )
 );
