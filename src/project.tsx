@@ -5,7 +5,9 @@ import config from "./config.json";
 import ImagePlaceholder from "./image-placeholder";
 
 import "./sass/projects.scss";
+import 'photoswipe/dist/photoswipe.css'
 import Carousel from "react-material-ui-carousel";
+import { Gallery, Item } from 'react-photoswipe-gallery'
 import MainCard from "./main-card";
 
 interface ProjectState {
@@ -89,20 +91,25 @@ class Project extends Component<{ params: any }, ProjectState> {
               <ImagePlaceholder />
             ) : (
               <>
-                <Carousel animation="slide">
-                  {currentProject.image_urls.map((url, i) => {
-                    return (
-                      <a href={url} target="_blank">
-                        <img
-                          className="object-contain max-w-6xl max-h-80"
-                          alt={currentProject.title}
-                          key={i}
-                          src={url}
-                        />
-                      </a>
-                    );
-                  })}
-                </Carousel>
+
+                <Gallery>
+                  <Carousel animation="slide">
+                    {currentProject.image_urls.map((url, i) => (
+                      <Item cropped original={url} thumbnail={url} key={i}>
+                        {({ ref, open }) => (
+                          <img
+                            className="object-contain max-w-6xl max-h-80"
+                            alt={currentProject.title}
+                            src={url}
+                            ref={ref as React.MutableRefObject<HTMLImageElement>}
+                            onClick={open}
+                          />
+                        )}
+                      </Item>
+                    ))}
+                  </Carousel>
+                </Gallery>
+
                 <p className="text-center">
                   (Click or tap on an image to enlarge)
                 </p>
