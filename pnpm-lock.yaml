@@ -14,13 +14,16 @@ specifiers:
   isomorphic-fetch: ^3.0.0
   material-icons: ^1.10.11
   materialize-css: github:zanyleonic/materialize
+  photoswipe: ^5.3.7
   pnpm: ^7.9.3
   postcss: ^8.4.16
+  prop-types: ^15.8.1
   react: ^18.0.0
   react-content-loader: ^6.2.0
   react-device-detect: ^2.2.2
   react-dom: ^18.0.0
   react-material-ui-carousel: ^3.4.2
+  react-photoswipe-gallery: ^2.2.7
   react-router-dom: '6'
   react-transition-group: ^4.4.5
   sass: ^1.51.0
@@ -39,11 +42,14 @@ dependencies:
   isomorphic-fetch: 3.0.0
   material-icons: 1.10.11
   materialize-css: github.com/zanyleonic/materialize/4fe650d76f645d52e9a213d257b4a2309a4e260b
+  photoswipe: 5.3.7
+  prop-types: 15.8.1
   react: 18.1.0
   react-content-loader: 6.2.0_react@18.1.0
   react-device-detect: 2.2.2_ef5jwxihqo6n7gxfmzogljlgcm
   react-dom: 18.1.0_react@18.1.0
   react-material-ui-carousel: 3.4.2_w6odkumwngxzijm24m5jkqjhvm
+  react-photoswipe-gallery: 2.2.7_opbt56rdrykhwmggwf6zxhcteu
   react-router-dom: 6.3.0_ef5jwxihqo6n7gxfmzogljlgcm
   react-transition-group: 4.4.5_ef5jwxihqo6n7gxfmzogljlgcm
   sass: 1.51.0
@@ -1590,6 +1596,11 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
+  /photoswipe/5.3.7:
+    resolution: {integrity: sha512-zsyLsTTLFrj0XR1m4/hO7qNooboFKUrDy+Zt5i2d6qjFPAtBjzaj/Xtydso4uxzcXpcqbTmyxDibb3BcSISseg==}
+    engines: {node: '>= 0.12.0'}
+    dev: false
+
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -1764,6 +1775,18 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/react'
+    dev: false
+
+  /react-photoswipe-gallery/2.2.7_opbt56rdrykhwmggwf6zxhcteu:
+    resolution: {integrity: sha512-AEYNoL4/IIRosIUonn4haaFQNn1ui4vdVgAY9LHd/imVamNCkqUcyWeT6317UILp/yJI2gohsd3lWmcJEbjCag==}
+    peerDependencies:
+      photoswipe: '>= 5.2.2'
+      prop-types: '>= 15.7.0'
+      react: '>= 16.8.0'
+    dependencies:
+      photoswipe: 5.3.7
+      prop-types: 15.8.1
+      react: 18.1.0
     dev: false
 
   /react-property/2.0.0:
