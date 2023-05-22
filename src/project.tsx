@@ -1,24 +1,16 @@
-import { Component, useEffect, useState } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import Carousel from "react-material-ui-carousel";
+import { Gallery, Item } from 'react-photoswipe-gallery'
+
 import parse from "html-react-parser";
+
+import MainCard from "./main-card";
 import config from "./config.json";
 import ImagePlaceholder from "./image-placeholder";
 
 import "./sass/projects.scss";
 import 'photoswipe/dist/photoswipe.css'
-import Carousel from "react-material-ui-carousel";
-import { Gallery, Item } from 'react-photoswipe-gallery'
-import MainCard from "./main-card";
-
-interface ProjectState {
-  loading: boolean;
-  params: number;
-  preloaded: HTMLImageElement[]
-}
-
-function withParams(Component: any) {
-  return (props: any) => <Component {...props} params={useParams()} />;
-}
 
 const smallItemStyles: React.CSSProperties = {
   cursor: 'pointer',
@@ -28,40 +20,21 @@ const smallItemStyles: React.CSSProperties = {
 }
 
 const Project = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const projects = config.projects;
-  const projectId = Number(searchParams.get("projectId"));
-
+  const { projectId } = useParams();
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState(-1);
 
-
   useEffect(() => {
-    console.log(projectId)
-    if (
-      !Number.isInteger(projectId) ||
-      projectId < 0 ||
-      projectId > projects.length
-    ) {
-      setId(-1);
-    }
-    else {
-      setId(projectId);
-    }
+    setId(parseInt(projectId ?? ""));
 
-    const currentProject = config.projects[id];
-
-    if (currentProject) {
-      document.title = `Project "${currentProject.title}" | leonic.co.uk`;
-    } else {
-      document.title = `Could not find project | leonic.co.uk`;
-    }
+    document.title = `${config.projects[id] ? `Project "${config.projects[id].title}"` : `Could not find project`} | leonic.co.uk`;
 
     setLoading(false);
   }, []);
 
-  if (id == -1) {
+  const currentProject = config.projects[id];
+
+  if (!currentProject) {
     return (
       <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24">
         <div className="home-wrapper" id="home-wrapper" data-content="home">
@@ -85,8 +58,6 @@ const Project = () => {
       </MainCard>
     );
   }
-
-  const currentProject = projects[id];
 
   return (
     <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24">
@@ -189,4 +160,4 @@ const Project = () => {
   );
 }
 
-export default withParams(Project);
+export default Project;
