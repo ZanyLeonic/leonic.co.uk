@@ -14,7 +14,6 @@ import 'photoswipe/dist/photoswipe.css'
 
 const smallItemStyles: React.CSSProperties = {
   cursor: 'pointer',
-  objectFit: 'cover',
   width: '100%',
   maxHeight: '100%',
 }
@@ -80,6 +79,7 @@ const Project = () => {
                       {({ ref, open }) => (
                         <img
                           style={smallItemStyles}
+                          className="object-contain h-96 w-full"
                           alt={currentProject.title}
                           src={url}
                           ref={ref as React.MutableRefObject<HTMLImageElement>}
