@@ -23,15 +23,15 @@ const Project = () => {
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState(-1);
 
+  const currentProject = config.projects[id];
+
+  document.title = `${currentProject ? `Project "${currentProject.title}"` : `Could not find project`} | leonic.co.uk`;
+
   useEffect(() => {
     setId(parseInt(projectId ?? ""));
 
-    document.title = `${config.projects[id] ? `Project "${config.projects[id].title}"` : `Could not find project`} | leonic.co.uk`;
-
     setLoading(false);
   }, []);
-
-  const currentProject = config.projects[id];
 
   if (!currentProject) {
     return (
