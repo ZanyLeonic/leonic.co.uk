@@ -16,17 +16,23 @@ const links = [
   },
 ];
 
-function Header() {
+const initNavbar = () => {
+  M.Sidenav.init(document.querySelectorAll(".sidenav"), {});
+}
 
+function Header() {
   const location = useLocation();
 
+  if (document.readyState !== "loading") {
+    initNavbar();
+  }
   document.addEventListener("DOMContentLoaded", function () {
-    M.Sidenav.init(document.querySelectorAll(".sidenav"), {});
+    initNavbar();
   });
 
   return (
     <header>
-      <nav className="navbar-fixed">
+      <div className="navbar-fixed">
         <nav>
           <div className="nav-wrapper">
             <a href="#" data-target="mobile-sidenav" className="sidenav-trigger"><i className="material-icons">menu</i></a>
@@ -44,7 +50,8 @@ function Header() {
             </ul>
           </div>
         </nav>
-      </nav>
+      </div>
+
       <ul className="sidenav" id="mobile-sidenav">
         {links.map((link, i) => (<li key={i} className={location.pathname === link.path ? "active" : ""}><Link className={`mobile-navItem sidenav-close`} to={link.path}>
           {link.title}
