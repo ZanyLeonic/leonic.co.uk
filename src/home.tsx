@@ -1,18 +1,13 @@
-import { Component, useContext } from "react";
+import { Component } from "react";
 import { Link } from "react-router-dom";
-
 import { LocalStorage } from "ttl-localstorage";
-
-import ImagePlaceholder from "./image-placeholder";
 import parse from "html-react-parser";
 
 import MainCard from "./main-card";
-
 import { createBlobFromImage, fetchImageFromCache, getJSON } from "./util";
+
 import config from "./config.json";
-
 import "./sass/home.scss";
-
 
 interface HomeState {
   loading: boolean;
@@ -84,10 +79,10 @@ class Home extends Component<{}, HomeState> {
           ) : null}
           <div className="card-image">
             {this.state.loading ? (
-              <ImagePlaceholder />
+              <img className="profile-image h-[460px] w-[460px]" alt={config.user_info.github + "'s profile picture"} height="460" width="460" src="" />
             ) : (
               <img
-                className="profile-image"
+                className="profile-image h-1/5"
                 alt={config.user_info.github + "'s profile picture"}
                 src={this.state.imageURL}
               />
