@@ -46,10 +46,7 @@ function Header() {
         </nav>
       </nav>
       <ul className="sidenav" id="mobile-sidenav">
-        {links.map((link, i) => (<li key={i} className={location.pathname === link.path ? "active" : ""}><Link className={`mobile-navItem`} to={link.path} onClick={() => {
-          const sidebar = document.getElementById("mobile-sidenav")!;
-          M.Sidenav.getInstance(sidebar).close();
-        }}>
+        {links.map((link, i) => (<li key={i} className={location.pathname === link.path ? "active" : ""}><Link className={`mobile-navItem sidenav-close`} to={link.path}>
           {link.title}
         </Link></li>))}
       </ul>
