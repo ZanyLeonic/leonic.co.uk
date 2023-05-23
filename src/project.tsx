@@ -30,24 +30,27 @@ const Project = () => {
   useEffect(() => {
     const parsedId = parseInt(projectId ?? "");
     const images = config.projects[parsedId].image_urls ?? [];
-    const loadedImages = [] as HTMLImageElement[];
 
     setId(parsedId);
 
-    for (let i = 0; i < images.length; i++) {
-      const loaded = new Image();
+    const loadImage = (url: string) => {
+      return new Promise((resolve, reject) => {
+        const loadImg = new Image()
+        loadImg.src = url
+        // wait 2 seconds to simulate loading time
+        loadImg.onload = () =>
+          setTimeout(() => {
+            resolve(loadImg)
+          }, 2000)
 
-      loaded.onload = () => {
-        console.log(`${loadedImages.length} == ${images.length}`)
-        if (loadedImages.length >= images.length) setLoading(false);
-      }
-
-      loaded.src = images[i];
-
-      loadedImages.push(loaded);
+        loadImg.onerror = err => reject(err)
+      })
     }
 
-    setPreloaded(loadedImages);
+    Promise.all(images.map(image => loadImage(image)))
+      .then((values) => { setPreloaded(values as HTMLImageElement[]); setLoading(false) })
+      .catch(err => console.log("Failed to load images", err))
+
   }, []);
 
   if (!currentProject) {
