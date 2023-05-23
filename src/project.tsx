@@ -29,7 +29,11 @@ const Project = () => {
 
   useEffect(() => {
     const parsedId = parseInt(projectId ?? "");
-    const images = config.projects[parsedId].image_urls ?? [];
+    const project = config.projects[parsedId];
+
+    if (!project) return;
+
+    const images = project.image_urls;
 
     setId(parsedId);
 
@@ -38,11 +42,7 @@ const Project = () => {
         const loadImg = new Image()
         loadImg.src = url
         // wait 2 seconds to simulate loading time
-        loadImg.onload = () =>
-          setTimeout(() => {
-            resolve(loadImg)
-          }, 2000)
-
+        loadImg.onload = () => resolve(loadImg)
         loadImg.onerror = err => reject(err)
       })
     }
@@ -90,7 +90,7 @@ const Project = () => {
           {loading ? (<div className="h-96 w-full">
           </div>) : (<>
             <Gallery>
-              <Carousel animation="slide">
+              <Carousel animation="slide" stopAutoPlayOnHover={true}>
                 {preloadedImages.map((img, i) => (
                   <Item cropped original={img.src} width={img.naturalWidth} height={img.naturalHeight} key={i}>
                     {({ ref, open }) => (
