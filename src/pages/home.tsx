@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { LocalStorage } from "ttl-localstorage";
 import parse from "html-react-parser";
 
-import MainCard from "./main-card";
-import { createBlobFromImage, fetchImageFromCache, getJSON } from "./util";
+import MainCard from "@/components/main-card";
+import { createBlobFromImage, fetchImageFromCache, getJSON } from "@/util";
 
-import config from "./config.json";
-import "./sass/home.scss";
+import config from "@/config.json";
+import "@/sass/home.scss";
 
 interface HomeState {
   loading: boolean;

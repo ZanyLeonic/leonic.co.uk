@@ -1,5 +1,5 @@
 import React from 'react';
-import "./sass/main-card.scss";
+import "@/sass/main-card.scss";
 
 export interface MainCardProps {
   children: React.ReactNode

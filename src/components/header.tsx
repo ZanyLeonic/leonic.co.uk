@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./sass/header.scss";
+import "@/sass/header.scss";
 import M from "materialize-css";
 
 const links = [

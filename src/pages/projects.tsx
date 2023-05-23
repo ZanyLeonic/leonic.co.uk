@@ -1,8 +1,8 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import config from "./config.json";
+import config from "@/config.json";
 
-import "./sass/projects.scss";
+import "@/sass/projects.scss";
 
 interface ProjectsState {
   loading: boolean;

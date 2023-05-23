@@ -1,6 +1,5 @@
 import { Component } from "react";
-
-import "./sass/footer.scss";
+import "@/sass/footer.scss";
 
 interface FooterProps {
   copyrightOwner: string;

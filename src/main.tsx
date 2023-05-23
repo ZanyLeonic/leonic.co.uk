@@ -8,13 +8,13 @@ import "materialize-css";
 import "material-icons/iconfont/material-icons.css";
 import "@fontsource/raleway";
 
-import "./sass/ext/dark-theme.scss";
-import "./sass/ext/scanlines.scss";
+import "@/sass/ext/dark-theme.scss";
+import "@/sass/ext/scanlines.scss";
 
-import "./sass/index.scss";
+import "@/sass/index.scss";
 
-import "./sass/ie11.scss";
-import App from "./app";
+import "@/sass/ie11.scss";
+import App from "@/app";
 import { BrowserRouter } from "react-router-dom";
 
 const backgrounds = config.backgrounds;

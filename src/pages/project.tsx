@@ -4,10 +4,10 @@ import { Gallery, Item } from 'react-photoswipe-gallery'
 import Carousel from "react-material-ui-carousel";
 import parse from "html-react-parser";
 
-import MainCard from "./main-card";
-import config from "./config.json";
+import MainCard from "@/components/main-card";
+import config from "@/config.json";
 
-import "./sass/projects.scss";
+import "@/sass/projects.scss";
 import 'photoswipe/dist/photoswipe.css'
 
 const smallItemStyles: React.CSSProperties = {
