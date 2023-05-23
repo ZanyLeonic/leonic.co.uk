@@ -88,23 +88,21 @@ const Project = () => {
           </div>) : (<>
             <Gallery>
               <Carousel animation="slide">
-                {preloadedImages.map((img, i) => {
-                  console.log(img)
-                  return (
-                    <Item cropped original={img.src} width={img.naturalWidth} height={img.naturalHeight} key={i}>
-                      {({ ref, open }) => (
-                        <img
-                          style={smallItemStyles}
-                          className="object-contain h-96 w-full"
-                          alt={currentProject.title}
-                          src={img.src}
-                          ref={ref as React.MutableRefObject<HTMLImageElement>}
-                          onClick={open}
-                        />
-                      )}
-                    </Item>
-                  )
-                })}
+                {preloadedImages.map((img, i) => (
+                  <Item cropped original={img.src} width={img.naturalWidth} height={img.naturalHeight} key={i}>
+                    {({ ref, open }) => (
+                      <img
+                        style={smallItemStyles}
+                        className="object-contain h-96 w-full"
+                        alt={currentProject.title}
+                        src={img.src}
+                        ref={ref as React.MutableRefObject<HTMLImageElement>}
+                        onClick={open}
+                      />
+                    )}
+                  </Item>
+                )
+                )}
               </Carousel>
             </Gallery>
 
