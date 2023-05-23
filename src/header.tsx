@@ -37,7 +37,7 @@ function Header() {
           <div className="nav-wrapper">
             <a href="#" data-target="mobile-sidenav" className="sidenav-trigger"><i className="material-icons">menu</i></a>
             <a href="#!" className="brand-logo">
-              leonic.co.uk
+              Leo Durrant
             </a>
             <ul className="right hide-on-med-and-down" id="nav-items">
               {links.map((link, i) => (
