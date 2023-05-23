@@ -8,7 +8,7 @@ export interface MainCardProps {
 
 const MainCard = ({ className, children }: MainCardProps) => {
   return (
-    <div className={`card main-card hoverable white-text w-auto blurred-panel ${className}`}>
+    <div className={`card main-card hoverable white-text w-auto blurred-panel ${className ?? ""}`}>
       {children}
     </div>
   );
