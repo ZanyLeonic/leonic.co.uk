@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { support_format_webp } from "./util";
-import config from "./config.json";
+import { BrowserRouter } from "react-router-dom";
 
 import "materialize-css/sass/materialize.scss";
 import "materialize-css";
@@ -14,8 +13,10 @@ import "@/sass/ext/scanlines.scss";
 import "@/sass/index.scss";
 
 import "@/sass/ie11.scss";
+
 import App from "@/app";
-import { BrowserRouter } from "react-router-dom";
+import { support_format_webp } from "@/util";
+import config from "@/config.json";
 
 const backgrounds = config.backgrounds;
 const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
