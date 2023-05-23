@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Carousel from "react-material-ui-carousel";
 import { Gallery, Item } from 'react-photoswipe-gallery'
-
+import Carousel from "react-material-ui-carousel";
 import parse from "html-react-parser";
 
 import MainCard from "./main-card";
