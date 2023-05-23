@@ -55,7 +55,7 @@ const Project = () => {
 
   if (!currentProject) {
     return (
-      <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24">
+      <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24 md:w-4/5 xl:w-2/5">
         <div className="home-wrapper" id="home-wrapper" data-content="home">
           <div className="card-image"></div>
           <div className="card-stacked">
@@ -79,7 +79,7 @@ const Project = () => {
   }
 
   return (
-    <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24">
+    <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24 md:w-4/5 xl:w-2/5">
       <div className="home-wrapper" id="home-wrapper" data-content="home">
         {loading ? (
           <div className="progress">
