@@ -7,7 +7,6 @@ import parse from "html-react-parser";
 
 import MainCard from "./main-card";
 import config from "./config.json";
-import ImagePlaceholder from "./image-placeholder";
 
 import "./sass/projects.scss";
 import 'photoswipe/dist/photoswipe.css'
@@ -21,6 +20,7 @@ const smallItemStyles: React.CSSProperties = {
 const Project = () => {
   const { projectId } = useParams();
   const [loading, setLoading] = useState(true);
+  const [preloadedImages, setPreloaded] = useState([] as HTMLImageElement[])
   const [id, setId] = useState(-1);
 
   const currentProject = config.projects[id];
@@ -28,9 +28,26 @@ const Project = () => {
   document.title = `${currentProject ? `Project "${currentProject.title}"` : `Could not find project`} | leonic.co.uk`;
 
   useEffect(() => {
-    setId(parseInt(projectId ?? ""));
+    const parsedId = parseInt(projectId ?? "");
+    const images = config.projects[parsedId].image_urls ?? [];
+    const loadedImages = [] as HTMLImageElement[];
 
-    setLoading(false);
+    setId(parsedId);
+
+    for (let i = 0; i < images.length; i++) {
+      const loaded = new Image();
+
+      loaded.onload = () => {
+        console.log(`${loadedImages.length} == ${images.length}`)
+        if (loadedImages.length >= images.length) setLoading(false);
+      }
+
+      loaded.src = images[i];
+
+      loadedImages.push(loaded);
+    }
+
+    setPreloaded(loadedImages);
   }, []);
 
   if (!currentProject) {
@@ -67,35 +84,33 @@ const Project = () => {
           </div>
         ) : null}
         <div className="card-image">
-          {loading ? (
-            <ImagePlaceholder />
-          ) : (
-            <>
-
-              <Gallery>
-                <Carousel animation="slide">
-                  {currentProject.image_urls.map((url, i) => (
-                    <Item cropped original={url} key={i}>
+          {loading ? (<div className="h-96 w-full">
+          </div>) : (<>
+            <Gallery>
+              <Carousel animation="slide">
+                {preloadedImages.map((img, i) => {
+                  console.log(img)
+                  return (
+                    <Item cropped original={img.src} width={img.naturalWidth} height={img.naturalHeight} key={i}>
                       {({ ref, open }) => (
                         <img
                           style={smallItemStyles}
                           className="object-contain h-96 w-full"
                           alt={currentProject.title}
-                          src={url}
+                          src={img.src}
                           ref={ref as React.MutableRefObject<HTMLImageElement>}
                           onClick={open}
                         />
                       )}
                     </Item>
-                  ))}
-                </Carousel>
-              </Gallery>
+                  )
+                })}
+              </Carousel>
+            </Gallery>
 
-              <p className="text-center">
-                (Click or tap on an image to enlarge)
-              </p>
-            </>
-          )}
+            <p className="text-center">
+              (Click or tap on an image to enlarge)
+            </p></>)}
         </div>
         <div className="card-stacked">
           <div className="card-content">
