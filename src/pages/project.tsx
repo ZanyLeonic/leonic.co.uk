@@ -1,58 +1,66 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import parse from "html-react-parser";
-import config from "./config.json";
-import ImagePlaceholder from "./image-placeholder";
-
-import "./sass/projects.scss";
+import { Gallery, Item } from 'react-photoswipe-gallery'
 import Carousel from "react-material-ui-carousel";
+import parse from "html-react-parser";
 
-interface ProjectState {
-  loading: boolean;
-  params: number;
+import MainCard from "@/components/main-card";
+import config from "@/config.json";
+
+import "@/sass/projects.scss";
+import 'photoswipe/dist/photoswipe.css'
+
+const smallItemStyles: React.CSSProperties = {
+  cursor: 'pointer',
+  width: '100%',
+  maxHeight: '100%',
 }
 
-function withParams(Component: any) {
-  return (props: any) => <Component {...props} params={useParams()} />;
-}
+const Project = () => {
+  const { projectId } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [preloadedImages, setPreloaded] = useState([] as HTMLImageElement[])
+  const [id, setId] = useState(-1);
 
-class Project extends Component<{ params: any }, ProjectState> {
-  constructor(props: { params: any }) {
-    super(props);
+  const currentProject = config.projects[id];
 
-    const projects = config.projects;
-    let projectId = Number(this.props.params.projectId);
+  document.title = `${currentProject ? `Project "${currentProject.title}"` : `Could not find project`} | leonic.co.uk`;
 
-    if (
-      !Number.isInteger(projectId) ||
-      projectId < 0 ||
-      projectId > projects.length
-    ) {
-      projectId = -1;
+  useEffect(() => {
+    const parsedId = parseInt(projectId ?? "");
+    const project = config.projects[parsedId];
+
+    if (!project) return;
+
+    const images = project.image_urls;
+
+    setId(parsedId);
+
+    const loadImage = (url: string) => {
+      return new Promise((resolve, reject) => {
+        const loadImg = new Image()
+        loadImg.src = url
+        // wait 2 seconds to simulate loading time
+        loadImg.onload = () => resolve(loadImg)
+        loadImg.onerror = err => reject(err)
+      })
     }
 
-    this.state = {
-      loading: false,
-      params: projectId,
-    };
-  }
+    Promise.all(images.map(image => loadImage(image)))
+      .then((values) => { setPreloaded(values as HTMLImageElement[]); setLoading(false) })
+      .catch(err => console.log("Failed to load images", err))
 
-  componentDidMount(): void {
-    const currentProject = config.projects[this.state.params];
-    document.title = 'Project "' + currentProject.title + '" | leonic.co.uk';
-  }
+  }, []);
 
-  render() {
-    const projects = config.projects;
-
-    if (this.state.params == -1) {
-      return (
+  if (!currentProject) {
+    return (
+      <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24 md:w-4/5 xl:w-2/5">
         <div className="home-wrapper" id="home-wrapper" data-content="home">
           <div className="card-image"></div>
           <div className="card-stacked">
             <div className="card-content">
               <div className="card-header">
-                <span className="card-title">Project not found</span>
+                <span className="card-title"><i className="material-icons text-4xl">error_outline</i> Project not found</span>
                 <span className="card-subtitle">
                   Cannot find the specified project.
                 </span>
@@ -65,42 +73,44 @@ class Project extends Component<{ params: any }, ProjectState> {
             </div>
           </div>
         </div>
-      );
-    }
+      </MainCard>
+    );
+  }
 
-    const currentProject = projects[this.state.params];
-
-    return (
+  return (
+    <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24 md:w-4/5 xl:w-2/5">
       <div className="home-wrapper" id="home-wrapper" data-content="home">
-        {this.state.loading ? (
+        {loading ? (
           <div className="progress">
             <div className="indeterminate"></div>
           </div>
         ) : null}
         <div className="card-image">
-          {this.state.loading ? (
-            <ImagePlaceholder />
-          ) : (
-            <>
-              <Carousel animation="slide">
-                {currentProject.image_urls.map((url, i) => {
-                  return (
-                    <a href={url} target="_blank">
+          {loading ? (<div className="h-96 w-full">
+          </div>) : (<>
+            <Gallery>
+              <Carousel animation="slide" stopAutoPlayOnHover={true}>
+                {preloadedImages.map((img, i) => (
+                  <Item cropped original={img.src} width={img.naturalWidth} height={img.naturalHeight} key={i}>
+                    {({ ref, open }) => (
                       <img
-                        className="object-contain max-w-6xl max-h-80"
+                        style={smallItemStyles}
+                        className="object-contain h-96 w-full"
                         alt={currentProject.title}
-                        key={i}
-                        src={url}
+                        src={img.src}
+                        ref={ref as React.MutableRefObject<HTMLImageElement>}
+                        onClick={open}
                       />
-                    </a>
-                  );
-                })}
+                    )}
+                  </Item>
+                )
+                )}
               </Carousel>
-              <p className="text-center">
-                (Click or tap on an image to enlarge)
-              </p>
-            </>
-          )}
+            </Gallery>
+
+            <p className="text-center">
+              (Click or tap on an image to enlarge)
+            </p></>)}
         </div>
         <div className="card-stacked">
           <div className="card-content">
@@ -161,8 +171,8 @@ class Project extends Component<{ params: any }, ProjectState> {
           </div>
         </div>
       </div>
-    );
-  }
+    </MainCard>
+  );
 }
 
-export default withParams(Project);
+export default Project;

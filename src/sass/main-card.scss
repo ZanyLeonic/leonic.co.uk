@@ -5,6 +5,7 @@
   .desktop {
     display: none;
   }
+
   .desktop-large {
     display: none;
   }
@@ -15,6 +16,7 @@
   .desktop-large {
     display: none;
   }
+
   .mobile {
     display: none;
   }
@@ -37,6 +39,7 @@
 
 .progress {
   background-color: $base-colour;
+
   .indeterminate {
     background-color: $secondary-colour;
   }
@@ -47,16 +50,19 @@
   transform: translate(0, 25px);
   z-index: 1;
 }
+
 .fade-enter.fade-enter-active {
   opacity: 1;
   transform: translate(0, 0);
 
   transition: opacity 250ms ease-out, transform 300ms ease;
 }
+
 .fade-exit {
   opacity: 1;
   transform: translate(0, 0);
 }
+
 .fade-exit.fade-exit-active {
   opacity: 0;
   transform: translate(0, 30px);
@@ -67,25 +73,10 @@
 .main-card {
   background-color: transparent !important;
   overflow: hidden;
+
   // For the links
-  .card-action
-    a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  .card-action a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
     text-transform: none;
     margin-right: 0;
-  }
-
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -10px;
-    left: -10px;
-    bottom: -10px;
-    right: -10px;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    filter: blur(1.5rem);
   }
 }

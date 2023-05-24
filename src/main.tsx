@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { support_format_webp } from "./util";
-import config from "./config.json";
+import { BrowserRouter } from "react-router-dom";
 
 import "materialize-css/sass/materialize.scss";
 import "materialize-css";
 import "material-icons/iconfont/material-icons.css";
 import "@fontsource/raleway";
 
-import "./sass/ext/dark-theme.scss";
-import "./sass/ext/scanlines.scss";
+import "@/sass/ext/dark-theme.scss";
+import "@/sass/ext/scanlines.scss";
 
-import "./sass/index.scss";
+import "@/sass/index.scss";
 
-import "./sass/ie11.scss";
-import App from "./app";
-import { BrowserRouter } from "react-router-dom";
+import "@/sass/ie11.scss";
+
+import App from "@/app";
+import { support_format_webp } from "@/util";
+import config from "@/config.json";
 
 const backgrounds = config.backgrounds;
 const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
@@ -28,10 +29,13 @@ css.type = "text/css";
 css.appendChild(
   document.createTextNode(
     `.background-image { 
-      background-image: url(${webp ? background.url_webp : background.url}); 
+      background-image: url(${background.base_url}.${webp ? "webp" : "jpg"}); 
     } 
     .card::before { 
-      background-image: url(${webp ? background.url_webp : background.url}); 
+      background-image: url(${background.base_url}.${webp ? "webp" : "jpg"}); 
+    }
+    .blurred-panel {
+      background-image: url(${background.base_url}.blur.${webp ? "webp" : "jpg"}); 
     }`
   )
 );

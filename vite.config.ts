@@ -1,9 +1,14 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import "isomorphic-fetch";
+import * as path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   publicDir: "static",
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  }
 });

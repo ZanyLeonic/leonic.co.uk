@@ -1,7 +1,4 @@
 import { LocalStorage } from "ttl-localstorage";
-import { isIE } from "react-device-detect";
-
-import "isomorphic-fetch";
 
 function support_format_webp(): boolean {
   var elem = document.createElement("canvas");
@@ -45,12 +42,7 @@ function dataURItoBlob(dataURI: string) {
 function fetchImageFromCache(id: string): string {
   const cachedImage = LocalStorage.get(id);
 
-  if (cachedImage) {
-    // IE11 doesn't like creating blobs from data URIs, so we just use the data URI
-    return isIE ? cachedImage : URL.createObjectURL(dataURItoBlob(cachedImage));
-  } else {
-    return "";
-  }
+  return cachedImage ? URL.createObjectURL(dataURItoBlob(cachedImage)) : "";
 }
 
 async function getJSON(url: string): Promise<any> {
