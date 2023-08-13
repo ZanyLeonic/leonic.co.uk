@@ -56,7 +56,7 @@ class Projects extends Component<{}, ProjectsState> {
 
     const loadedProjects = await Promise.all(
       projects.map(async ([path, content]) => {
-        const project = await processor.process(`${content}`);
+        const project = await processor.process(`${await content()}`);
 
         return {
           path: path.replace(/^.*[\\\/]/, '').replace('.md', ''),
