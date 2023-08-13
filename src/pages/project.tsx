@@ -115,7 +115,7 @@ const Project = () => {
 
   }, [contentLoading]);
 
-  document.title = !(imageLoading && contentLoading) ? `${notFound ? `Project "${currentProject.data.title}"` : `Could not find project`} | leonic.co.uk` : "Loading project... | leonic.co.uk";
+  document.title = !(imageLoading && contentLoading) ? `${!notFound ? `Project "${currentProject.data.title}"` : `Could not find project`} | leonic.co.uk` : "Loading project... | leonic.co.uk";
 
   console.log(`${imageLoading} ${contentLoading}`)
 
@@ -153,7 +153,23 @@ const Project = () => {
           </div>
         ) : null}
         <div className="card-image">
-          {imageLoading || contentLoading ? (<div className="h-96 w-full">
+          {imageLoading || contentLoading ? (<div className="h-96 w-full"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}>
+            <div className="preloader-wrapper active center">
+              <div className="spinner-layer spinner-red-only">
+                <div className="circle-clipper left">
+                  <div className="circle"></div>
+                </div><div className="gap-patch">
+                  <div className="circle"></div>
+                </div><div className="circle-clipper right">
+                  <div className="circle"></div>
+                </div>
+              </div>
+            </div>
           </div>) : (<>
             <Gallery>
               <Carousel animation="slide" stopAutoPlayOnHover={true}>
