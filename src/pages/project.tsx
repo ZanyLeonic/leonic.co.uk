@@ -10,6 +10,13 @@ import config from "@/config.json";
 import "@/sass/projects.scss";
 import 'photoswipe/dist/photoswipe.css'
 
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkParseFrontmatter from "remark-parse-frontmatter";
+
 const smallItemStyles: React.CSSProperties = {
   cursor: 'pointer',
   width: '100%',
@@ -22,11 +29,31 @@ const Project = () => {
   const [preloadedImages, setPreloaded] = useState([] as HTMLImageElement[])
   const [id, setId] = useState(-1);
 
-  const currentProject = config.projects[id];
-
-  document.title = `${currentProject ? `Project "${currentProject.title}"` : `Could not find project`} | leonic.co.uk`;
+  const currentProject = null;
 
   useEffect(() => {
+    const currentProject = config.projects[parseInt(projectId ?? "")];
+
+    async function fetchProject() {
+      const rawProject = import(`../projects/${projectId}.md?raw`)
+        .then((res) => res.default)
+        .then((res) => {
+
+          console.log(rawProject)
+
+          const processor = unified()
+            .use(remarkParse)
+            .use(remarkFrontmatter, ['yaml', 'toml'])
+            .use(remarkParseFrontmatter)
+            .use(remarkRehype)
+            .use(rehypeStringify);
+
+          console.log(processor.process(res))
+        }).catch((err) => console.log(`Failed to load project ${projectId}`, err));
+    }
+    fetchProject();
+
+
     const parsedId = parseInt(projectId ?? "");
     const project = config.projects[parsedId];
 
@@ -50,7 +77,11 @@ const Project = () => {
       .then((values) => { setPreloaded(values as HTMLImageElement[]); setLoading(false) })
       .catch(err => console.log("Failed to load images", err))
 
+
   }, []);
+
+  document.title = `${currentProject ? `Project "${currentProject.title}"` : `Could not find project`} | leonic.co.uk`;
+
 
   if (!currentProject) {
     return (
@@ -154,11 +185,11 @@ const Project = () => {
                           />
 
                           <span className="link-colour pl-1">{link.title}</span>
-                        </div>
-                      </a>
+                        </div >
+                      </a >
                     );
                   })}
-                </div>
+                </div >
               </>
             ) : (
               <></>
@@ -168,10 +199,10 @@ const Project = () => {
                 <a href="#">Back to all projects</a>
               </Link>
             </div>
-          </div>
-        </div>
-      </div>
-    </MainCard>
+          </div >
+        </div >
+      </div >
+    </MainCard >
   );
 }
 
