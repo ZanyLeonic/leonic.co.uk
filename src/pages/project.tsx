@@ -61,6 +61,8 @@ const Project = () => {
   const { projectId } = useParams();
   const [imageLoading, setImageLoading] = useState(true);
   const [contentLoading, setContentLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+
   const [preloadedImages, setPreloaded] = useState([] as HTMLImageElement[])
 
   const [currentProject, setCurrentProject] = useState(emptyProject());
@@ -80,7 +82,10 @@ const Project = () => {
 
         setCurrentProject({ data: project.data.frontmatter as ProjectData, body: project.value as string });
         setContentLoading(false);
-      }).catch((err) => console.log(`Failed to load project ${projectId}`, err));
+      }).catch((err) => {
+        setNotFound(true);
+        console.error(`Error loading Project "${projectId}". Does it exist?`)
+      });
   }
 
   useEffect(() => {
@@ -105,16 +110,16 @@ const Project = () => {
 
     Promise.all(images.map(image => loadImage(image)))
       .then((values) => { setPreloaded(values as HTMLImageElement[]); setImageLoading(false) })
-      .catch(err => console.log("Failed to load images", err))
+      .catch(err => console.error(`Image preload failed. (${err})`))
 
 
   }, [contentLoading]);
 
-  document.title = !(imageLoading && contentLoading) ? `${currentProject ? `Project "${currentProject.data.title}"` : `Could not find project`} | leonic.co.uk` : "Loading project... | leonic.co.uk";
+  document.title = !(imageLoading && contentLoading) ? `${notFound ? `Project "${currentProject.data.title}"` : `Could not find project`} | leonic.co.uk` : "Loading project... | leonic.co.uk";
 
   console.log(`${imageLoading} ${contentLoading}`)
 
-  if (!currentProject) {
+  if (notFound) {
     return (
       <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24 md:w-4/5 xl:w-2/5">
         <div className="home-wrapper" id="home-wrapper" data-content="home">
