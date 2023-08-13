@@ -18,6 +18,7 @@ interface LinkData {
 interface ProjectData {
   title: string;
   description: string;
+  image_urls: string[];
   thumbnail_url: string;
   links: Array<LinkData>;
   language: string;

@@ -23,45 +23,56 @@ const smallItemStyles: React.CSSProperties = {
   maxHeight: '100%',
 }
 
+interface LinkData {
+  title: string;
+  icon: string;
+  url: string;
+}
+
+interface ProjectData {
+  title: string;
+  description: string;
+  thumbnail_url: string;
+  image_urls: string[];
+  links: Array<LinkData>;
+  language: string;
+  year: string;
+}
+
+interface ProjectsData {
+  data: ProjectData;
+  body: string;
+}
+
 const Project = () => {
   const { projectId } = useParams();
   const [loading, setLoading] = useState(true);
   const [preloadedImages, setPreloaded] = useState([] as HTMLImageElement[])
-  const [id, setId] = useState(-1);
 
-  const currentProject = null;
+  const [currentProject, setCurrentProject] = useState({} as ProjectsData);
+
+  function fetchProject() {
+    return import(`../projects/${projectId}.md?raw`)
+      .then((res) => res.default)
+      .then(async (res) => {
+        const processor = unified()
+          .use(remarkParse)
+          .use(remarkFrontmatter, ['yaml', 'toml'])
+          .use(remarkParseFrontmatter)
+          .use(remarkRehype)
+          .use(rehypeStringify);
+
+        const project = await processor.process(`${res}`);
+
+        setCurrentProject({ data: project.data.frontmatter as ProjectData, body: project.value as string });
+      }).catch((err) => console.log(`Failed to load project ${projectId}`, err));
+  }
+  fetchProject();
 
   useEffect(() => {
-    const currentProject = config.projects[parseInt(projectId ?? "")];
+    if (!currentProject) return;
 
-    async function fetchProject() {
-      const rawProject = import(`../projects/${projectId}.md?raw`)
-        .then((res) => res.default)
-        .then((res) => {
-
-          console.log(rawProject)
-
-          const processor = unified()
-            .use(remarkParse)
-            .use(remarkFrontmatter, ['yaml', 'toml'])
-            .use(remarkParseFrontmatter)
-            .use(remarkRehype)
-            .use(rehypeStringify);
-
-          console.log(processor.process(res))
-        }).catch((err) => console.log(`Failed to load project ${projectId}`, err));
-    }
-    fetchProject();
-
-
-    const parsedId = parseInt(projectId ?? "");
-    const project = config.projects[parsedId];
-
-    if (!project) return;
-
-    const images = project.image_urls;
-
-    setId(parsedId);
+    const images = currentProject.data.image_urls;
 
     const loadImage = (url: string) => {
       return new Promise((resolve, reject) => {
@@ -80,7 +91,7 @@ const Project = () => {
 
   }, []);
 
-  document.title = `${currentProject ? `Project "${currentProject.title}"` : `Could not find project`} | leonic.co.uk`;
+  document.title = `${currentProject ? `Project "${currentProject.data.title}"` : `Could not find project`} | leonic.co.uk`;
 
 
   if (!currentProject) {
@@ -127,7 +138,7 @@ const Project = () => {
                       <img
                         style={smallItemStyles}
                         className="object-contain h-96 w-full"
-                        alt={currentProject.title}
+                        alt={currentProject.data.title}
                         src={img.src}
                         ref={ref as React.MutableRefObject<HTMLImageElement>}
                         onClick={open}
@@ -146,23 +157,23 @@ const Project = () => {
         <div className="card-stacked">
           <div className="card-content">
             <div className="card-header">
-              <span className="card-title">{currentProject.title}</span>
+              <span className="card-title">{currentProject.data.title}</span>
               <span className="card-subtitle pb-2 block">
                 <span className="font-bold">Language: </span>
-                {currentProject.language}
+                {currentProject.data.language}
               </span>
               <span className="card-subtitle pb-2 block">
-                {currentProject.extended_description.length < 1
-                  ? parse(currentProject.description)
-                  : parse(currentProject.extended_description)}
+                {currentProject.body.length < 1
+                  ? parse(currentProject.data.description)
+                  : parse(currentProject.body)}
               </span>
             </div>
             <div className="divider"></div>
-            {currentProject.links.length > 0 ? (
+            {currentProject.data.links.length > 0 ? (
               <>
                 <div className="project-container pt-2 pb-2">
                   <p className="pb-1">Related links:</p>
-                  {currentProject.links.map((link, i) => {
+                  {currentProject.data.links.map((link, i) => {
                     let uri = new URL(link.url);
 
                     return (
