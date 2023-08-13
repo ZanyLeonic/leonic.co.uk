@@ -19,5 +19,3 @@ links:
 language: "Python + JavaScript"
 year: "2022"
 ---
-
-# YIPPPEEE

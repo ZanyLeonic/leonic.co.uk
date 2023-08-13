@@ -44,12 +44,26 @@ interface ProjectsData {
   body: string;
 }
 
+const emptyProject = (): ProjectsData => ({
+  data: {
+    title: "",
+    description: "",
+    thumbnail_url: "",
+    image_urls: [],
+    links: [],
+    language: "",
+    year: ""
+  },
+  body: ""
+});
+
 const Project = () => {
   const { projectId } = useParams();
-  const [loading, setLoading] = useState(true);
+  const [imageLoading, setImageLoading] = useState(true);
+  const [contentLoading, setContentLoading] = useState(true);
   const [preloadedImages, setPreloaded] = useState([] as HTMLImageElement[])
 
-  const [currentProject, setCurrentProject] = useState({} as ProjectsData);
+  const [currentProject, setCurrentProject] = useState(emptyProject());
 
   function fetchProject() {
     return import(`../projects/${projectId}.md?raw`)
@@ -65,11 +79,16 @@ const Project = () => {
         const project = await processor.process(`${res}`);
 
         setCurrentProject({ data: project.data.frontmatter as ProjectData, body: project.value as string });
+        setContentLoading(false);
       }).catch((err) => console.log(`Failed to load project ${projectId}`, err));
   }
-  fetchProject();
 
   useEffect(() => {
+    fetchProject();
+  }, []);
+
+  useEffect(() => {
+
     if (!currentProject) return;
 
     const images = currentProject.data.image_urls;
@@ -85,14 +104,15 @@ const Project = () => {
     }
 
     Promise.all(images.map(image => loadImage(image)))
-      .then((values) => { setPreloaded(values as HTMLImageElement[]); setLoading(false) })
+      .then((values) => { setPreloaded(values as HTMLImageElement[]); setImageLoading(false) })
       .catch(err => console.log("Failed to load images", err))
 
 
-  }, []);
+  }, [contentLoading]);
 
-  document.title = `${currentProject ? `Project "${currentProject.data.title}"` : `Could not find project`} | leonic.co.uk`;
+  document.title = !(imageLoading && contentLoading) ? `${currentProject ? `Project "${currentProject.data.title}"` : `Could not find project`} | leonic.co.uk` : "Loading project... | leonic.co.uk";
 
+  console.log(`${imageLoading} ${contentLoading}`)
 
   if (!currentProject) {
     return (
@@ -122,13 +142,13 @@ const Project = () => {
   return (
     <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24 md:w-4/5 xl:w-2/5">
       <div className="home-wrapper" id="home-wrapper" data-content="home">
-        {loading ? (
+        {imageLoading || contentLoading ? (
           <div className="progress">
             <div className="indeterminate"></div>
           </div>
         ) : null}
         <div className="card-image">
-          {loading ? (<div className="h-96 w-full">
+          {imageLoading || contentLoading ? (<div className="h-96 w-full">
           </div>) : (<>
             <Gallery>
               <Carousel animation="slide" stopAutoPlayOnHover={true}>
