@@ -1,23 +1,69 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import config from "@/config.json";
+import { unified } from "unified";
+
+import remarkParse from "remark-parse";
+import remarkStringify from "remark-stringify";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkParseFrontmatter from "remark-parse-frontmatter";
 
 import "@/sass/projects.scss";
 
+interface LinkData {
+  title: string;
+  icon: string;
+  url: string;
+}
+
+interface ProjectData {
+  title: string;
+  description: string;
+  thumbnail_url: string;
+  links: Array<LinkData>;
+  language: string;
+  year: string;
+}
+
+interface ProjectsData {
+  path: string;
+  data: ProjectData;
+}
+
 interface ProjectsState {
   loading: boolean;
+  projects: Array<ProjectsData>;
 }
 
 class Projects extends Component<{}, ProjectsState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      loading: false,
+      loading: true,
+      projects: []
     };
   }
 
-  componentDidMount(): void {
+  async componentDidMount(): Promise<void> {
     document.title = "Projects | leonic.co.uk";
+
+    const projects = Object.entries(import.meta.glob('@/projects/*.md', { as: 'raw' }));
+    const processor = unified()
+      .use(remarkParse)
+      .use(remarkStringify)
+      .use(remarkFrontmatter, ['yaml', 'toml'])
+      .use(remarkParseFrontmatter)
+
+    const loadedProjects = await Promise.all(
+      projects.map(async ([path, content]) => {
+        const project = await processor.process(`${content}`);
+
+        return {
+          path: path.replace(/^.*[\\\/]/, '').replace('.md', ''),
+          data: (project.data.frontmatter) as ProjectData
+        }
+      })
+    )
+    this.setState({ loading: false, projects: loadedProjects })
   }
 
   render() {
@@ -42,35 +88,35 @@ class Projects extends Component<{}, ProjectsState> {
           </p>
           <div className="divider"></div>
           <div className="project-container flex flex-col m-2 md:grid md:h-full md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">
-            {config.projects.map((project, i) => {
+            {this.state.projects.map((project, i) => {
               return (
                 <div key={i}>
                   <div className="card md:h-full md:flex md:flex-col md:justify-end">
-                    <Link className="h-full" to={`/projects/${i}`}>
+                    <Link className="h-full" to={`/projects/${project.path}`}>
                       <div className="card-image waves-effect waves-linkColour w-full">
                         <img
                           className="object-cover object-top h-[30em] w-full"
                           src={
-                            project.thumb_image_url == ""
+                            project.data.thumbnail_url == ""
                               ? "/img/projects/unknown.png"
-                              : project.thumb_image_url
+                              : project.data.thumbnail_url
                           }
                         />
                         <span className="card-title backdrop-blur-sm">
-                          {project.title}
+                          {project.data.title}
                         </span>
                       </div>
                     </Link>
                     <div className="card-content h-full">
                       <p className="text-md">
                         <span className="font-semibold">Language: </span>
-                        {project.language}
+                        {project.data.language}
                       </p>
-                      <p className="text-md"><span className="font-semibold">Year:</span> {project.year}</p>
-                      <p className="pt-4">{project.description}</p>
+                      <p className="text-md"><span className="font-semibold">Year:</span> {project.data.year}</p>
+                      <p className="pt-4">{project.data.description}</p>
                     </div>
                     <div className="card-action">
-                      <Link to={`/projects/${i}`}>
+                      <Link to={`/projects/${project.path}`}>
                         <a href="#">Learn more</a>
                       </Link>
                     </div>
