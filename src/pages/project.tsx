@@ -109,15 +109,12 @@ const Project = () => {
     }
 
     Promise.all(images.map(image => loadImage(image)))
-      .then((values) => { setPreloaded(values as HTMLImageElement[]); setImageLoading(false) })
+      .then((values) => { setPreloaded(values as HTMLImageElement[]); setImageLoading(false); })
       .catch(err => console.error(`Image preload failed. (${err})`))
-
 
   }, [contentLoading]);
 
   document.title = !(imageLoading && contentLoading) ? `${!notFound ? `Project "${currentProject.data.title}"` : `Could not find project`} | leonic.co.uk` : "Loading project... | leonic.co.uk";
-
-  console.log(`${imageLoading} ${contentLoading}`)
 
   if (notFound) {
     return (
@@ -153,24 +150,25 @@ const Project = () => {
           </div>
         ) : null}
         <div className="card-image">
-          {imageLoading || contentLoading ? (<div className="h-96 w-full"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
-            }}>
-            <div className="preloader-wrapper active center">
-              <div className="spinner-layer spinner-red-only">
-                <div className="circle-clipper left">
-                  <div className="circle"></div>
-                </div><div className="gap-patch">
-                  <div className="circle"></div>
-                </div><div className="circle-clipper right">
-                  <div className="circle"></div>
+          <>
+            {imageLoading || contentLoading ? (<div className="h-96 w-full"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+              <div className="preloader-wrapper active center">
+                <div className="spinner-layer spinner-red-only">
+                  <div className="circle-clipper left">
+                    <div className="circle"></div>
+                  </div><div className="gap-patch">
+                    <div className="circle"></div>
+                  </div><div className="circle-clipper right">
+                    <div className="circle"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>) : (<>
+            </div>) : null}
             <Gallery>
               <Carousel animation="slide" stopAutoPlayOnHover={true}>
                 {preloadedImages.map((img, i) => (
@@ -193,7 +191,7 @@ const Project = () => {
 
             <p className="text-center">
               (Click or tap on an image to enlarge)
-            </p></>)}
+            </p></>
         </div>
         <div className="card-stacked">
           <div className="card-content">

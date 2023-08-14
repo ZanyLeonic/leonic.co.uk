@@ -64,7 +64,7 @@ class Projects extends Component<{}, ProjectsState> {
         }
       })
     )
-    this.setState({ loading: false, projects: loadedProjects })
+    this.setState({ projects: loadedProjects, loading: false })
   }
 
   render() {
@@ -74,12 +74,6 @@ class Projects extends Component<{}, ProjectsState> {
         id="projects-wrapper"
         data-content="projects"
       >
-        {this.state.loading ? (
-          <div className="progress">
-            <div className="indeterminate"></div>
-          </div>
-        ) : null}
-
         <div className="blurred-panel p-4 md:mt-6 md:ml-2 md:mr-2 md:p-4 rounded-lg">
           <span className="pl-2 text-5xl font-bold">
             Projects
@@ -88,46 +82,65 @@ class Projects extends Component<{}, ProjectsState> {
             A few highlights of a my previous passion and commission work
           </p>
           <div className="divider"></div>
-          <div className="project-container flex flex-col m-2 md:grid md:h-full md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">
-            {this.state.projects.map((project, i) => {
-              return (
-                <div key={i}>
-                  <div className="card md:h-full md:flex md:flex-col md:justify-end">
-                    <Link className="h-full" to={`/projects/${project.path}`}>
-                      <div className="card-image waves-effect waves-linkColour w-full">
-                        <img
-                          className="object-cover object-top h-[30em] w-full"
-                          src={
-                            project.data.thumbnail_url == ""
-                              ? "/img/projects/unknown.png"
-                              : project.data.thumbnail_url
-                          }
-                        />
-                        <span className="card-title backdrop-blur-sm">
-                          {project.data.title}
-                        </span>
-                      </div>
-                    </Link>
-                    <div className="card-content h-full">
-                      <p className="text-md">
-                        <span className="font-semibold">Language: </span>
-                        {project.data.language}
-                      </p>
-                      <p className="text-md"><span className="font-semibold">Year:</span> {project.data.year}</p>
-                      <p className="pt-4">{project.data.description}</p>
-                    </div>
-                    <div className="card-action">
-                      <Link to={`/projects/${project.path}`}>
-                        <a href="#">Learn more</a>
-                      </Link>
-                    </div>
-                  </div>
+          {this.state.loading ? (<div className="h-96 w-full"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}><div className="preloader-wrapper active center">
+              <div className="spinner-layer spinner-red-only">
+                <div className="circle-clipper left">
+                  <div className="circle"></div>
+                </div><div className="gap-patch">
+                  <div className="circle"></div>
+                </div><div className="circle-clipper right">
+                  <div className="circle"></div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            </div></div>
+          ) :
+            (<div className="project-container flex flex-col m-2 md:grid md:h-full md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">
+              {this.state.projects
+                .sort((a, b) => a.data.year > b.data.year ? -1 : 1)
+                .map((project, i) => {
+                  return (
+                    <div key={i}>
+                      <div className="card md:h-full md:flex md:flex-col md:justify-end">
+                        <Link className="h-full" to={`/projects/${project.path}`}>
+                          <div className="card-image waves-effect waves-linkColour w-full">
+                            <img
+                              className="object-cover object-top h-[30em] w-full"
+                              src={
+                                project.data.thumbnail_url == ""
+                                  ? "/img/projects/unknown.png"
+                                  : project.data.thumbnail_url
+                              }
+                            />
+                            <span className="card-title backdrop-blur-sm">
+                              {project.data.title}
+                            </span>
+                          </div>
+                        </Link>
+                        <div className="card-content h-full">
+                          <p className="text-md">
+                            <span className="font-semibold">Language: </span>
+                            {project.data.language}
+                          </p>
+                          <p className="text-md"><span className="font-semibold">Year:</span> {project.data.year}</p>
+                          <p className="pt-4">{project.data.description}</p>
+                        </div>
+                        <div className="card-action">
+                          <Link to={`/projects/${project.path}`}>
+                            <a href="#">Learn more</a>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>)}
         </div>
-      </div>
+      </div >
     );
   }
 }
