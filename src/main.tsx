@@ -7,11 +7,12 @@ import "materialize-css";
 import "material-icons/iconfont/material-icons.css";
 import "@fontsource/raleway";
 
-import "@/sass/ext/dark-theme.scss";
 import "@/sass/ext/scanlines.scss";
 
 import "@/sass/index.scss";
+import "@/sass/site-theme.scss"
 
+// For non-chromium edge as well
 import "@/sass/ie11.scss";
 
 import App from "@/app";
