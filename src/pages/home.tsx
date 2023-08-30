@@ -79,7 +79,24 @@ class Home extends Component<{}, HomeState> {
           ) : null}
           <div className="card-image">
             {this.state.loading ? (
-              <img className="profile-image h-[460px] w-[460px]" alt={config.user_info.github + "'s profile picture"} height="460" width="460" src="" />
+              <div className="h-[460px] w-[460px]"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+              <div className="preloader-wrapper active center">
+                <div className="spinner-layer spinner-red-only">
+                  <div className="circle-clipper left">
+                    <div className="circle"></div>
+                  </div><div className="gap-patch">
+                    <div className="circle"></div>
+                  </div><div className="circle-clipper right">
+                    <div className="circle"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
             ) : (
               <img
                 className="profile-image h-1/5"
