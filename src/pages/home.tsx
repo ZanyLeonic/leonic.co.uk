@@ -80,23 +80,23 @@ class Home extends Component<{}, HomeState> {
           <div className="card-image">
             {this.state.loading ? (
               <div className="h-[460px] w-[460px]"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-              <div className="preloader-wrapper active center">
-                <div className="spinner-layer spinner-red-only">
-                  <div className="circle-clipper left">
-                    <div className="circle"></div>
-                  </div><div className="gap-patch">
-                    <div className="circle"></div>
-                  </div><div className="circle-clipper right">
-                    <div className="circle"></div>
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}>
+                <div className="preloader-wrapper active center">
+                  <div className="spinner-layer spinner-red-only">
+                    <div className="circle-clipper left">
+                      <div className="circle"></div>
+                    </div><div className="gap-patch">
+                      <div className="circle"></div>
+                    </div><div className="circle-clipper right">
+                      <div className="circle"></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
             ) : (
               <img
                 className="profile-image h-1/5"

@@ -41,11 +41,8 @@ const Project = () => {
   const [imageLoading, setImageLoading] = useState(true);
   const [contentLoading, setContentLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
-
   const [preloadedImages, setPreloaded] = useState([] as HTMLImageElement[])
-
   const [currentProject, setCurrentProject] = useState(emptyProject());
-
   const [carouselFocused, setCarouselFocused] = useState(false);
 
   /*
