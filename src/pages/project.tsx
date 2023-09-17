@@ -5,7 +5,6 @@ import Carousel from "react-material-ui-carousel";
 import parse from "html-react-parser";
 
 import MainCard from "@/components/main-card";
-import config from "@/config.json";
 
 import "@/sass/projects.scss";
 import 'photoswipe/dist/photoswipe.css'
@@ -70,6 +69,9 @@ const Project = () => {
 
   const [carouselFocused, setCarouselFocused] = useState(false);
 
+  /*
+  * Attempts to fetch the requested project and parse it.
+  */
   function fetchProject() {
     return import(`../projects/${projectId}.md?raw`)
       .then((res) => res.default)
@@ -91,12 +93,14 @@ const Project = () => {
       });
   }
 
+  // Only try to fetch the project once per lifetime
   useEffect(() => {
     fetchProject();
   }, []);
 
+  // Preload the images to bypass photoswipe's limitation of not being to get the image's dimensions.
+  // But we have to wait until the project's details have been loaded.
   useEffect(() => {
-
     if (!currentProject) return;
 
     const images = currentProject.data.image_urls;
@@ -105,7 +109,7 @@ const Project = () => {
       return new Promise((resolve, reject) => {
         const loadImg = new Image()
         loadImg.src = url
-        // wait 2 seconds to simulate loading time
+
         loadImg.onload = () => resolve(loadImg)
         loadImg.onerror = err => reject(err)
       })
@@ -117,8 +121,10 @@ const Project = () => {
 
   }, [contentLoading]);
 
+  // Update the page title depending on the state of the page.
   document.title = !(imageLoading && contentLoading) ? `${!notFound ? `Project "${currentProject.data.title}"` : `Could not find project`} | leonic.co.uk` : "Loading project... | leonic.co.uk";
 
+  // If the project doesn't exist, show a 404 page.
   if (notFound) {
     return (
       <MainCard className="mr-2 ml-2 md:mr-24 md:ml-24 md:w-4/5 xl:w-2/5">
@@ -134,9 +140,7 @@ const Project = () => {
               </div>
             </div>
             <div className="card-action">
-              <Link to="/projects">
-                <a href="#">Back to all projects</a>
-              </Link>
+              <Link to="/projects">Back to all projects</Link>
             </div>
           </div>
         </div>
