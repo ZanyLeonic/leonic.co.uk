@@ -59,6 +59,7 @@ const emptyProject = (): ProjectsData => ({
 
 const Project = () => {
   const { projectId } = useParams();
+
   const [imageLoading, setImageLoading] = useState(true);
   const [contentLoading, setContentLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -66,6 +67,8 @@ const Project = () => {
   const [preloadedImages, setPreloaded] = useState([] as HTMLImageElement[])
 
   const [currentProject, setCurrentProject] = useState(emptyProject());
+
+  const [carouselFocused, setCarouselFocused] = useState(false);
 
   function fetchProject() {
     return import(`../projects/${projectId}.md?raw`)
@@ -169,8 +172,8 @@ const Project = () => {
                 </div>
               </div>
             </div>) : null}
-            <Gallery>
-              <Carousel animation="slide" stopAutoPlayOnHover={true}>
+            <Gallery onBeforeOpen={(g) => g.on('close', () => setCarouselFocused(false))}>
+              <Carousel animation="slide" stopAutoPlayOnHover={true} changeOnFirstRender={true} autoPlay={!carouselFocused}>
                 {preloadedImages.map((img, i) => (
                   <Item cropped original={img.src} width={img.naturalWidth} height={img.naturalHeight} key={i}>
                     {({ ref, open }) => (
@@ -180,9 +183,12 @@ const Project = () => {
                         alt={currentProject.data.title}
                         src={img.src}
                         ref={ref as React.MutableRefObject<HTMLImageElement>}
-                        onClick={open}
-                      />
-                    )}
+                        onClick={(e) => {
+                          setCarouselFocused(true);
+                          open(e);
+                        }}
+                      />)
+                    }
                   </Item>
                 )
                 )}
