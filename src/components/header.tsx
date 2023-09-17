@@ -1,8 +1,8 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "@/sass/header.scss";
 import M from "materialize-css";
 
+// For the mobile and desktop navbars
 const links = [
   {
     title: "Home",
@@ -20,9 +20,10 @@ const initNavbar = () => {
   M.Sidenav.init(document.querySelectorAll(".sidenav"), {});
 }
 
-function Header() {
+const Header = () => {
   const location = useLocation();
 
+  // Defined twice due to a bug with chromium based browsers, not firing DOMContentLoaded
   if (document.readyState !== "loading") {
     initNavbar();
   }
@@ -36,9 +37,9 @@ function Header() {
         <nav>
           <div className="nav-wrapper">
             <a href="#" data-target="mobile-sidenav" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-            <a href="#!" className="brand-logo">
+            <Link to="/" className="brand-logo">
               Leo Durrant
-            </a>
+            </Link>
             <ul className="right hide-on-med-and-down" id="nav-items">
               {links.map((link, i) => (
                 <li key={i} className={location.pathname === link.path ? "active" : ""}>

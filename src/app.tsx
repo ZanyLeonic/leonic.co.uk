@@ -8,7 +8,7 @@ import Project from "@/pages/project";
 import Projects from "@/pages/projects";
 import NotFoundPage from "./pages/notfound";
 
-function App(props: { background: any; userInfo: any }) {
+const App = (props: { background: any; userInfo: any }) => {
   return (<>
     <header>
       <Header />

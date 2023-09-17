@@ -1,32 +1,19 @@
-import { Component } from "react";
 import "@/sass/footer.scss";
 
-interface FooterProps {
-  copyrightOwner: string;
-  author: string;
-  authorURL: string;
-  photo: boolean;
-}
-class Footer extends Component<FooterProps> {
-  constructor(props: FooterProps) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <footer className="page-footer">
-        <div className="footer-copyright">
-          <div className="container">
-            © 2011 - {new Date().getFullYear()} {this.props.copyrightOwner}
-            <span className="grey-text text-lighten-4 right">
-              {this.props.photo ? <>Photo by: </> : <>Background Art by: </>}
-              <a href={this.props.authorURL}>{this.props.author}</a>
-            </span>
-          </div>
+const Footer = (props: { copyrightOwner: string, author: string, authorURL: string, photo: boolean }) => {
+  return (
+    <footer className="page-footer">
+      <div className="footer-copyright">
+        <div className="container">
+          © 2011 - {new Date().getFullYear()} {props.copyrightOwner}
+          <span className="grey-text text-lighten-4 right">
+            {props.photo ? <>Photo by: </> : <>Background Art by: </>}
+            <a href={props.authorURL}>{props.author}</a>
+          </span>
         </div>
-      </footer>
-    );
-  }
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;
