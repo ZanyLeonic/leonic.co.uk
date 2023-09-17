@@ -22,27 +22,6 @@ const smallItemStyles: React.CSSProperties = {
   maxHeight: '100%',
 }
 
-interface LinkData {
-  title: string;
-  icon: string;
-  url: string;
-}
-
-interface ProjectData {
-  title: string;
-  description: string;
-  thumbnail_url: string;
-  image_urls: string[];
-  links: Array<LinkData>;
-  language: string;
-  year: string;
-}
-
-interface ProjectsData {
-  data: ProjectData;
-  body: string;
-}
-
 const emptyProject = (): ProjectsData => ({
   data: {
     title: "",
@@ -212,7 +191,7 @@ const Project = () => {
                 {currentProject.data.language}
               </span>
               <span className="card-subtitle pb-2 block">
-                {currentProject.body.length < 1
+                {currentProject.body == null || currentProject.body.length < 1
                   ? parse(currentProject.data.description)
                   : parse(currentProject.body)}
               </span>

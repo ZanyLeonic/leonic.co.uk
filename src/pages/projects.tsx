@@ -9,32 +9,6 @@ import remarkParseFrontmatter from "remark-parse-frontmatter";
 
 import "@/sass/projects.scss";
 
-interface LinkData {
-  title: string;
-  icon: string;
-  url: string;
-}
-
-interface ProjectData {
-  title: string;
-  description: string;
-  image_urls: string[];
-  thumbnail_url: string;
-  links: Array<LinkData>;
-  language: string;
-  year: string;
-}
-
-interface ProjectsData {
-  path: string;
-  data: ProjectData;
-}
-
-interface ProjectsState {
-  loading: boolean;
-  projects: Array<ProjectsData>;
-}
-
 class Projects extends Component<{}, ProjectsState> {
   constructor(props: {}) {
     super(props);
