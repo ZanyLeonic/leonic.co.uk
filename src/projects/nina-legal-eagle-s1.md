@@ -24,7 +24,7 @@ links:
       icon: ""
       url: https://store.steampowered.com/app/1547290
 
-language: "JavaScript"
+languages: ["JavaScript"]
 year: "2021"
 ---
 Wrote a set of bespoke RPGMaker MV plugins to add stylised dialogue backgrounds, along with name plate system to allow the creator to decide when the player knows the NPCs name.

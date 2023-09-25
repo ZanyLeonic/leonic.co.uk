@@ -16,6 +16,6 @@ links:
       icon: ""
       url: https://github.com/stephanie-flower/swordle
 
-language: "Python + JavaScript"
+languages: ["Python", "JavaScript"]
 year: "2022"
 ---

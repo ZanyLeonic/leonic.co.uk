@@ -14,6 +14,6 @@ links:
       icon: "https://archive.org/favicon.ico"
       url: https://web.archive.org/web/20170918171117/http://leonic.no-ip.biz/
 
-language: PHP
+languages: ["PHP", "JavaScript"]
 year: "2016"
 ---

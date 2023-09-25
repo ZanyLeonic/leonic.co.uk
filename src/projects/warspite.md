@@ -18,6 +18,6 @@ links:
       icon: ""
       url: https://github.com/ZanyLeonic/Warspite
 
-language: "C++"
+languages: ["C++"]
 year: "2020"
 ---

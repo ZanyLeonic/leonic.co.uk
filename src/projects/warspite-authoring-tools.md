@@ -17,7 +17,7 @@ links:
       icon: ""
       url: https://github.com/ZanyLeonic/WarspiteEngine.AuthoringTools
 
-language: "C#"
+languages: ["C#"]
 year: "2020"
 ---
 Provides a visual method for people using the Warspite game engine to create states, fonts, and dialogue trees in a faster fashion.

@@ -9,7 +9,7 @@ image_urls:
 
 links: []
 
-language: "C#"
+languages: ["C#"]
 year: "2021"
 ---
 Designed and wrote an editor that allowed admin staff to change the contents the pre-existing foyer webpage without ever touching HTML.<br />This allows any member of staff to change text or the image carousel with a few clicks.<br />In addition to this editor, setup an easy method (via RDP, and VNC) for staff to remotely access the machine and modify the current display.

@@ -14,7 +14,7 @@ links:
       icon: ""
       url: https://github.com/ZanyLeonic/Pico-LCD-Server
 
-language: "C"
+languages: ["C"]
 year: "2021"
 ---
 Using LCD, and an Ethernet module connected up to a Raspberry Pi Pico running a customised fork of lwip. This allowed users to submit text by browsing to it's IP address.
