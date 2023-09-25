@@ -99,7 +99,7 @@ const Projects = () => {
                       <div className="card-content h-full">
                         <p className="text-md">
                           <span className="font-semibold">Language: </span>
-                          {project.data.language}
+                          {project.data.languages.join(", ")}
                         </p>
                         <p className="text-md"><span className="font-semibold">Year:</span> {project.data.year}</p>
                         <p className="pt-4">{project.data.description}</p>

@@ -29,7 +29,7 @@ const emptyProject = (): ProjectsData => ({
     thumbnail_url: "",
     image_urls: [],
     links: [],
-    language: "",
+    languages: [""],
     year: ""
   },
   body: ""
@@ -185,7 +185,7 @@ const Project = () => {
               <span className="card-title">{currentProject.data.title}</span>
               <span className="card-subtitle pb-2 block">
                 <span className="font-bold">Language: </span>
-                {currentProject.data.language}
+                {currentProject.data.languages.join(", ")}
               </span>
               <span className="card-subtitle pb-2 block">
                 {currentProject.body == null || currentProject.body.length < 1

@@ -10,7 +10,7 @@ interface ProjectData {
     thumbnail_url: string;
     image_urls: string[];
     links: Array<LinkData>;
-    language: string;
+    languages: string[];
     year: string;
 }
 
