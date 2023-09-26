@@ -7,6 +7,24 @@
   }
 }
 
+
+// Additional rules for parsed markdown
+.project-body {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  p {
+    padding-bottom: 0.5rem;
+  }
+
+  li {
+    list-style: square !important;
+    margin-left: 1rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
 .card {
   background-color: unset;
 }
