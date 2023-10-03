@@ -190,7 +190,7 @@ const Project = () => {
               <span className="card-subtitle pb-2 block">
                 {currentProject.body == null || currentProject.body.length < 1
                   ? parse(currentProject.data.description)
-                  : parse(currentProject.body)}
+                  : <div className="project-body" dangerouslySetInnerHTML={{ __html: currentProject.body }}></div>}
               </span>
             </div>
             <div className="divider"></div>
