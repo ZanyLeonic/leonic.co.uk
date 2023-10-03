@@ -25,6 +25,17 @@
   }
 }
 
+.project-link {
+  line-height: 36px !important;
+
+  &:hover {
+    span {
+      color: $base-colour !important;
+      text-shadow: 0 0 0.12em $secondary-colour;
+    }
+  }
+}
+
 .card {
   background-color: unset;
 }

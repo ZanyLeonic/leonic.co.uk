@@ -204,15 +204,15 @@ const Project = () => {
                     return (
                       <a
                         href={link.url}
-                        className="waves-effect waves-linkColour btn-flat block text-xl pt-2"
+                        className="project-link waves-effect waves-linkColour btn-flat block text-xl"
                         target="_blank"
                         key={i}
                       >
-                        <div className="flex items-center">
+                        <div className="flex items-center pb-2">
                           <img
                             className="bg-white rounded"
                             src={
-                              link.icon == ""
+                              link.icon == null
                                 ? `${uri.protocol}//${uri.hostname}/favicon.ico`
                                 : link.icon
                             }
@@ -221,8 +221,8 @@ const Project = () => {
                           />
 
                           <span className="link-colour pl-1">{link.title}</span>
-                        </div >
-                      </a >
+                        </div>
+                      </a>
                     );
                   })}
                 </div >
