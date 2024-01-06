@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Footer from "@/components/footer";
@@ -7,8 +6,9 @@ import Header from "@/components/header";
 import Home from "@/pages/home";
 import Project from "@/pages/project";
 import Projects from "@/pages/projects";
+import NotFoundPage from "./pages/notfound";
 
-function App(props: { background: any; userInfo: any }) {
+const App = (props: { background: any; userInfo: any }) => {
   return (<>
     <header>
       <Header />
@@ -20,6 +20,7 @@ function App(props: { background: any; userInfo: any }) {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:projectId" element={<Project />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </main>
