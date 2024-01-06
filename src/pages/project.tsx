@@ -212,7 +212,7 @@ const Project = () => {
                           <img
                             className="bg-white rounded"
                             src={
-                              link.icon == null
+                              link.icon == ""
                                 ? `${uri.protocol}//${uri.hostname}/favicon.ico`
                                 : link.icon
                             }
