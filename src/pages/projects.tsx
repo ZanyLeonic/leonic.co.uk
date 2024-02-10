@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import { unified } from "unified";
 
 import remarkParse from "remark-parse";
@@ -8,10 +8,11 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkParseFrontmatter from "remark-parse-frontmatter";
 
 import "@/sass/projects.scss";
+import { ProjectSection } from "@/components/project-section";
 
 const Projects = () => {
+  const [projects, setProjects] = useState({} as { [id: string]: ProjectsData[] });
   const [loading, setLoading] = useState(true);
-  const [projects, setProjects] = useState([] as ProjectsData[]);
 
   // Glob import all projects, parse them
   useEffect(() => {
@@ -25,15 +26,22 @@ const Projects = () => {
         .use(remarkFrontmatter, ['yaml', 'toml'])
         .use(remarkParseFrontmatter)
 
+      let loadedProjects: { [id: string]: ProjectsData[] } = {}
+
       // Load all projects
-      const loadedProjects = await Promise.all(
+      await Promise.all(
         projects.map(async ([path, content]) => {
           const project = await processor.process(`${await content()}`);
+          const year = ((project.data.frontmatter) as ProjectData).year;
 
-          return {
+          if (loadedProjects[year] == undefined) {
+            loadedProjects[year] = []
+          }
+
+          loadedProjects[year].push({
             path: path.replace(/^.*[\\\/]/, '').replace('.md', ''),
             data: (project.data.frontmatter) as ProjectData
-          }
+          });
         })
       )
       setProjects(loadedProjects);
@@ -56,7 +64,6 @@ const Projects = () => {
         <p className="pl-2">
           A few highlights of a my previous passion and commission work
         </p>
-        <div className="divider"></div>
         {loading ? (<div className="h-96 w-full"
           style={{
             display: "flex",
@@ -73,49 +80,15 @@ const Projects = () => {
               </div>
             </div>
           </div></div>
-        ) :
-          (<div className="project-container flex flex-col m-2 md:grid md:h-full md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">
-            {projects
-              .sort((a, b) => a.data.year > b.data.year ? -1 : 1)
-              .map((project, i) => {
-                return (
-                  <div key={i}>
-                    <div className="card md:h-full md:flex md:flex-col md:justify-end">
-                      <Link className="h-full" to={`/projects/${project.path}`}>
-                        <div className="card-image waves-effect waves-linkColour w-full">
-                          <img
-                            className="object-cover object-top h-[30em] w-full"
-                            src={
-                              project.data.thumbnail_url == ""
-                                ? "/img/projects/unknown.png"
-                                : project.data.thumbnail_url
-                            }
-                          />
-                          <span className="card-title backdrop-blur-sm">
-                            {project.data.title}
-                          </span>
-                        </div>
-                      </Link>
-                      <div className="card-content h-full">
-                        <p className="text-md">
-                          <span className="font-semibold">Language: </span>
-                          {project.data.languages.join(", ")}
-                        </p>
-                        <p className="text-md"><span className="font-semibold">Year:</span> {project.data.year}</p>
-                        <p className="pt-4">{project.data.description}</p>
-                      </div>
-                      <div className="card-action">
-                        <Link to={`/projects/${project.path}`}>
-                          <a href="#">Learn more</a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>)}
+        ) : (
+          <div>
+            {Object.keys(projects)
+              .sort((a, b) => a > b ? -1 : 1)
+              .map((year, i) => <ProjectSection key={i} year={year} projects={projects[year]} />)}
+          </div>
+        )}
       </div>
-    </div >
+    </div>
   );
 }
 
