@@ -19,7 +19,7 @@ const Projects = () => {
     async function fetchProjects() {
       document.title = "Projects | leonic.co.uk";
 
-      const projects = Object.entries(import.meta.glob('@/projects/*.md', { as: 'raw' }));
+      const projects = Object.entries(import.meta.glob('@/projects/**/*.md', { as: 'raw' }));
       const processor = unified()
         .use(remarkParse)
         .use(remarkStringify)
