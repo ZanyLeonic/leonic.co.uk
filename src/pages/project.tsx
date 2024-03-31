@@ -177,7 +177,8 @@ const Project = () => {
 
             <p className="text-center">
               (Click or tap on an image to enlarge)
-            </p></>
+            </p>
+            <div className="mt-4 divider"></div></>
         </div>
         <div className="card-stacked">
           <div className="card-content">
