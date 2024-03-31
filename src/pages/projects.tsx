@@ -57,14 +57,14 @@ const Projects = () => {
       id="projects-wrapper"
       data-content="projects"
     >
-      <div className="blurred-panel p-4 md:mt-6 md:ml-2 md:mr-2 md:p-4 rounded-lg">
+      <div className="blurred-panel p-4 md:mt-0 md:ml-0 md:mr-0 md:p-4">
         <span className="pl-2 text-5xl font-bold">
           Projects
         </span>
         <p className="pl-2">
           A few highlights of a my previous passion and commission work
         </p>
-        {loading ? (<div className="h-96 w-full"
+        {loading ? (<div className="h-screen w-full"
           style={{
             display: "flex",
             justifyContent: "center",
