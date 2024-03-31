@@ -19,7 +19,7 @@ const App = (props: { background: any; userInfo: any }) => {
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:projectId" element={<Project />} />
+          <Route path="/projects/:year/:projectId" element={<Project />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>

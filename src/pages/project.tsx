@@ -36,7 +36,7 @@ const emptyProject = (): ProjectsData => ({
 });
 
 const Project = () => {
-  const { projectId } = useParams();
+  const { year, projectId } = useParams();
 
   const [imageLoading, setImageLoading] = useState(true);
   const [contentLoading, setContentLoading] = useState(true);
@@ -49,7 +49,7 @@ const Project = () => {
   * Attempts to fetch the requested project and parse it.
   */
   function fetchProject() {
-    return import(`../projects/${projectId}.md?raw`)
+    return import(`../projects/${year}/${projectId}.md?raw`)
       .then((res) => res.default)
       .then(async (res) => {
         const processor = unified()

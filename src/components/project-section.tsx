@@ -8,8 +8,8 @@ export interface ProjectSectionProps {
 const ProjectSection = ({ year, projects }: ProjectSectionProps) => {
 
     return (
-        <div>
-            <p className="text-5xl pt-6">{year}</p>
+        <div id={year} className="pl-2">
+            <p className="text-5xl pt-6">{year}<a className="text-3xl permalink-year" href={`#${year}`}>#</a></p>
             <div className="divider"></div>
             <div className="project-container flex flex-col m-2 md:grid md:h-full justify-center md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">
                 {projects
@@ -18,7 +18,7 @@ const ProjectSection = ({ year, projects }: ProjectSectionProps) => {
                         return (
                             <div key={i}>
                                 <div className="card md:h-full md:flex md:flex-col md:justify-end">
-                                    <Link className="h-full" to={`/projects/${project.path}`}>
+                                    <Link className="h-full" to={`/projects/${year}/${project.path}`}>
                                         <div className="card-image waves-effect waves-linkColour w-full">
                                             <img
                                                 className="object-cover object-top h-[30em] w-full"
@@ -41,7 +41,7 @@ const ProjectSection = ({ year, projects }: ProjectSectionProps) => {
                                         <p className="pt-4">{project.data.description}</p>
                                     </div>
                                     <div className="card-action">
-                                        <Link to={`/projects/${project.path}`}>
+                                        <Link to={`/projects/${year}/${project.path}`}>
                                             <a href="#">Learn more</a>
                                         </Link>
                                     </div>
