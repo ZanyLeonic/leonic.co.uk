@@ -13,8 +13,8 @@ image_urls:
   - /img/projects/hackaway-v6/IMG_5051.JPG
 links:
   - title: Hackaway v6
-    icon: "https://royalhackaway.com/favicon-32x32.png"
-    url: https://royalhackaway.com/events/v6
+    icon: "https://archive.daemondemon.co.uk/royalhackaway/favicon-32x32.png"
+    url: https://archive.daemondemon.co.uk/royalhackaway
   - title: Royal Holloway Computing Society
     icon: "https://computingsociety.co.uk/favicon-32x32.png"
     url: https://computingsociety.co.uk/
