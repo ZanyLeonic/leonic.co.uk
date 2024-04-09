@@ -1,7 +1,7 @@
 ---
 title: CrackedFM
-description: A GPT-3 powered pirate radio station
-thumbnail_url: /img/projects/hackaway-v6/A7400497.jpg
+description: Tune into 102.7FM and, listen to the finest AI generated pirate radio. We have phonk, listener text-in support, news and, interviews.
+thumbnail_url: /img/projects/crackedfm/thumbnail.jpg
 image_urls:
   - /img/projects/hackaway-v6/A7400497.jpg
   - /img/projects/hackaway-v6/A7400305.jpg
