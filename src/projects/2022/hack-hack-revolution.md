@@ -21,4 +21,12 @@ languages: ["C", "Typescript"]
 year: "2022"
 ---
 
-TBD
+A project that started around the novel idea of getting a PS1-era DDR mat to become an IoT device using an ESP32 board with Wifi.
+
+Due to the diverse set of skills our team had, we decided to split the project into different parts;
+
+- Custom ESP32 firmware to process the inputs from the mat, and send it to a server (Embedded C)
+- A browser rhythm game that communicated with the input server (Svelte)
+- A high score table that takes a picture of you in action (App Script in Google Sheets)
+
+My contributions were mainly writing the firmware for the ESP32, and assisting with the hardware modifications on the dance mat and ESP32.
