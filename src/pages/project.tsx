@@ -211,6 +211,7 @@ const Project = () => {
                       >
                         <div className="flex items-center pb-2">
                           <img
+                            alt={link.title}
                             className="bg-white rounded"
                             src={
                               link.icon == null
