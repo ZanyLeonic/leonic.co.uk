@@ -12,9 +12,9 @@ image_urls:
   - /img/projects/hackaway-v6/IMG_5045.JPG
   - /img/projects/hackaway-v6/IMG_5051.JPG
 links:
-  - title: Project DevPost
+  - title: DevPost
     url: https://devpost.com/software/hack-hack-revolution
-  - title: Project source code
+  - title: Source code
     url: https://github.com/chazzox/brunel-hack
 
 languages: ["C", "Typescript"]

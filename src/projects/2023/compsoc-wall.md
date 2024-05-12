@@ -1,5 +1,5 @@
 ---
-title: CompSoc Stream wall
+title: CompSoc Stream Wall
 description: Migrated project away from Twitter to a more self-hosted solution.
 thumbnail_url: /img/projects/hackaway-v6/A7400497.jpg
 image_urls:

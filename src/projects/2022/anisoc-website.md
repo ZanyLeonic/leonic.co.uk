@@ -8,7 +8,7 @@ image_urls:
   - /img/projects/anisoc-website/event-section.png
   - /img/projects/anisoc-website/committee-section.png
 links:
-  - title: Snapshot of the site
+  - title: Archived snapshot
     icon: "https://archive.daemondemon.co.uk/rhulanisoc/favicon-32x32.png"
     url: https://archive.daemondemon.co.uk/rhulanisoc
   - title: Source code
@@ -31,4 +31,4 @@ To achieve these goals, the following services and technologies were chosen:
   - Allowing committee members to simply add society events to the calendar and attach an image.
 - Google Docs App Script to act as a serverless function to provide the calendar data (via a CSV) without the need of an API key on the site.
 
-Please Note: With the exception of those who gave permission, previous committee members have been removed and replaced with fictional characters to preserve their privacy.
+**Please Note:** With the exception of those who gave permission, previous committee members have been removed and replaced with fictional characters to respect their privacy.

@@ -12,30 +12,34 @@ image_urls:
   - /img/projects/hackaway-v6/IMG_5045.JPG
   - /img/projects/hackaway-v6/IMG_5051.JPG
 links:
-  - title: Hackaway v6
-    icon: "https://archive.daemondemon.co.uk/royalhackaway/favicon-32x32.png"
-    url: https://archive.daemondemon.co.uk/royalhackaway
-  - title: Royal Holloway Computing Society
-    icon: "https://computingsociety.co.uk/favicon-32x32.png"
-    url: https://computingsociety.co.uk/
-  - title: Royal Hackaway Website Source
-    url: https://github.com/rhul-compsoc/royalhackaway.com
-  - title: RHUL CompSoc Website Source
-    url: https://github.com/rhul-compsoc/computingsociety.co.uk
-  - title: Royal Hackaway Overlay Source
-    url: https://github.com/rhul-compsoc/hackaway-overlay
+  - title: Source code
+    url: https://github.com/pilksoc/cosmickube
+  - title: DevPost
+    url: https://devpost.com/software/cosmickube
+# TODO: Add live version
 
-languages: ["TypeScript", "SQL"]
+languages: ["TypeScript", "Go", "Rust", "GDScript"]
 year: "2024"
 ---
 
-The past couple years, the Computing Society help run a student union night called 809000's.
-For our contribution to the night, the committee decided to run a message board that displays approved messages on a wall.
+**Please note:** This project is still under active development, and stray or completely change from the initial design. A playable version will be released and linked here soon.
 
-This code existed previously, but used a Twitter hashtag to grab messages, however due to API changes - this was no longer possible.
+This was the project that me and my friends created at [HackTheBurgh X](https://2024.hacktheburgh.com/).
 
-**What I contributed:**
+This project won in the "GameDev Co-Op" and "System Administration Mastery" categories.
 
-- Migrating the wall away from Twitter as a data source to our own MySQL database
-- Improving admin frontend by improving layout and user experience
-- Utilised Discord OAuth to authenticate admin users to access the moderation portal
+The idea came up when we were thinking about different projects we could make with different levels of interactivity, we chose to make a game but by using new bleeding edge technology (GPT-4 + DALLe 2) and to see how it work.
+
+What we came up with is a generative game where you combine elements together to create a new element, to eventually create more complex systems or objects.
+
+The architecture of the project mainly consists of three parts:
+
+- Game server - for processing commands from the game and modifying + replicating the game state across clients
+- Cache server - caching generated tiles and reusing them. If a tile doesn't exist, it will send a request to GPT-4 to get a description of the object to get from DALLe which it will cache
+- Game client - currently written in Godot and published to web, which sends commands to the server to modify game state
+
+What I worked on:
+
+- CI/CD pipelines compiling and packaging each part of project to production
+- Architecting how the client and server would communicate with each other
+- Stitching each part of the stack together and writing any glue code needed

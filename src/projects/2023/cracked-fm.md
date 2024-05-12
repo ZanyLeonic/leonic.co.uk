@@ -12,30 +12,30 @@ image_urls:
   - /img/projects/hackaway-v6/IMG_5045.JPG
   - /img/projects/hackaway-v6/IMG_5051.JPG
 links:
-  - title: Hackaway v6
-    icon: "https://archive.daemondemon.co.uk/royalhackaway/favicon-32x32.png"
-    url: https://archive.daemondemon.co.uk/royalhackaway
-  - title: Royal Holloway Computing Society
-    icon: "https://computingsociety.co.uk/favicon-32x32.png"
-    url: https://computingsociety.co.uk/
-  - title: Royal Hackaway Website Source
-    url: https://github.com/rhul-compsoc/royalhackaway.com
-  - title: RHUL CompSoc Website Source
-    url: https://github.com/rhul-compsoc/computingsociety.co.uk
-  - title: Royal Hackaway Overlay Source
-    url: https://github.com/rhul-compsoc/hackaway-overlay
+  - title: DevPost
+    url: https://devpost.com/software/crackedfm
+  - title: Source code
+    url: https://github.com/djpiper28/hack-sussex-23
+  - title: Recording of the radio running
+    url: https://www.youtube.com/watch?v=-jFAQGD__Qc
 
-languages: ["TypeScript", "SQL"]
+languages: ["Python", "SQL"]
 year: "2023"
 ---
 
-The past couple years, the Computing Society help run a student union night called 809000's.
-For our contribution to the night, the committee decided to run a message board that displays approved messages on a wall.
+This was the project that me and my friends created at [HackSussex 2023](https://www.hacksussex.com/events/hackathon).
 
-This code existed previously, but used a Twitter hashtag to grab messages, however due to API changes - this was no longer possible.
+This project won "Best In-Person Hack".
 
-**What I contributed:**
+The idea came from out from one of group members (Danny) interest in radio and creating our own station. However, we decided it would be a great way to see how we could get an LLM to generate a script from it already pre-trained data and minimal prompts we fed to it.
 
-- Migrating the wall away from Twitter as a data source to our own MySQL database
-- Improving admin frontend by improving layout and user experience
-- Utilised Discord OAuth to authenticate admin users to access the moderation portal
+This radio station supported dynamic content in the form of viewers sending in texts, and the presenter would read the text and craft a response from it.
+
+We trained ElevenLabs on samples of our voices and some other figures to see how it would perform (and funny it would be) reading scripts generated from GPT-3.5 Turbo.
+
+From this project we all learnt a lot about how important it is to build safe guards around the LLM (securing the system prompt) and or building a hypervisor on-top of it to reset it every so often to stop it hallucinating badly.
+
+My contributions on the project:
+
+- Communication between the main radio program and Spotify (e.g. pause music when a text is being read, and queuing or dequeuing music)
+- Glue code or maintenance on parts of the program that needed extra hands.
