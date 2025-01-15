@@ -1,29 +1,13 @@
 ---
-title: CompSoc Stream Wall
+title: CompSoc Message Wall
 description: Migrated project away from Twitter to a more self-hosted solution.
-thumbnail_url: /img/projects/hackaway-v6/A7400497.jpg
+thumbnail_url: /img/projects/twitter-stream/thumbnail.png
 image_urls:
-  - /img/projects/hackaway-v6/A7400497.jpg
-  - /img/projects/hackaway-v6/A7400305.jpg
-  - /img/projects/hackaway-v6/A7400443.jpg
-  - /img/projects/hackaway-v6/A7400761.jpg
-  - /img/projects/hackaway-v6/A7400975.jpg
-  - /img/projects/hackaway-v6/IMG_4893.JPG
-  - /img/projects/hackaway-v6/IMG_5045.JPG
-  - /img/projects/hackaway-v6/IMG_5051.JPG
+  - /img/projects/twitter-stream/landing.png
+  - /img/projects/twitter-stream/message-wall.png
 links:
-  - title: Hackaway v6
-    icon: "https://archive.daemondemon.co.uk/royalhackaway/favicon-32x32.png"
-    url: https://archive.daemondemon.co.uk/royalhackaway
-  - title: Royal Holloway Computing Society
-    icon: "https://computingsociety.co.uk/favicon-32x32.png"
-    url: https://computingsociety.co.uk/
-  - title: Royal Hackaway Website Source
-    url: https://github.com/rhul-compsoc/royalhackaway.com
-  - title: RHUL CompSoc Website Source
-    url: https://github.com/rhul-compsoc/computingsociety.co.uk
-  - title: Royal Hackaway Overlay Source
-    url: https://github.com/rhul-compsoc/hackaway-overlay
+  - title: Source Code
+    url: https://github.com/rhul-compsoc/twitter-stream
 
 languages: ["TypeScript", "SQL"]
 year: "2023"
