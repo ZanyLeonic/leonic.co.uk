@@ -3,14 +3,7 @@ title: CrackedFM
 description: Tune into 102.7FM and, listen to the finest AI generated pirate radio. We have phonk, listener text-in support, news and, interviews.
 thumbnail_url: /img/projects/crackedfm/thumbnail.jpg
 image_urls:
-  - /img/projects/hackaway-v6/A7400497.jpg
-  - /img/projects/hackaway-v6/A7400305.jpg
-  - /img/projects/hackaway-v6/A7400443.jpg
-  - /img/projects/hackaway-v6/A7400761.jpg
-  - /img/projects/hackaway-v6/A7400975.jpg
-  - /img/projects/hackaway-v6/IMG_4893.JPG
-  - /img/projects/hackaway-v6/IMG_5045.JPG
-  - /img/projects/hackaway-v6/IMG_5051.JPG
+  - /img/projects/crackedfm/thumbnail.jpg
 links:
   - title: DevPost
     url: https://devpost.com/software/crackedfm

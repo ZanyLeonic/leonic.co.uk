@@ -1,17 +1,18 @@
 ---
 title: CosmicKube
 description: An GPT-powered game about combining elements created during Hack the Burgh 2024.
-thumbnail_url: /img/projects/hackaway-v6/A7400497.jpg
+thumbnail_url: /img/projects/cosmickube/title_screen.jpg
 image_urls:
-  - /img/projects/hackaway-v6/A7400497.jpg
-  - /img/projects/hackaway-v6/A7400305.jpg
-  - /img/projects/hackaway-v6/A7400443.jpg
-  - /img/projects/hackaway-v6/A7400761.jpg
-  - /img/projects/hackaway-v6/A7400975.jpg
-  - /img/projects/hackaway-v6/IMG_4893.JPG
-  - /img/projects/hackaway-v6/IMG_5045.JPG
-  - /img/projects/hackaway-v6/IMG_5051.JPG
+  - /img/projects/cosmickube/title_screen.jpg
+  - /img/projects/cosmickube/client_screenshot.png
+  - /img/projects/cosmickube/cache_screenshot.png
 links:
+  - title: Proof of Concept Client
+    url: https://archive.daemondemon.co.uk/cosmickube
+    icon: "https://archive.daemondemon.co.uk/cosmickube/index.icon.png"
+  - title: Cache Server Viewer
+    url: https://hack.djpiper28.co.uk/cache/
+    icon: "/img/projects/unknown.png"
   - title: Source code
     url: https://github.com/pilksoc/cosmickube
   - title: DevPost
@@ -22,7 +23,9 @@ languages: ["TypeScript", "Go", "Rust", "GDScript"]
 year: "2024"
 ---
 
-**Please note:** This project is still under active development, and stray or completely change from the initial design. A playable version will be released and linked here soon.
+**Please note:** This project is still under active development, and stray or completely change from the initial design. A playable version will be released and linked here potentially.
+
+In addition, the art in this is mainly comprised of placeholder art.
 
 This was the project that me and my friends created at [HackTheBurgh X](https://2024.hacktheburgh.com/).
 
