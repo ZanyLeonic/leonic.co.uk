@@ -36,7 +36,7 @@ const emptyProject = (): ProjectsData => ({
 });
 
 const Project = () => {
-  const { projectId } = useParams();
+  const { year, projectId } = useParams();
 
   const [imageLoading, setImageLoading] = useState(true);
   const [contentLoading, setContentLoading] = useState(true);
@@ -49,7 +49,7 @@ const Project = () => {
   * Attempts to fetch the requested project and parse it.
   */
   function fetchProject() {
-    return import(`../projects/${projectId}.md?raw`)
+    return import(`../projects/${year}/${projectId}.md?raw`)
       .then((res) => res.default)
       .then(async (res) => {
         const processor = unified()
@@ -177,7 +177,8 @@ const Project = () => {
 
             <p className="text-center">
               (Click or tap on an image to enlarge)
-            </p></>
+            </p>
+            <div className="mt-4 divider"></div></>
         </div>
         <div className="card-stacked">
           <div className="card-content">
@@ -210,9 +211,10 @@ const Project = () => {
                       >
                         <div className="flex items-center pb-2">
                           <img
+                            alt={link.title}
                             className="bg-white rounded"
                             src={
-                              link.icon == ""
+                              link.icon == null
                                 ? `${uri.protocol}//${uri.hostname}/favicon.ico`
                                 : link.icon
                             }
