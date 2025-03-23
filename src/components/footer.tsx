@@ -7,7 +7,7 @@ const Footer = (props: { copyrightOwner: string, author: string, authorURL: stri
         <div className="container">
           © 2011 - {new Date().getFullYear()} {props.copyrightOwner}
           <span className="grey-text text-lighten-4 right">
-            {props.photo ? <>Photo by: </> : <>Background Art by: </>}
+            {props.photo ? <>Photo by </> : <>Background Art by </>}
             <a href={props.authorURL}>{props.author}</a>
           </span>
         </div>
