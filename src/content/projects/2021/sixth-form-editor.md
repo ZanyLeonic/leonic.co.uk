@@ -1,0 +1,21 @@
+---
+title: Sixth Form Foyer Editor
+description: A WYSIWYG editor for the Sixth Form Foyer commissioned by the head of Sixth Form
+thumbnail_url: ../../../assets/projects/foyer-editor/thumbnail.png
+image_urls:
+  - ../../../assets/projects/foyer-editor/site.png
+  - ../../../assets/projects/foyer-editor/editor.png
+  - ../../../assets/projects/foyer-editor/image-slideshow.png
+
+links: []
+
+languages: ["C#"]
+year: "2021"
+pubDate: "Jun 30 2021"
+---
+
+Designed and wrote an editor that allowed admin staff to change the contents the pre-existing foyer webpage without ever touching HTML.
+
+This allows any member of staff to change text or the image carousel with a few clicks.
+
+In addition to this editor, setup an easy method (via RDP, and VNC) for staff to remotely access the machine and modify the current display.
