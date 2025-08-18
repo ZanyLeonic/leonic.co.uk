@@ -32,7 +32,7 @@
 }
 
 body {
-	position: fixed;
+	position: absolute;
 	font-family: "Atkinson", sans-serif;
 	margin: 0;
 	padding: 0;
