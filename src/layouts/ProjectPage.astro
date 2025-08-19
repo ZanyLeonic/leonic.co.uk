@@ -8,12 +8,44 @@ import Header from "../components/Header.astro";
 
 type Props = CollectionEntry<"projects">["data"];
 
+const images = Object.values(
+  import.meta.glob("/src/assets/backgrounds/*.jpg", {
+    eager: true,
+    import: "default",
+  })
+) as ImageMetadata[];
+
+const blurImages = Object.values(
+  import.meta.glob("/src/assets/backgrounds/blur/*.jpg", {
+    eager: true,
+    import: "default",
+  })
+) as ImageMetadata[];
+
+const chosenIdx = Math.floor(Math.random() * images.length);
+
 const { title, description, pubDate, thumbnail_url } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
+    <style
+      is:global
+      define:vars={{
+        blurCImage: `url(${blurImages[chosenIdx].src})`,
+        cImage: `url(${images[chosenIdx].src})`,
+      }}
+    >
+      .bg-img {
+        background-image: var(--cImage);
+      }
+
+      .bg-img-blurred {
+        background-image: var(--blurCImage);
+        color: #ffffff;
+      }
+    </style>
     <style>
       main {
         width: calc(100% - 2em);
@@ -34,6 +66,7 @@ const { title, description, pubDate, thumbnail_url } = Astro.props;
         max-width: calc(100% - 2em);
         margin: auto;
         padding: 1em;
+        margin-bottom: 1em;
         color: rgb(var(--gray-dark));
       }
       .title {
@@ -66,7 +99,7 @@ const { title, description, pubDate, thumbnail_url } = Astro.props;
             )
           }
         </div>
-        <div class="prose">
+        <div class="prose bg-img-blurred">
           <div class="title">
             <div class="date">
               <FormattedDate date={pubDate} />
@@ -79,5 +112,6 @@ const { title, description, pubDate, thumbnail_url } = Astro.props;
       </article>
     </main>
     <Footer />
+    <div class="bg-img"></div>
   </body>
 </html>

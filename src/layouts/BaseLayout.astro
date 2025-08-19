@@ -1,0 +1,54 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+const images = Object.values(
+  import.meta.glob("/src/assets/backgrounds/*.jpg", {
+    eager: true,
+    import: "default",
+  })
+) as ImageMetadata[];
+
+const blurImages = Object.values(
+  import.meta.glob("/src/assets/backgrounds/blur/*.jpg", {
+    eager: true,
+    import: "default",
+  })
+) as ImageMetadata[];
+
+const chosenIdx = Math.floor(Math.random() * images.length);
+
+const { title, description } = Astro.props;
+---
+
+<style
+  is:global
+  define:vars={{
+    blurCImage: `url(${blurImages[chosenIdx].src})`,
+    cImage: `url(${images[chosenIdx].src})`,
+  }}
+>
+  .bg-img {
+    background-image: var(--cImage);
+  }
+
+  .bg-img-blurred {
+    background-image: var(--blurCImage);
+    color: white;
+  }
+</style>
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <div class="wrapper">
+      <Header />
+      <slot />
+      <Footer />
+    </div>
+    <div class="bg-img"></div>
+  </body>
+</html>

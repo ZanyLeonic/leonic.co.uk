@@ -1,56 +1,10 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import MainCard from "../components/MainCard.astro";
+
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-
-import type { ImageMetadata } from "astro";
-
-const images = Object.values(
-  import.meta.glob("/src/assets/backgrounds/*.jpg", {
-    eager: true,
-    import: "default",
-  })
-) as ImageMetadata[];
-
-const blurImages = Object.values(
-  import.meta.glob("/src/assets/backgrounds/blur/*.jpg", {
-    eager: true,
-    import: "default",
-  })
-) as ImageMetadata[];
-
-const chosenIdx = Math.floor(Math.random() * images.length);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style
-      is:global={true}
-      define:vars={{
-        blurCImage: `url(${blurImages[chosenIdx].src})`,
-        cImage: `url(${images[chosenIdx].src})`,
-      }}
-    >
-      .bg-img {
-        background-image: var(--cImage);
-      }
-
-      .bg-img-blurred {
-        background-image: var(--blurCImage);
-        color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrapper">
-      <Header />
-      <MainCard />
-      <Footer />
-    </div>
-    <div class="bg-img"></div>
-  </body>
-</html>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <MainCard />
+</BaseLayout>
