@@ -4,10 +4,13 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
+
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
+	--accent: #0ab6d4;
+	--accent-dark: #066B7D;
+	--base-colour: #ff0000;
+	--secondary-colour: #780000;
+	--white: #ffffff;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
 	--gray-dark: 34, 41, 57;
@@ -43,11 +46,13 @@ body {
 	text-align: left;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: var(--white) !important;
+	text-shadow: 0.4px 0.4px 0.24em #000000;
 	font-size: 20px;
 	line-height: 1.7;
 	height: 100%;
 	min-height: 100%;
+
 }
 main {
 	flex-grow: 1;
@@ -59,7 +64,7 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	color: var(--white) !important;
 	line-height: 1.2;
 }
 h1 {
@@ -82,10 +87,17 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
+	color: var(--accent) !important;
+	text-shadow: 0.2px 0.2px 0.12em var(--accent);
+	transition: all 250ms ease;
+	-webkit-transition: all 250ms ease;
+	-moz-transition: all 250ms ease;
+	-o-transition: all 250ms ease;
+	-ms-transition: all 250ms ease;
+	&:hover {
+		color: var(--base-colour) !important;
+		text-shadow: 0 0 0.12em var(--secondary-colour);
+	}
 }
 p {
 	margin-bottom: 1em;
