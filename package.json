@@ -12,7 +12,13 @@
     "@astrojs/mdx": "^4.3.3",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.5.0",
+    "@fontsource/raleway": "^5.2.8",
     "astro": "^5.13.0",
+    "material-icons": "^1.10.11",
+    "materialize-css": "github:ZanyLeonic/materialize",
     "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.99.0"
   }
 }

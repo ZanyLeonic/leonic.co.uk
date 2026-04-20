@@ -1,0 +1,157 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import "materialize-css/sass/materialize.scss";
+import "@fontsource/raleway";
+import "material-icons/iconfont/material-icons.css";
+
+interface Props {
+  year: string;
+  projects: CollectionEntry<"projects">[];
+}
+
+const { year, projects } = Astro.props;
+---
+
+<script>
+  import "materialize-css";
+</script>
+<style>
+  .projects-year-wrapper {
+    padding-left: 0.5rem;
+  }
+  .project-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(300px, auto);
+    margin: 0.5rem;
+    justify-content: center;
+  }
+
+  .year-title {
+    font-size: 3rem;
+    line-height: 1;
+    padding-top: 1.5rem;
+  }
+  .permalink-year {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .card {
+    background-color: unset;
+  }
+
+  .card-image {
+    position: relative;
+    width: 100%;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 20em;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.35);
+    color: white;
+    margin: 0;
+  }
+
+  .card-content {
+    padding: 1rem;
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .card-languages {
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+  }
+
+  .card-action {
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 768px) {
+    .project-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      /*  justify-content: end; */
+    }
+  }
+  @media (min-width: 768px) {
+    .project-container {
+      display: grid;
+      height: 100%;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    @media (min-width: 1024px) {
+      .project-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+    }
+  }
+</style>
+<div id={year} class="project-year-wrapper">
+  <p class="year-title">
+    {year}<a class="permalink-year" href={`#${year}`}>#</a>
+  </p>
+  <div class="divider"></div>
+  <div class="project-container">
+    {
+      projects
+        .sort((a, b) => (a.data.year > b.data.year ? -1 : 1))
+        .map((project, i) => {
+          return (
+            <div>
+              <div class="card project-card">
+                <a href={`/projects/${project.id}`}>
+                  <div class="card-image waves-effect waves-linkColour w-full">
+                    <img
+                      src={
+                        project.data.thumbnail_url.src == ""
+                          ? "/img/projects/unknown.png"
+                          : project.data.thumbnail_url.src
+                      }
+                    />
+                    <span class="card-title backdrop-blur-sm">
+                      {project.data.title}
+                    </span>
+                  </div>
+                </a>
+                <div class="card-content h-full">
+                  <p class="card-description">
+                    <span class="card-languages">Language: </span>
+                    {project.data.languages.join(", ")}
+                  </p>
+                  <p class="card-description">{project.data.description}</p>
+                </div>
+                <div class="card-action">
+                  <a href={`/projects/${project.id}`}>Learn more</a>
+                </div>
+              </div>
+            </div>
+          );
+        })
+    }
+  </div>
+</div>

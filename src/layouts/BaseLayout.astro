@@ -7,14 +7,14 @@ const images = Object.values(
   import.meta.glob("/src/assets/backgrounds/*.jpg", {
     eager: true,
     import: "default",
-  })
+  }),
 ) as ImageMetadata[];
 
 const blurImages = Object.values(
   import.meta.glob("/src/assets/backgrounds/blur/*.jpg", {
     eager: true,
     import: "default",
-  })
+  }),
 ) as ImageMetadata[];
 
 const chosenIdx = Math.floor(Math.random() * images.length);
